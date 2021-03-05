@@ -34,9 +34,13 @@ class BackendMain extends CI_Controller {
 	 */
 	function isLoggedIn() {
 		$isLoggedIn = $this->session->userdata ( 'isLoggedIn' );
+		// echo "<pre>";
+		// print_r($this->session->userdata());
+		// echo "<pre>";
+		// exit();
 		
 		if (! isset ( $isLoggedIn ) || $isLoggedIn != TRUE) {
-			redirect ( 'login' );
+			redirect ( 'admin' );
 		} else {
 			$this->role = $this->session->userdata ( 'role' );
 			
@@ -91,11 +95,7 @@ class BackendMain extends CI_Controller {
 	/**
 	 * This function is used to logged out user from system
 	 */
-	function logout() {
-		$this->session->sess_destroy ();
-		
-		redirect ( 'login' );
-	}
+	
 
 	/**
      * This function used to load views

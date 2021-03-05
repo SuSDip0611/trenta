@@ -51,11 +51,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // $route['default_controller'] = 'welcome';
 $route['default_controller'] = 'UserFrontent';
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /* *===* Backend Routes Start *===* */
+
 $route['admin'] = 'LoginBackend';
+$route['logedIn'] = 'LoginBackend/logedIn';
+$route['logout'] = 'LoginBackend/logout';
+
+
 $route['admin/dashboard'] = 'UserBackend';
 $route['admin/add_new_product'] = 'UserBackend/add_new_product';
 $route['admin/save_new_product'] = 'UserBackend/save_new_product';

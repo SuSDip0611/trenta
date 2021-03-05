@@ -8,22 +8,27 @@ class UserBackend extends BackendMain {
     {
         parent::__construct();
         $this->load->model('UserBackend_model');
+        $this->isLoggedIn(); 
     }
 
 	public function index() {
+
+		echo "<pre>";
+		print_r($this->isLoggedIn());
+		echo "</pre>";
+		exit();
         $this->loadViews('backend/dashboard');
+
     }
+
 
     public function add_new_product($value='')
     {
-        $this->loadViews('backend/add_new_product');
-    }
-
-
-
-    public function save_category($value='')
-    {
-    	# code...
+    	if($this->isAdmin() == FALSE) {
+    		$this->index();
+    	}else{
+        	$this->loadViews('backend/add_new_product');
+    	}
     }
 
     public function save_new_product()
@@ -164,18 +169,26 @@ class UserBackend extends BackendMain {
 
     public function get_product_list($value='')
     {
-    	$data = $this->UserBackend_model->get_product_list();
-                
-        $all_products = array(
-            'all_products' => $data
-        );
+    	if($this->isAdmin() == FALSE) {
+    		$this->index();
+    	}else{
+	    	$data = $this->UserBackend_model->get_product_list();
+	                
+	        $all_products = array(
+	            'all_products' => $data
+	        );
 
-        $this->loadViews('backend/all_product', $all_products);
+	        $this->loadViews('backend/all_product', $all_products);
+	    }
     }
 
     public function add_new_category($value='')
     {
-        $this->loadViews('backend/add_new_category');
+    	if($this->isAdmin() == FALSE) {
+    		$this->index();
+    	}else{
+	        $this->loadViews('backend/add_new_category');
+	    }
     }
 
     public function save_new_category()
@@ -227,18 +240,21 @@ class UserBackend extends BackendMain {
 
     public function get_category_list($value='')
     {
-    	$data = $this->UserBackend_model->get_category_list();
-                
-        $all_categories = array(
-            'all_categories' => $data
-        );
+    	if($this->isAdmin() == FALSE) {
+    		$this->index();
+    	}else{
+	    	$data = $this->UserBackend_model->get_category_list();
+	                
+	        $all_categories = array(
+	            'all_categories' => $data
+	        );
 
-        /*echo "<pre>";
-    	print_r($all_categories);
-    	echo "</pre>";
-    	exit();*/
+	        /*echo "<pre>";
+	    	print_r($all_categories);
+	    	echo "</pre>";
+	    	exit();*/
 
-        $this->loadViews('backend/all_categories', $all_categories);
+	        $this->loadViews('backend/all_categories', $all_categories);
+	    }
     }
-
 }

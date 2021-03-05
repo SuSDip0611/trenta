@@ -35,7 +35,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <link href="<?= base_url(); ?>assets/backend/css/animate.css" rel="stylesheet" type="text/css" media="all">
 <script src="<?= base_url(); ?>assets/backend/js/wow.min.js"></script>
 	<script>
-		 new WOW().init();
+		new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
@@ -55,7 +55,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<div class="scrollbar scrollbar1">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="index.html" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+								<a href="<?= base_url(); ?>admin/dashboard" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Product <span class="fa arrow"></span></a>
@@ -80,7 +80,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul>
 								<!-- /nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Components <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -92,7 +92,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul>
 								<!-- /nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-book nav_icon"></i>Elements <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -102,9 +102,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="typography.html">Typography</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- /nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="widgets.html"><i class="fa fa-th-large nav_icon"></i>Widgets</a>
 							</li>
@@ -118,9 +118,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="validation.html">Form Validation</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -130,9 +130,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="compose.html">Compose email</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="maps.html"><i class="fa fa-location-arrow nav_icon"></i>Maps</a>
 							</li>
@@ -148,9 +148,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="blank-page.html">Blank Page</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="charts.html" class="chart-nav"><i class="fa fa-bar-chart nav_icon"></i>Charts</a>
 							</li>
@@ -163,9 +163,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="404.html">404 Page</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li> --> 
 						</ul>
 					</div>
 					<!-- //sidebar-collapse -->
@@ -178,7 +178,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">
 				<!--logo -->
 				<div class="logo">
-					<a href="index.html">
+					<a href="<?= base_url(); ?>admin/dashboard">
 						<img src="<?= base_url(); ?>assets/backend/images/logo.jpg" width=100 height=100 alt="" />
 					</a>
 				</div>
@@ -345,7 +345,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="<?= base_url() ?>logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>

@@ -22,6 +22,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--//webfonts--> 
 <!-- js -->
 <script src="<?= base_url(); ?>assets/backend/js/jquery-1.11.1.min.js"></script>
+<script src="<?= base_url(); ?>assets/backend/js/login.js"></script>
 <!-- //js -->
 </head> 
 <body class="login-bg">
@@ -30,10 +31,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<h1>Login</h1>
 			</div>
 			<div class="login-info">
-				<form>
-					<input type="text" class="user" name="email" placeholder="Email" required="">
-					<input type="password" name="password" class="lock" placeholder="Password">
-					<div class="forgot-top-grids">
+				<form action="" method="POST">
+					<input type="text" class="user" name="email" id="email" placeholder="Email" required="">
+					<input type="password" name="password" id="password" class="lock" placeholder="Password">
+					<!-- <div class="forgot-top-grids">
 						<div class="forgot-grid">
 							<ul>
 								<li>
@@ -46,13 +47,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="#">Forgot password?</a>
 						</div>
 						<div class="clearfix"> </div>
-					</div>
-					<input type="submit" name="Sign In" value="Login">
-					<div class="signup-text">
+					</div> -->
+					<input type="submit" name="isLoggedin" id="isLoggedin" value="Login">
+					<!-- <div class="signup-text">
 						<a href="signup.html">Don't have an account? Create one now</a>
 					</div>
-					<hr>
-					<h2>or login with</h2>
+					<hr> -->
+					<!-- <h2>or login with</h2>
 					<div class="login-icons">
 						<ul>
 							<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -60,15 +61,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
 							<li><a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a></li>
 						</ul>
-					</div>
+					</div> -->
 				</form>
 			</div>
 		</div>
-		<div class="go-back login-go-back">
-				<a href="index.html">Go To Home</a>
-			</div>
 		<div class="copyright login-copyright">
            <p>&#169; Copyright <?php echo date("Y"); ?> Design by <a href="http://www.microresolve.com/" target="_blank" style="color:#fff;">MicroResolve</a>  -  All Rights Reserved.</p>  
 		</div>
+
+		<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
+
+		<script>
+	        var baseUrl ='<?php echo base_url(); ?>';
+	    </script>
 </body>
 </html>
