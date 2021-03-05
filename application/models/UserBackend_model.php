@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Class : ABS_model (User Model)
+ * Class :  UserBackend_model (User Model)
  * User model class to get to handle user related data 
  * @author : Kishor Mali
  * @version : 1.1
@@ -13,7 +13,7 @@ class UserBackend_model extends CI_Model
 	public function save_new_product($data)
 	{
 		$isInsert = $this->db->insert('tbl_products', $data);
-        $insert_id = $this->db->insert_id(); 
+        $insert_id = $this->db->insert_id();
 
         return $insert_id;
 	}
