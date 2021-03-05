@@ -2495,7 +2495,7 @@ button#default-map-btn, button#green-map-btn, button#blue-map-btn,button#grey-ma
 .login-bg{
     background: url(../images/l4.jpg) no-repeat 0px 0px;
     background-size: cover;
-    padding: 7em 0;
+    padding: 13.9em 0;
 }
 .login-body{
 	width: 30%;
@@ -2516,7 +2516,7 @@ button#default-map-btn, button#green-map-btn, button#blue-map-btn,button#grey-ma
 }
 .login-info input[type="text"], .login-info input[type="password"] {
     font-size: 0.9em;
-    padding: 10px 0px;
+    padding: 10px 16px;
     width: 100%;
     color: #A8A8A8;
     outline: none;

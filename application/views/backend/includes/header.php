@@ -35,7 +35,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <link href="<?= base_url(); ?>assets/backend/css/animate.css" rel="stylesheet" type="text/css" media="all">
 <script src="<?= base_url(); ?>assets/backend/js/wow.min.js"></script>
 	<script>
-		 new WOW().init();
+		new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
@@ -323,7 +323,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="<?= base_url() ?>logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>

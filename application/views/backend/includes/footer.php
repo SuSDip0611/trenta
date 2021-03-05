@@ -9,7 +9,7 @@
 				<!-- container -->
 				<div class="container">
 					<div class="copyright">
-						<p>© 2016 Baxster . All Rights Reserved . Design by <a href="http://w3layouts.com/">W3layouts</a></p> 
+						<p>&#169; Copyright <?php echo date("Y"); ?> Design by <a href="http://www.microresolve.com/" target="_blank" style="color:#fff;">MicroResolve</a>  -  All Rights Reserved.</p>  
 					</div>
 					<!-- page footer buttons -->
 					<ul class="dev-page-footer-buttons">                    
@@ -711,6 +711,6 @@
 
 		</script>
 		<!-- //status -->
-		
+		<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

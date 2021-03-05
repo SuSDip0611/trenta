@@ -6,5 +6,8 @@ class UserBackend extends BackendMain {
 
 	public function index() {
         $this->loadViews('backend/dashboard');
+
     }
+
+    
 }
