@@ -13,7 +13,7 @@ class UserBackend_model extends CI_Model
 	public function save_new_product($data)
 	{
 		$isInsert = $this->db->insert('tbl_products', $data);
-        $insert_id = $this->db->insert_id();
+        $insert_id = $this->db->insert_id(); 
 
         return $insert_id;
 	}
