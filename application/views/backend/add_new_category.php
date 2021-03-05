@@ -1,7 +1,7 @@
 <div class="forms">
 	<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 		<div class="form-title">
-			<h4>Add new Category</h4>
+			<h4><?= $pageTitle; ?></h4>
 		</div>
 		<div class="form-body">
 			<form action="javascript:void(0);" id="save_new_category_form" name="save_new_category_form" method="POST" enctype='multipart/form-data'> 

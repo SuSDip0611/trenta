@@ -61,7 +61,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Product <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
 									<li>
-										<a href="<?= base_url(); ?>admin/add_new_product">Add</a>
+										<p>
+											<a href="<?= base_url(); ?>admin/add_new_product">Add</a>
+										</p>
 									</li>
 									<li>
 										<a href="<?= base_url(); ?>admin/product_list">All</a>

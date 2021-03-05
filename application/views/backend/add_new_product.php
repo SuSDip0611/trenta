@@ -10,7 +10,7 @@
 <div class="forms">
 	<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 		<div class="form-title">
-			<h4>Add new product</h4>
+			<h4><?= $pageTitle; ?></h4>
 		</div>
 		<!-- <div class="add_cat_btn_div">
 			<button class="btn common_btn_class pull-right" data-toggle="modal" data-target="#myModal">

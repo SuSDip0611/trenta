@@ -13,11 +13,8 @@ class UserBackend extends BackendMain {
 
 	public function index() {
 
-		echo "<pre>";
-		print_r($this->isLoggedIn());
-		echo "</pre>";
-		exit();
-        $this->loadViews('backend/dashboard');
+		$this->global['pageTitle'] = 'Dashboard';
+        $this->loadViews('backend/dashboard', $this->global, NULL , NULL);
 
     }
 
@@ -27,7 +24,8 @@ class UserBackend extends BackendMain {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
     	}else{
-        	$this->loadViews('backend/add_new_product');
+    		$this->global['pageTitle'] = 'Add Product Management';
+        	$this->loadViews('backend/add_new_product', $this->global, NULL , NULL);
     	}
     }
 
@@ -178,7 +176,11 @@ class UserBackend extends BackendMain {
 	            'all_products' => $data
 	        );
 
-	        $this->loadViews('backend/all_product', $all_products);
+	        $this->global['pageTitle'] = 'Product List Management';
+	        $this->global['all_products'] = $data;
+
+	        // $this->loadViews('backend/all_product', $all_products);
+	        $this->loadViews('backend/all_product', $this->global, NULL , NULL);
 	    }
     }
 
@@ -187,7 +189,8 @@ class UserBackend extends BackendMain {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
     	}else{
-	        $this->loadViews('backend/add_new_category');
+    		$this->global['pageTitle'] = 'Add Category Management';
+	        $this->loadViews('backend/add_new_category', $this->global, NULL , NULL);
 	    }
     }
 
@@ -244,17 +247,10 @@ class UserBackend extends BackendMain {
     		$this->index();
     	}else{
 	    	$data = $this->UserBackend_model->get_category_list();
-	                
-	        $all_categories = array(
-	            'all_categories' => $data
-	        );
 
-	        /*echo "<pre>";
-	    	print_r($all_categories);
-	    	echo "</pre>";
-	    	exit();*/
-
-	        $this->loadViews('backend/all_categories', $all_categories);
+	    	$this->global['pageTitle'] = 'Category List Management';
+	    	$this->global['all_categories'] = $data;
+	        $this->loadViews('backend/all_categories', $this->global, NULL , NULL);
 	    }
     }
 }
