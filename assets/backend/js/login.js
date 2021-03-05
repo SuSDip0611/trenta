@@ -26,7 +26,7 @@ var treanta = {
                             text: response.msg,
                             icon: 'success'
                         }).then(function () {
-                        	window.location.href = baseUrl + "dashboard";
+                        	window.location.href = baseUrl + "admin/dashboard";
                         });
                     }else{
                         swal({

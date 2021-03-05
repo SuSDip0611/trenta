@@ -301,9 +301,15 @@ i.fa.fa-tasks{
     float: left;
 }
 .logo a{
-    padding: 1.2em 2.03em;
-    display: block;
-    text-decoration: none;
+  width: 15rem;
+  height: 5rem;
+  padding: 1.2em 1em;
+  display: block;
+  text-decoration: none;
+}
+.logo a img{
+    width: 10rem;
+    height: 3rem;
 }
 .logo a h1 {
     color: #fff;
@@ -3868,4 +3874,28 @@ ul.nofitications-dropdown {
 	.login-copyright {
 		margin: 2em 0 0 0;
 	}
+}
+
+.common_btn_class{
+  background-color: #67D3E0 !important;
+  color: #fff !important;
+}
+
+.modal-backdrop{
+  display: none !important;
+}
+
+.add_cat_btn_div{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.preview_div{
+  display: flex;
+  margin-bottom: 11rem;
+  margin-left: 2rem;
+  margin: 1rem;
+}
+.pip{
+  margin-right: 1rem;
 }

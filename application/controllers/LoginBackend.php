@@ -20,7 +20,7 @@ class LoginBackend extends CI_Controller {
     	if(!isset($isLoggedIn) || $isLoggedIn != TRUE){
     		$this->load->view('backend/login');
     	}else{
-    		redirect('/dashboard');
+    		redirect('/admin/dashboard');
     	}
     }
 

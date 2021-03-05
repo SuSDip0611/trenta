@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Baxster an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Trenta Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Baxster Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -41,6 +41,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu -->
 <script src="<?= base_url(); ?>assets/backend/js/metisMenu.min.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/custom.js"></script>
+<script src="<?= base_url(); ?>assets/js/sweet_alert.js"></script>
+<script src="<?= base_url(); ?>assets/css/sweet_alert.css"></script>
 <link href="<?= base_url(); ?>assets/backend/css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
@@ -53,8 +55,32 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					<div class="scrollbar scrollbar1">
 						<ul class="nav" id="side-menu">
 							<li>
-								<a href="index.html" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+								<a href="<?= base_url(); ?>admin/dashboard" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
 							</li>
+							<li>
+								<a href="#"><i class="fa fa-cogs nav_icon"></i>Product <span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									<li>
+										<a href="<?= base_url(); ?>admin/add_new_product">Add</a>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>admin/product_list">All</a>
+									</li>
+								</ul>
+								<!-- /nav-second-level -->
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-cogs nav_icon"></i>Category <span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									<li>
+										<a href="<?= base_url(); ?>admin/add_new_category">Add</a>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>admin/category_list">All</a>
+									</li>
+								</ul>
+								<!-- /nav-second-level -->
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Components <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -66,7 +92,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul>
 								<!-- /nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-book nav_icon"></i>Elements <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -76,9 +102,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="typography.html">Typography</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- /nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="widgets.html"><i class="fa fa-th-large nav_icon"></i>Widgets</a>
 							</li>
@@ -92,9 +118,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="validation.html">Form Validation</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
@@ -104,9 +130,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="compose.html">Compose email</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="maps.html"><i class="fa fa-location-arrow nav_icon"></i>Maps</a>
 							</li>
@@ -122,9 +148,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="blank-page.html">Blank Page</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li>
 							<li>
 								<a href="charts.html" class="chart-nav"><i class="fa fa-bar-chart nav_icon"></i>Charts</a>
 							</li>
@@ -137,9 +163,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<li>
 										<a href="404.html">404 Page</a>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- //nav-second-level -->
-							</li>
+							<!-- </li> --> 
 						</ul>
 					</div>
 					<!-- //sidebar-collapse -->
@@ -152,12 +178,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">
 				<!--logo -->
 				<div class="logo">
-					<a href="index.html">
-						<ul>	
-							<li><img src="<?= base_url(); ?>assets/backend/images/logo1.png" alt="" /></li>
-							<li><h1>Baxster</h1></li>
-							<div class="clearfix"> </div>
-						</ul>
+					<a href="<?= base_url(); ?>admin/dashboard">
+						<img src="<?= base_url(); ?>assets/backend/images/logo.jpg" width=100 height=100 alt="" />
 					</a>
 				</div>
 				<!--//logo-->

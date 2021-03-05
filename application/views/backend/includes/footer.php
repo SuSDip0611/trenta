@@ -326,7 +326,7 @@
 		
 		<!-- candlestick -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/backend/js/jquery.jqcandlestick.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/jqcandlestick.css" />
+		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/backend/css/jqcandlestick.css" />
 		<!-- //candlestick -->
 		
 		<!--max-plugin-->

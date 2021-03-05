@@ -34,3 +34,99 @@ $(function() {
         element.addClass('active');
     }
 });
+
+$(document).ready(function() {
+        
+    var baseurl=window.location.origin+'/trenta';
+
+    /* Image preview */
+    if (window.File && window.FileList && window.FileReader) {
+        $("#imagefiles").on("change", function(e) {
+          var files = e.target.files,
+            filesLength = files.length;
+            $('.pip').remove();
+          for (var i = 0; i < filesLength; i++) {
+            var count = i;
+            var f = files[i]
+            var fileReader = new FileReader();
+            fileReader.onload = (function(e) {
+              var file = e.target;
+              $("<span class=\"pip\">" +
+                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=200px height=200px/>" +
+                "</span>").insertAfter("#screenshots");
+              /*$(".remove").click(function(){
+                $(this).parent(".pip").remove();
+              }); */         
+            });
+            fileReader.readAsDataURL(f);
+          }
+        });
+    } else {
+        console.log("Your browser doesn't support to File API")
+    } 
+
+    //Save product
+    $(document).on("click", ".save_new_product_btn", function(e){
+        var form = $('#save_new_product_form')[0];
+
+        var formData = new FormData(form);
+
+        jQuery.ajax({
+            type: "POST",
+            dataType : "json",
+            enctype: 'multipart/form-data',
+            url: baseurl + "/admin/save_new_product",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+        }).done(function(data){
+            console.log('assertion', data);
+            if (data.status = true) {
+                $('#myModal').modal('toggle');
+                swal("Done",data.msg,"success");
+
+                window.location.replace(baseurl+'/admin/product_list');
+            }else {
+                $('#myModal').modal('toggle');
+                swal("Error",data.msg,"error");
+            }
+        });        
+        // console.log('cat_name: ', cat_name);
+        
+    });
+
+    //Save category
+    $(document).on("click", ".save_new_category_btn", function(e){
+        var form = $('#save_new_category_form')[0];
+
+        var formData = new FormData(form);
+
+        jQuery.ajax({
+            type: "POST",
+            dataType : "json",
+            enctype: 'multipart/form-data',
+            url: baseurl + "/admin/save_new_category",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+        }).done(function(data){
+            console.log('assertion', data);
+            if (data.status = true) {
+                $('#myModal').modal('toggle');
+                swal("Done",data.msg,"success");
+
+                window.location.replace(baseurl+'/admin/category_list');
+            }else {
+                $('#myModal').modal('toggle');
+                swal("Error",data.msg,"error");
+            }
+        });        
+        // console.log('cat_name: ', cat_name);
+        
+    });
+
+});
