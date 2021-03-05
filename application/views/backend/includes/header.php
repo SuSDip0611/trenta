@@ -21,11 +21,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <link rel="icon" href="favicon.ico" type="image/x-icon" >
 <!-- font-awesome icons -->
 <link href="<?= base_url(); ?>assets/backend/css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/backend/css/datatable.css">
 <!-- //font-awesome icons -->
 <!-- chart -->
 <script src="<?= base_url(); ?>assets/backend/js/Chart.js"></script>
 <!-- //chart -->
  <!-- js-->
+<script type="text/javascript" charset="utf8" src="<?= base_url(); ?>assets/backend/js/datatable.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/jquery-1.11.1.min.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/modernizr.custom.js"></script>
 <!--webfonts-->

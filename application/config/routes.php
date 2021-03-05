@@ -68,9 +68,14 @@ $route['admin/dashboard'] = 'UserBackend';
 $route['admin/add_new_product'] = 'UserBackend/add_new_product';
 $route['admin/save_new_product'] = 'UserBackend/save_new_product';
 $route['admin/product_list'] = 'UserBackend/get_product_list';
+$route['admin/delete_product'] = 'UserBackend/delete_product';
+
 $route['admin/add_new_category'] = 'UserBackend/add_new_category';
 $route['admin/save_new_category'] = 'UserBackend/save_new_category';
 $route['admin/category_list'] = 'UserBackend/get_category_list';
+$route['admin/edit_category'] = 'UserBackend/edit_category_view';
+$route['admin/update_category'] = 'UserBackend/update_category';
+$route['admin/delete_category'] = 'UserBackend/delete_category';
 /* *===* Backend Routes End *===* */
 
 

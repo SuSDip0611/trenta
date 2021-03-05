@@ -19,7 +19,7 @@ class UserBackend extends BackendMain {
     }
 
 
-    public function add_new_product($value='')
+    public function add_new_product()
     {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
@@ -165,7 +165,7 @@ class UserBackend extends BackendMain {
         return $pd_imgs;
     }
 
-    public function get_product_list($value='')
+    public function get_product_list()
     {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
@@ -184,7 +184,7 @@ class UserBackend extends BackendMain {
 	    }
     }
 
-    public function add_new_category($value='')
+    public function add_new_category()
     {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
@@ -192,6 +192,35 @@ class UserBackend extends BackendMain {
     		$this->global['pageTitle'] = 'Add Category Management';
 	        $this->loadViews('backend/add_new_category', $this->global, NULL , NULL);
 	    }
+    }
+
+    public function delete_product()
+    {
+        $prod_id = base64_decode($this->input->post('prod_id'));
+
+        $prod_data = array(
+            'is_deleted' => 1
+        );
+
+        $status = $this->UserBackend_model->delete_product($prod_id, $prod_data);
+
+        if ($status) {
+            $stat = true;
+            $msg = 'Product deleted successfully';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }else{
+            $stat = error;
+            $msg = 'Something went wrong, try again later';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }
+
+        echo json_encode($res);
+        exit;
+
     }
 
     public function save_new_category()
@@ -241,7 +270,7 @@ class UserBackend extends BackendMain {
         exit;
     }
 
-    public function get_category_list($value='')
+    public function get_category_list()
     {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
@@ -252,5 +281,101 @@ class UserBackend extends BackendMain {
 	    	$this->global['all_categories'] = $data;
 	        $this->loadViews('backend/all_categories', $this->global, NULL , NULL);
 	    }
+    }
+
+    public function edit_category_view()
+    {
+        $cat_id = $this->input->get('id');
+        
+        $cat_id_base64decode = base64_decode($cat_id);
+
+        $data = $this->UserBackend_model->get_category_details($cat_id_base64decode);
+
+        $this->global['pageTitle'] = 'Edit Category';
+        $this->global['cat_details'] = $data;
+
+        $this->loadViews('backend/edit_category', $this->global, NULL , NULL);
+    }
+
+    public function update_category()
+    {
+        $flag = false;
+        $stat = '';
+        $msg = '';
+        $res = array();
+
+        $cat_id = base64_decode($this->input->post('cat_id'));
+        $category_name = $this->input->post('category_name');
+
+
+        if ($category_name != '') {
+            $flag = true;
+        }else{$flag = false;}
+
+        if ($flag) {
+
+            $category_data = array(
+                'category_name' => $category_name,
+            );
+
+            $status = $this->UserBackend_model->update_category($cat_id, $category_data);
+            /*echo "<pre>";
+            print_r($status);
+            echo "</pre>";
+            exit();*/
+
+            if ($status) {
+                $stat = true;
+                $msg = 'Category updated successfully';
+
+                $res['status'] = $stat;
+                $res['msg'] = $msg;
+            }else{
+                $stat = error;
+                $msg = 'Something went wrong, try again later';
+
+                $res['status'] = $stat;
+                $res['msg'] = $msg;
+            }
+
+        }else{
+            $stat= 'error';
+            $msg = 'All fields are requried';
+
+            $res['status'] = $star;
+            $res['msg'] = $msg;         
+        }
+
+        echo json_encode($res);
+        exit;
+    }
+
+    public function delete_category()
+    {
+        $cat_id = base64_decode($this->input->post('cat_id'));
+
+        $cat_data = array(
+            'is_deleted' => 1
+        );
+
+        $status = $this->UserBackend_model->delete_category($cat_id, $cat_data);
+
+        if ($status) {
+            $stat = true;
+            $msg = 'Category deleted successfully';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }else{
+            $stat = error;
+            $msg = 'Something went wrong, try again later';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }
+
+        echo json_encode($res);
+        exit;
+
     }
 }

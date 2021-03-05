@@ -40,6 +40,15 @@ class UserBackend_model extends CI_Model
         return $query->result();
 	}
 
+	public function delete_product($id, $data)
+	{
+		$this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_products', $data);
+
+        
+        return $is_update;
+	}
+
 	public function save_new_category($data)
 	{
 		$isInsert = $this->db->insert('tbl_categories', $data);
@@ -61,5 +70,35 @@ class UserBackend_model extends CI_Model
         
         return $query->result();
 	}
+
+	public function get_category_details($id)
+	{
+		$this->db->select('*');
+        $this->db->from('tbl_categories');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        
+        return $query->row();
+	}
+
+	public function update_category($id, $data)
+	{
+		$this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_categories', $data);
+
+        
+        return $is_update;
+	}
+
+	public function delete_category($id, $data)
+	{
+		$this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_categories', $data);
+
+        
+        return $is_update;
+	}
+
+
 
 }

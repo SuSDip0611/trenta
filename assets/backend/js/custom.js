@@ -86,8 +86,9 @@ $(document).ready(function() {
             if (data.status = true) {
                 $('#myModal').modal('toggle');
                 swal("Done",data.msg,"success");
-
-                window.location.replace(baseurl+'/admin/product_list');
+                setTimeout(function(){
+                    window.location.replace(baseurl+'/admin/product_list');
+                },1000)
             }else {
                 $('#myModal').modal('toggle');
                 swal("Error",data.msg,"error");
@@ -95,6 +96,46 @@ $(document).ready(function() {
         });        
         // console.log('cat_name: ', cat_name);
         
+    });
+
+    //Delete product
+    $(document).on('click','.product-delete',function(){
+        var prod_id = $(this).data('product_id');
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this record!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            // console.log('willDelete: ', willDelete);
+            if (willDelete) {
+                jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : baseurl + "/admin/delete_product",
+                    data : { prod_id : prod_id } 
+                }).done(function(data){
+                    if(data.status == true){
+                        swal({
+                            title: "Delete Product",
+                            text: data.msg,
+                            icon: "success",
+                        });
+                        setTimeout(function(){
+                            window.location.replace(baseurl+'/admin/product_list');
+                        },1000)
+                    }else{
+                        swal({
+                            title: "Delete Product",
+                            text: data.msg,
+                            icon: "error",
+                        });
+                    }
+                }); 
+             }
+        });
     });
 
     //Save category
@@ -118,8 +159,9 @@ $(document).ready(function() {
             if (data.status = true) {
                 $('#myModal').modal('toggle');
                 swal("Done",data.msg,"success");
-
-                window.location.replace(baseurl+'/admin/category_list');
+                setTimeout(function(){
+                    window.location.replace(baseurl+'/admin/category_list');
+                },1000)
             }else {
                 $('#myModal').modal('toggle');
                 swal("Error",data.msg,"error");
@@ -129,4 +171,79 @@ $(document).ready(function() {
         
     });
 
+    //Edit category
+    $(document).on("click", ".edit_category_btn", function(e){
+        var form = $('#edit_category_form')[0];
+
+        var formData = new FormData(form);
+
+        jQuery.ajax({
+            type: "POST",
+            dataType : "json",
+            enctype: 'multipart/form-data',
+            url: baseurl + "/admin/update_category",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+        }).done(function(data){
+            console.log('assertion', data);
+            if (data.status = true) {
+                $('#myModal').modal('toggle');
+                swal("Done",data.msg,"success");
+
+                setTimeout(function(){
+                    window.location.replace(baseurl+'/admin/category_list');
+                },1000)
+            }else {
+                $('#myModal').modal('toggle');
+                swal("Error",data.msg,"error");
+            }
+        });        
+        // console.log('cat_name: ', cat_name);
+        
+    });
+
+    //Delete category
+    $(document).on('click','.category-delete',function(){
+        var cat_id = $(this).data('category_id');
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this record!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            // console.log('willDelete: ', willDelete);
+            if (willDelete) {
+                jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : baseurl + "/admin/delete_category",
+                    data : { cat_id : cat_id } 
+                }).done(function(data){
+                    if(data.status == true){
+                        swal({
+                            title: "Delete Category",
+                            text: data.msg,
+                            icon: "success",
+                        });
+                        setTimeout(function(){
+                            window.location.replace(baseurl+'/admin/category_list');
+                        },1000)
+                    }else{
+                        swal({
+                            title: "Delete Category",
+                            text: data.msg,
+                            icon: "error",
+                        });
+                    }
+                }); 
+             }
+        });
+    });
+
+    $('.datatable').DataTable();
 });
