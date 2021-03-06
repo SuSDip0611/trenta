@@ -1,7 +1,7 @@
 
 <!-- Main content -->
 <div class="content-wrapper">
-  <section class="content-header">
+  <section class="content-header content-header-alignment">
         <h1>
           <i class="fa fa-list"></i> <?= $pageTitle; ?>
           <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_product'); ?>">

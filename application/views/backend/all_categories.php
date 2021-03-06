@@ -1,14 +1,14 @@
 
 <!-- Main content -->
 <div class="content-wrapper">
-  <section class="content-header">
-        <h1>
-          <i class="fa fa-list"></i> <?= $pageTitle; ?>
-          <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_category'); ?>">
-            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add New category
-          </a>
-        </h1>
-      </section>
+  <section class="content-header content-header-alignment">
+    <h1>
+      <i class="fa fa-list"></i> <?= $pageTitle; ?>
+      <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_category'); ?>">
+        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add New category
+      </a>
+    </h1>
+  </section>
   <section class="content">
     <div class="row">
       <div class="col-xs-12">

@@ -27,50 +27,96 @@
 	<!--/ End Slider Area -->
 	
 	<!-- Start Small Banner  -->
-	<section class="small-banner section">
-		<div class="container-fluid">
-			<div class="row">
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="<?= base_url(); ?>assets/frontent/images/2.jpg" alt="#">
-						<!-- <img src="https://via.placeholder.com/600x370" alt="#"> -->
-					<!-- 	<div class="content">
-							<p>Man's Collectons</p>
-							<h3>Summer travel <br> collection</h3>
-							<a href="#">Discover Now</a>
-						</div> -->
+	<!-- Carasaul -->
+<div class="product-area most-popular section">
+	<div class="row_container">
+		<div class="row">
+			<div class="col-12">
+				<div class="owl-carousel popular-slider">
+					<!-- Start Single Product -->
+					<div class="single-product">
+						<div class="product-img">
+							<a href="#">
+								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
+							</a>
+							<div class="button-head">
+								<div class="product-action">
+									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+								</div>
+								<div class="product-action-2">
+									<a title="Add to cart" href="#">Add to cart</a>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<!-- /End Single Banner  -->
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="<?= base_url(); ?>assets/frontent/images/3.jpg" alt="#">
-						<!-- <div class="content">
-							<p>Bag Collectons</p>
-							<h3>Awesome Bag <br> 2020</h3>
-							<a href="#">Shop Now</a>
-						</div> -->
+					<!-- End Single Product -->
+					<!-- Start Single Product -->
+					<div class="single-product">
+						<div class="product-img">
+							<a href="#">
+								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Only.jpg" alt="#">
+							</a>
+							<div class="button-head">
+								<div class="product-action">
+									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+								</div>
+								<div class="product-action-2">
+									<a title="Add to cart" href="#">Add to cart</a>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<!-- /End Single Banner  -->
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-12">
-					<div class="single-banner tab-height">
-						<img src="<?= base_url(); ?>assets/frontent/images/1.jpeg" alt="#">
-						<!-- <div class="content">
-							<p>Flash Sale</p>
-							<h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-							<a href="#">Discover Now</a>
-						</div> -->
+					<!-- End Single Product -->
+					<!-- Start Single Product -->
+					<div class="single-product">
+						<div class="product-img">
+							<a href="#">
+								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Nike.jpg" alt="#">
+							</a>
+							<div class="button-head">
+								<div class="product-action">
+									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+								</div>
+								<div class="product-action-2">
+									<a title="Add to cart" href="#">Add to cart</a>
+								</div>
+							</div>
+						</div>
 					</div>
+					<!-- End Single Product -->
+					<!-- Start Single Product -->
+					<div class="single-product">
+						<div class="product-img">
+							<a href="#">
+								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
+							</a>
+							<div class="button-head">
+								<div class="product-action">
+									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+								</div>
+								<div class="product-action-2">
+									<a title="Add to cart" href="#">Add to cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Single Product -->
 				</div>
-				<!-- /End Single Banner  -->
 			</div>
 		</div>
-	</section>
+	</div>
+</div>
 	<!-- End Small Banner -->
+
+
 	
 	<!-- Start Product Area -->
     <div class="product-area section">
@@ -108,7 +154,7 @@
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<div class="prodDiv">
+											<div class="prodDiv productAlignment" >
 												<?php 
 													if(count($products) > 0){ 
 														foreach ($products as $p_key => $prods) {

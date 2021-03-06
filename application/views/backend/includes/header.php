@@ -27,9 +27,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="<?= base_url(); ?>assets/backend/js/Chart.js"></script>
 <!-- //chart -->
  <!-- js-->
-<script type="text/javascript" charset="utf8" src="<?= base_url(); ?>assets/backend/js/datatable.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/jquery-1.11.1.min.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/modernizr.custom.js"></script>
+<script type="text/javascript" charset="utf8" src="<?= base_url(); ?>assets/backend/js/datatable.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
@@ -42,9 +42,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--//end-animate-->
 <!-- Metis Menu -->
 <script src="<?= base_url(); ?>assets/backend/js/metisMenu.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="<?= base_url(); ?>assets/backend/js/custom.js"></script>
-<script src="<?= base_url(); ?>assets/js/sweet_alert.js"></script>
-<script src="<?= base_url(); ?>assets/css/sweet_alert.css"></script>
+<!-- <script src="<?= base_url(); ?>assets/js/sweet_alert.js"></script> -->
+<!-- <script src="<?= base_url(); ?>assets/css/sweet_alert.css"></script> -->
 <link href="<?= base_url(); ?>assets/backend/css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 

@@ -36,8 +36,10 @@ $(function() {
 });
 
 $(document).ready(function() {
+    // console.log('baseUrl', baseUrl);
+    // console.log('window.location.origin', window.location.origin);
         
-    var baseurl=window.location.origin+'/trenta';
+    // var baseurl=window.location.origin+'/trenta';
 
     /* Image preview */
     if (window.File && window.FileList && window.FileReader) {

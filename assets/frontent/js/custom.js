@@ -1,7 +1,5 @@
 $(document).ready(function() {
-
-    var baseurl=window.location.origin;
-
+    
     $(document).on("click", ".getDetailsByCatId", function(e){
         
         e.preventDefault();

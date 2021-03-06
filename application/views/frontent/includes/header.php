@@ -62,21 +62,21 @@
 	<!-- Header -->
 	<header class="header shop">
 		<!-- Topbar -->
-		<div class="topbar">
+		<!-- <div class="topbar">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-12">
-						<!-- Top Left -->
+						
 						<div class="top-left">
 							<ul class="list-main">
 								<li><i class="ti-headphone-alt"></i> +91 000 000 0000</li>
 								<li><i class="ti-email"></i> example@example.com</li>
 							</ul>
 						</div>
-						<!--/ End Top Left -->
+						
 					</div>
 					<div class="col-lg-8 col-md-12 col-12">
-						<!-- Top Right -->
+						
 						<div class="right-content">
 							<ul class="list-main">
 								<li><i class="ti-location-pin"></i> Store location</li>
@@ -85,11 +85,11 @@
 								<li><i class="ti-power-off"></i><a href="#">Login</a></li>
 							</ul>
 						</div>
-						<!-- End Top Right -->
+						
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Topbar -->
 		<div class="middle-inner">
 			<div class="container">
@@ -98,8 +98,9 @@
 						<!-- Logo -->
 						<div class="logo">
 							<a href="#">
-								<!-- <img src="<?= base_url(); ?>assets/frontent/images/logo.png" alt="logo"> -->
-								<h3>Trenta</h3>
+								<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo">
+								<!-- <h3>Trenta</h3> -->
+
 							</a>
 						</div>
 						<!--/ End Logo -->
@@ -170,7 +171,7 @@
 											<span>Total</span>
 											<span class="total-amount">$134.00</span>
 										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<a href="#" class="btn animate">Checkout</a>
 									</div>
 								</div>
 								<!--/ End Shopping Item -->
@@ -262,8 +263,8 @@
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="#">Home</a></li>
 													<li><a href="#">Product</a></li>												
-													<li><a href="#">Service</a></li>
-													<li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+													<!-- <li><a href="#">Service</a></li> -->
+													<!-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="shop-grid.html">Shop Grid</a></li>
 															<li><a href="cart.html">Cart</a></li>
@@ -276,7 +277,7 @@
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 														</ul>
 													</li>
-													<li><a href="contact.html">Contact Us</a></li>
+ -->													<li><a href="#">Contact Us</a></li>
 												</ul>
 										</div>
 									</div>

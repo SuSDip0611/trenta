@@ -238,6 +238,8 @@ Version:1.0
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	transition: all 0.4s ease;
+	width: 200px;
+
 }
 .header .navbar {
 	padding: 0;
@@ -4957,4 +4959,14 @@ Version:1.0
     width: 263px;
     height: 300px;
     margin: -75px 0 0 -100px;
+}
+
+.row_container {
+  max-width: 1400px;
+  margin: auto;
+}
+.productAlignment{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

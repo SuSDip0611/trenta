@@ -712,5 +712,8 @@
 		</script>
 		<!-- //status -->
 		<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script>
+	        var baseurl ='<?php echo base_url(); ?>';
+	    </script>
 </body>
 </html>

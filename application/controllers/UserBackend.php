@@ -287,6 +287,7 @@ class UserBackend extends BackendMain {
                     // $uploadData['file_name'] = $fileData['file_name']; 
                     $pd_imgs[] = $fileData['file_name'];
                 }else{ 
+
                     $errorUploadType .= $_FILES['product_images']['name'].' | ';   
                 	return false; 
                 } 
