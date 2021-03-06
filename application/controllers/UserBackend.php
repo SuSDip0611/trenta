@@ -24,7 +24,10 @@ class UserBackend extends BackendMain {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
     	}else{
-    		$this->global['pageTitle'] = 'Add Product Management';
+
+            $categories = $this->UserBackend_model->get_category_list();
+    		$this->global['pageTitle'] = 'Add Product';
+    		$this->global['categories'] = $categories;
         	$this->loadViews('backend/add_new_product', $this->global, NULL , NULL);
     	}
     }
@@ -36,16 +39,15 @@ class UserBackend extends BackendMain {
         $msg = '';
         $res = array();
 
-        $product_imgs = array();
-
         $size = $this->input->post('size');
         $color = $this->input->post('color');
         $rating = $this->input->post('rating');
         $comment = $this->input->post('comment');
+        $category = $this->input->post('category');
         $description = $this->input->post('description');
         $praduct_name = $this->input->post('praduct_name');
 
-        if ($size != 0 && $color != '' && $rating != '' && $comment != '' && $description != '' && $praduct_name != '') {
+        if ($size != 0 && $color != '' && $rating != '' && $comment != '' && $description != '' && $praduct_name != '' && $category != 0) {
         	$flag = true;
         }else{$flag = false;}
 
@@ -57,8 +59,9 @@ class UserBackend extends BackendMain {
         		'is_deleted' => 0,
         		'rating' => $rating,
         		'comment' => $comment,
+        		'category' => $category,
         		'description' => $description,
-        		'praduct_name' => $praduct_name,
+        		'product_name' => $praduct_name,
         		'created_at' => date('d-m-Y H:i:s')
         	);
 
@@ -74,7 +77,7 @@ class UserBackend extends BackendMain {
 	        			'images' => serialize($img_status)
 	        		);
 
-	        		$status = $this->UserBackend_model->update_new_product($last_id, $prdt_images);
+	        		$status = $this->UserBackend_model->update_product($last_id, $prdt_images);
 
 	        		if ($status) {
 	        			$stat = true;
@@ -106,6 +109,136 @@ class UserBackend extends BackendMain {
 
         	$res['status'] = $star;
         	$res['msg'] = $msg;        	
+        }
+
+        echo json_encode($res);
+        exit;
+    }
+
+    public function edit_product()
+    {
+        $prod_id = $this->input->get('id');
+        
+        $prod_id_base64decode = base64_decode($prod_id);
+
+        $categories = $this->UserBackend_model->get_category_list();
+
+        $data = $this->UserBackend_model->get_product_details($prod_id_base64decode);
+
+        $this->global['pageTitle'] = 'Edit Product';
+        $this->global['categories'] = $categories;
+        $this->global['prod_details'] = $data;
+
+        $this->loadViews('backend/edit_product', $this->global, NULL , NULL);
+    }
+
+    public function update_product()
+    {
+        $flag = false;
+        $stat = '';
+        $msg = '';
+        $res = array();
+
+        $size = $this->input->post('size');
+        $color = $this->input->post('color');
+        $rating = $this->input->post('rating');
+        $comment = $this->input->post('comment');
+        $category = $this->input->post('category');
+        $description = $this->input->post('description');
+        $id = base64_decode($this->input->post('prod_id'));
+        $praduct_name = $this->input->post('praduct_name');
+
+        // echo "<pre>";
+        // print_r($id);
+        // echo "</pre>";
+        // exit();
+
+        if ($size != 0 && $color != '' && $rating != '' && $comment != '' && $description != '' && $praduct_name != '' && $category != 0) {
+        	$flag = true;
+        }else{$flag = false;}
+
+        if ($flag) {
+
+        	$product_data = array(
+        		'size' => $size,
+        		'color' => $color,
+        		'is_deleted' => 0,
+        		'rating' => $rating,
+        		'comment' => $comment,
+        		'category' => $category,
+        		'description' => $description,
+        		'product_name' => $praduct_name,
+        	);
+
+        	$status = $this->UserBackend_model->update_product($id, $product_data);
+
+        	if ($status) {
+        		
+                if(!empty($_FILES['product_images']['name']) && count(array_filter($_FILES['product_images']['name'])) > 0){
+                    $img_status = $this->upload_multiple_img($id);
+                    
+                    if ($img_status) {
+    
+                        $prdt_images = array(
+                            'images' => serialize($img_status)
+                        );
+    
+                        $status = $this->UserBackend_model->update_product($id, $prdt_images);
+    
+                        if ($status) {
+                            $stat = true;
+                            $msg = 'Product details updated successfully';
+                            $res['status'] = $stat;
+                            $res['msg'] = $msg;
+                        }else{
+                            $stat = error;
+                            $msg = 'Something went wrong, try again later';
+                            $res['status'] = $stat;
+                            $res['msg'] = $msg;
+                        }
+                    }else{
+                        $stat = false;
+                        $msg = 'Please select image files to upload';
+                        $res['status'] = $stat;
+                        $res['msg'] = $msg;
+                    }
+                }else{
+                    $stat = true;
+                    $msg = 'Product details updated successfully';
+                    $res['status'] = $stat;
+                    $res['msg'] = $msg;
+                }
+
+        	}else{
+        		$stat = error;
+                $msg = 'Something went wrong, try again later';
+                $res['status'] = $stat;
+                $res['msg'] = $msg;
+        	}
+
+        }else{
+        	$stat= 'error';
+        	$msg = 'All fields are requried';
+
+        	$res['status'] = $star;
+        	$res['msg'] = $msg;        	
+        }
+
+        echo json_encode($res);
+        exit;
+    }
+
+    public function deselect_image(Type $var = null)
+    {
+        $prod_id = base64_decode($this->input->post('prod_id'));
+        $img_name = $this->input->post('img_name');
+
+        $data = $this->UserBackend_model->deselect_image($prod_id, $img_name);
+
+        if ($data == 1) {
+            $res = true;
+        }else {
+            $res = false;            
         }
 
         echo json_encode($res);
@@ -176,10 +309,9 @@ class UserBackend extends BackendMain {
 	            'all_products' => $data
 	        );
 
-	        $this->global['pageTitle'] = 'Product List Management';
+	        $this->global['pageTitle'] = 'Product List';
 	        $this->global['all_products'] = $data;
 
-	        // $this->loadViews('backend/all_product', $all_products);
 	        $this->loadViews('backend/all_product', $this->global, NULL , NULL);
 	    }
     }
@@ -189,7 +321,7 @@ class UserBackend extends BackendMain {
     	if($this->isAdmin() == FALSE) {
     		$this->index();
     	}else{
-    		$this->global['pageTitle'] = 'Add Category Management';
+    		$this->global['pageTitle'] = 'Add Category';
 	        $this->loadViews('backend/add_new_category', $this->global, NULL , NULL);
 	    }
     }
@@ -277,7 +409,7 @@ class UserBackend extends BackendMain {
     	}else{
 	    	$data = $this->UserBackend_model->get_category_list();
 
-	    	$this->global['pageTitle'] = 'Category List Management';
+	    	$this->global['pageTitle'] = 'Category List';
 	    	$this->global['all_categories'] = $data;
 	        $this->loadViews('backend/all_categories', $this->global, NULL , NULL);
 	    }
@@ -319,10 +451,6 @@ class UserBackend extends BackendMain {
             );
 
             $status = $this->UserBackend_model->update_category($cat_id, $category_data);
-            /*echo "<pre>";
-            print_r($status);
-            echo "</pre>";
-            exit();*/
 
             if ($status) {
                 $stat = true;

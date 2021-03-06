@@ -3,9 +3,9 @@
 /**
  * Class :  UserBackend_model (User Model)
  * User model class to get to handle user related data 
- * @author : Kishor Mali
+ * @author : Sudipto Roy
  * @version : 1.1
- * @since : 15 November 2016
+ * @since : 04 March 2021
  */
 class UserBackend_model extends CI_Model
 {
@@ -16,14 +16,6 @@ class UserBackend_model extends CI_Model
         $insert_id = $this->db->insert_id();
 
         return $insert_id;
-	}
-
-	public function update_new_product($id, $imgs)
-	{
-		$this->db->where('id', $id);
-        $is_update = $this->db->update('tbl_products', $imgs);
-
-        return $is_update;
 	}
 
 	public function get_product_list()
@@ -38,6 +30,53 @@ class UserBackend_model extends CI_Model
         $query = $this->db->get(); 
         
         return $query->result();
+	}
+
+	public function get_product_details($id)
+	{
+		$this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        
+        return $query->row();
+	}
+
+	public function update_product($id, $data)
+	{
+		$this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_products', $data);
+
+        return $is_update;
+	}
+
+	public function deselect_image($id, $img)
+	{
+		$data = $this->get_product_details($id);
+
+        $unserialized_img = unserialize($data->images);
+
+        $new_imgs = array();
+
+        foreach ($unserialized_img as $p_img) {
+            if ($p_img != $img) {
+                $new_imgs[] = $p_img;
+            }
+        }
+        
+        $serialize_img = serialize($new_imgs);
+
+        $p_Info = array('images'=> $serialize_img);
+
+        $this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_products', $p_Info);
+        
+        
+        if($is_update == 1){
+            return true;
+        }else{
+            return false;
+        }
 	}
 
 	public function delete_product($id, $data)

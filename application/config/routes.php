@@ -67,6 +67,9 @@ $route['logout'] = 'LoginBackend/logout';
 $route['admin/dashboard'] = 'UserBackend';
 $route['admin/add_new_product'] = 'UserBackend/add_new_product';
 $route['admin/save_new_product'] = 'UserBackend/save_new_product';
+$route['admin/edit_product'] = 'UserBackend/edit_product';
+$route['admin/deselect_image'] = 'UserBackend/deselect_image';
+$route['admin/update_product'] = 'UserBackend/update_product';
 $route['admin/product_list'] = 'UserBackend/get_product_list';
 $route['admin/delete_product'] = 'UserBackend/delete_product';
 

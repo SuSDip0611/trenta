@@ -12,11 +12,6 @@
 		<div class="form-title">
 			<h4><?= $pageTitle; ?></h4>
 		</div>
-		<!-- <div class="add_cat_btn_div">
-			<button class="btn common_btn_class pull-right" data-toggle="modal" data-target="#myModal">
-				<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add Category
-			</button>	
-		</div> -->
 		<div class="form-body">
 			<form action="javascript:void(0);" id="save_new_product_form" name="save_new_product_form" method="POST" enctype='multipart/form-data'> 
 				<div class="form-group"> 
@@ -26,6 +21,19 @@
 				<div class="form-group"> 
 					<label for="description">Description</label> 
 					<textarea class="form-control" id="description" name="description" placeholder="Description" required></textarea>
+				</div> 
+				<div class="form-group"> 
+					<label for="description">Product Category</label>
+					<select class="form-control" name="category" required>
+						<option value="0">Select category...</option>
+						<?php
+							foreach ($categories as $key => $value) {
+						?>
+							<option value="<?= $value->id ?>"><?php echo $value->category_name ?></option>
+						<?php
+							}
+						?>
+					</select>
 				</div> 
 				<div class="form-group"> 
 					<label for="description">Rating</label>

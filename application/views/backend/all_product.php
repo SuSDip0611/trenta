@@ -34,11 +34,11 @@
                   ?>
                   <tr>
                     <td class="text-center"><?php echo $count;?></td>
-                    <td class="text-center"><?php echo $product->praduct_name;?></td>  
+                    <td class="text-center"><?php echo $product->product_name;?></td>  
                     <td class="text-center"><?php echo $product->description;?></td>  
                     <td class="text-center"><?php echo $product->rating;?></td>
                     <td class="text-center">
-                      <a href="<?= base_url('edit_product_page') ?>?id=<?php echo base64_encode($id); ?>" 
+                      <a href="<?= base_url('admin/edit_product') ?>?id=<?php echo base64_encode($id); ?>" 
                         class="btn common_btn_class staff-edit" data-vid="<?php echo base64_encode($id);?>"
                       >
                         <i class="fa fa-pencil" aria-hidden="true"></i>

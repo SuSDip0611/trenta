@@ -82,9 +82,8 @@ $(document).ready(function() {
             cache: false,
             timeout: 800000,
         }).done(function(data){
-            console.log('assertion', data);
+            
             if (data.status = true) {
-                $('#myModal').modal('toggle');
                 swal("Done",data.msg,"success");
                 setTimeout(function(){
                     window.location.replace(baseurl+'/admin/product_list');
@@ -96,6 +95,73 @@ $(document).ready(function() {
         });        
         // console.log('cat_name: ', cat_name);
         
+    });
+
+    //Save product
+    $(document).on("click", ".edit_product_btn", function(e){
+        var form = $('#edit_product_form')[0];
+
+        var formData = new FormData(form);
+
+        jQuery.ajax({
+            type: "POST",
+            dataType : "json",
+            enctype: 'multipart/form-data',
+            url: baseurl + "/admin/update_product",
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+        }).done(function(data){
+            if (data.status = true) {
+                swal("Done",data.msg,"success");
+                setTimeout(function(){
+                    window.location.replace(baseurl+'/admin/product_list');
+                },1000)
+            }else {
+                $('#myModal').modal('toggle');
+                swal("Error",data.msg,"error");
+            }
+        });        
+        // console.log('cat_name: ', cat_name);
+        
+    });
+
+    //Deselect product image
+    $(document).on('click','.img_deselect_product',function(){
+
+        var img_name = $(this).data('img_name');
+        var img_id = $(this).data('uploadid');
+        var prod_id = $(this).data('prod_id');
+
+        var THIS = $(this);
+
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this image!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : baseurl + "/admin/deselect_image",
+                    data : { 
+                        img_name : img_name,
+                        prod_id : prod_id,
+                    } 
+                }).done(function(data){
+                    if (data = true) {
+                        THIS.remove();
+                        $('.upload_img_'+img_id).remove();
+                    }
+                }); 
+             }
+        });
     });
 
     //Delete product
