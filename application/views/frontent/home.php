@@ -87,13 +87,19 @@
 						<div class="product-info">
 							<div class="nav-main">
 								<!-- Tab Nav -->
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
-									<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#man" role="tab">Man</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#women" role="tab">Woman</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kids" role="tab">Kids</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#accessories" role="tab">Accessories</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#essential" role="tab">Essential</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#prices" role="tab">Prices</a></li>
+								<ul class="nav nav-tabs category-button" id="myTab" role="tablist">
+									<!-- Sudipto changes start -->
+									<?php 
+										$count=1;
+										if(count($categories) > 0){
+											foreach ($categories as $key => $cat) {		
+									?> 
+												<li class="nav-item"><a href="javascript:void(0)" class="nav-link  <?php if($count == 1){ ?> active <?php } ?> getDetailsByCatId" data-category_id="<?= $cat->id ?>" href="#man" role="tab"><?php echo $cat->category_name ?></a></li>
+									<?php 
+												$count++;
+											} 
+										} 
+									?>
 								</ul>
 								<!--/ End Tab Nav -->
 							</div>
@@ -102,33 +108,43 @@
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
 										<div class="row">
-											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
-												<div class="single-product">
-													<div class="product-img">
-														<a href="#" class="">
-															<img class="default-img" src="<?= base_url(); ?>assets/frontent/images/1.2.jpg" alt="#">
-															<img class="hover-img" src="<?= base_url(); ?>assets/frontent/images/1.2.jpg" alt="#">
-														</a>
-														<div class="button-head">
-															<div class="product-action">
-																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+											<div class="prodDiv">
+												<?php 
+													if(count($products) > 0){ 
+														foreach ($products as $p_key => $prods) {
+												?>
+															<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+																<div class="single-product">
+																	<div class="product-img">
+																		<a href="#" class="">
+																			<img class="default-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->images[0]; ?>" alt="#">
+																			<img class="hover-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->images[0]; ?>" alt="#">
+																		</a>
+																		<div class="button-head">
+																			<div class="product-action">
+																				<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																				<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																				<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+																			</div>
+																			<div class="product-action-2">
+																				<a title="Add to cart" href="#">Add to cart</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="product-content">
+																		<h3><a href="#"><?php echo $prods->product_name ?></a></h3>
+																		<div class="product-price">
+																			<span>$29.00</span>
+																		</div>
+																	</div>
+																</div>
 															</div>
-															<div class="product-action-2">
-																<a title="Add to cart" href="#">Add to cart</a>
-															</div>
-														</div>
-													</div>
-													<div class="product-content">
-														<h3><a href="#">Women Hot Collection</a></h3>
-														<div class="product-price">
-															<span>$29.00</span>
-														</div>
-													</div>
-												</div>
+												<?php 
+														}
+													}
+												?>
 											</div>
-											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+											<!-- <div class="col-xl-3 col-lg-4 col-md-4 col-12">
 												<div class="single-product">
 													<div class="product-img">
 														<a href="#">
@@ -290,7 +306,6 @@
 												<div class="single-product">
 													<div class="product-img">
 														<a href="#">
-															<!-- <img class="default-img" src="https://via.placeholder.com/550x750" alt="#"> -->
 															<img class="default-img" src="<?= base_url(); ?>assets/frontent/images/1.10..jpg" alt="#">
 															<img class="hover-img" src="<?= base_url(); ?>assets/frontent/images/1.10..jpg" alt="#">
 															<span class="out-of-stock">Hot</span>
@@ -314,7 +329,7 @@
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>

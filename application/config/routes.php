@@ -50,10 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 // $route['default_controller'] = 'welcome';
-$route['default_controller'] = 'UserFrontent';
-
-
-
+$route['default_controller'] = 'UserFrontend';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -83,4 +80,5 @@ $route['admin/delete_category'] = 'UserBackend/delete_category';
 
 
 /* *===* Frontend Routes Start *===* */
+$route['get_category_products'] = 'UserFrontend/get_category_products';
 /* *===* Frontend Routes End *===* */

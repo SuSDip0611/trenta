@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Class :  UserBackend_model (User Model)
+ * Class :  UserBackend_model
  * User model class to get to handle user related data 
  * @author : Sudipto Roy
  * @version : 1.1
