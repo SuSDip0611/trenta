@@ -15,15 +15,15 @@
 		<div class="form-body">
 			<form action="javascript:void(0);" id="save_new_product_form" name="save_new_product_form" method="POST" enctype='multipart/form-data'> 
 				<div class="form-group"> 
-					<label for="praduct_name">Product Name</label> 
+					<label for="praduct_name">Product Name <span class="required-star">*</span></label> 
 					<input type="text" class="form-control" id="praduct_name" name="praduct_name" placeholder="Product Name" required> 
 				</div> 
 				<div class="form-group"> 
-					<label for="description">Description</label> 
+					<label for="description">Description <span class="required-star">*</span></label> 
 					<textarea class="form-control" id="description" name="description" placeholder="Description" required></textarea>
 				</div> 
 				<div class="form-group"> 
-					<label for="description">Product Category</label>
+					<label for="description">Product Category <span class="required-star">*</span></label>
 					<select class="form-control" name="category" required>
 						<option value="0">Select category...</option>
 						<?php
@@ -36,7 +36,7 @@
 					</select>
 				</div> 
 				<div class="form-group"> 
-					<label for="description">Rating</label>
+					<label for="description">Rating <span class="required-star">*</span></label>
 					<select class="form-control" name="rating" required>
 						<option value="0">Select rating...</option>
 						<?php
@@ -49,22 +49,22 @@
 					</select>
 				</div> 
 				<div class="form-group"> 
-					<label for="description">Comment</label> 
+					<label for="description">Comment <span class="required-star">*</span></label> 
 					<textarea class="form-control" id="comment" name="comment" placeholder="Comment" required></textarea>
 				</div> 
 				<div class="form-group"> 
-					<label for="imagefiles">Product Image</label>
+					<label for="imagefiles">Product Image <span class="required-star">*</span></label>
 					<input type="file" class="form-control file-control file-input" id="imagefiles" name="product_images[]" accept="image/*" multiple required> 
 					<div class="preview_div clearfix">
 		                <label for="" id="screenshots"></label>
 		            </div>
 				</div>
 				<div class="form-group"> 
-					<label for="size">Size</label> 
+					<label for="size">Size <span class="required-star">*</span></label> 
 					<input type="number" class="form-control" id="size" name="size" placeholder="Enter size" required> 
 				</div>
 				<div class="form-group"> 
-					<label for="color">Choose color</label> 
+					<label for="color">Choose color <span class="required-star">*</span></label> 
 					<input type="color" class="form-control" id="color" name="color" placeholder="Enter color" required> 
 				</div>
 				<button type="submit" class="btn common_btn_class btn-lg btn-block save_new_product_btn">Submit</button> 

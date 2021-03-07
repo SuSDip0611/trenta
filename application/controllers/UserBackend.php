@@ -18,7 +18,6 @@ class UserBackend extends BackendMain {
 
     }
 
-
     public function add_new_product()
     {
     	if($this->isAdmin() == FALSE) {
@@ -245,6 +244,35 @@ class UserBackend extends BackendMain {
         exit;
     }
 
+    public function delete_product()
+    {
+        $prod_id = base64_decode($this->input->post('prod_id'));
+
+        $prod_data = array(
+            'is_deleted' => 1
+        );
+
+        $status = $this->UserBackend_model->delete_product($prod_id, $prod_data);
+
+        if ($status) {
+            $stat = true;
+            $msg = 'Product deleted successfully';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }else{
+            $stat = error;
+            $msg = 'Something went wrong, try again later';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }
+
+        echo json_encode($res);
+        exit;
+
+    }
+
     public function upload_multiple_img($last_id)
     {
     	if(!empty($_FILES['product_images']['name']) && count(array_filter($_FILES['product_images']['name'])) > 0){ 
@@ -327,35 +355,6 @@ class UserBackend extends BackendMain {
 	    }
     }
 
-    public function delete_product()
-    {
-        $prod_id = base64_decode($this->input->post('prod_id'));
-
-        $prod_data = array(
-            'is_deleted' => 1
-        );
-
-        $status = $this->UserBackend_model->delete_product($prod_id, $prod_data);
-
-        if ($status) {
-            $stat = true;
-            $msg = 'Product deleted successfully';
-
-            $res['status'] = $stat;
-            $res['msg'] = $msg;
-        }else{
-            $stat = error;
-            $msg = 'Something went wrong, try again later';
-
-            $res['status'] = $stat;
-            $res['msg'] = $msg;
-        }
-
-        echo json_encode($res);
-        exit;
-
-    }
-
     public function save_new_category()
     {
     	$flag = false;
@@ -377,19 +376,45 @@ class UserBackend extends BackendMain {
 
         	$last_id = $this->UserBackend_model->save_new_category($category_data);
 
-        	if ($last_id) {
-	        	$stat = true;
-                $msg = 'New Category Added';
+            if ($last_id) {
+                $img_save_status = $this->upload_single_image($last_id);
 
-                $res['status'] = $stat;
-                $res['msg'] = $msg;
-        	}else{
-        		$stat = error;
+                if ($img_save_status) {
+
+                    $category_data = array(
+                        'category_image' => $img_save_status,
+                    );
+
+                    $status = $this->UserBackend_model->update_category($last_id, $category_data);
+
+                    if ($status) {
+                        $stat = true;
+                        $msg = 'New Category Added';
+
+                        $res['status'] = $stat;
+                        $res['msg'] = $msg;
+                    }else{
+                        $stat = error;
+                        $msg = 'Something went wrong, try again later';
+        
+                        $res['status'] = $stat;
+                        $res['msg'] = $msg;
+                    }
+
+                }else {
+                    $stat = false;
+		            $msg = 'Please select image files to upload';
+		            $res['status'] = $stat;
+		            $res['msg'] = $msg;
+                }
+
+            }else{
+                $stat = error;
                 $msg = 'Something went wrong, try again later';
 
                 $res['status'] = $stat;
                 $res['msg'] = $msg;
-        	}
+            }
 
         }else{
         	$stat= 'error';
@@ -454,11 +479,49 @@ class UserBackend extends BackendMain {
             $status = $this->UserBackend_model->update_category($cat_id, $category_data);
 
             if ($status) {
+
+                if(!empty($_FILES['category_image']['name'])){
+
+                    $img_save_status = $this->upload_single_image($cat_id);
+    
+                    if ($img_save_status) {
+    
+                        $category_data = array(
+                            'category_image' => $img_save_status,
+                        );
+    
+                        $status = $this->UserBackend_model->update_category($cat_id, $category_data);
+    
+                        if ($status) {
+                            $stat = true;
+                            $msg = 'Category updated successfully';
+    
+                            $res['status'] = $stat;
+                            $res['msg'] = $msg;
+                        }else{
+                            $stat = error;
+                            $msg = 'Something went wrong, try again later';
+            
+                            $res['status'] = $stat;
+                            $res['msg'] = $msg;
+                        }
+    
+                    }else{
+                        $stat = error;
+                        $msg = 'Something went wrong, try again later';
+        
+                        $res['status'] = $stat;
+                        $res['msg'] = $msg;
+                    }
+
+                }
+
                 $stat = true;
                 $msg = 'Category updated successfully';
 
                 $res['status'] = $stat;
                 $res['msg'] = $msg;
+
             }else{
                 $stat = error;
                 $msg = 'Something went wrong, try again later';
@@ -507,4 +570,52 @@ class UserBackend extends BackendMain {
         exit;
 
     }
+
+    public function upload_single_image($id)
+    {
+        if(!empty($_FILES['category_image']['name'])){
+            
+            $cat_imgs = '';
+
+            // File upload configuration 
+            $uploadPath = './assets/backend/images/category_image/'.$id; 
+
+            //Create new folder if it is not exist
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, TRUE);
+            }
+
+            $config= array(
+                'upload_path' => $uploadPath,
+                'allowed_types' => "gif|jpg|png|jpeg|pdf",
+                'encrypt_name' => TRUE,
+                // 'max_size' => "12352048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+            );
+
+            // $config['upload_path'] = $uploadPath; 
+            // $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+            // $config['max_size']    = '100'; 
+            // $config['max_width'] = '1024'; 
+            // $config['max_height'] = '768'; 
+             
+            // Load and initialize upload library 
+            $this->load->library('upload', $config); 
+            $this->upload->initialize($config); 
+             
+            // Upload file to server 
+            if($this->upload->do_upload('category_image')){ 
+                $fileData = $this->upload->data();
+                $uploadData['uploaded_on'] = date("Y-m-d H:i:s"); 
+                $cat_imgs = $fileData['file_name'];
+            }else{ 
+                $errorUploadType .= $_FILES['category_image']['name'].' | ';   
+                return false;
+            }
+        }else {
+            return false;            
+        }
+
+        return $cat_imgs;
+    }
+    
 }

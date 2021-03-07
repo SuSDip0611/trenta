@@ -138,6 +138,4 @@ class UserBackend_model extends CI_Model
         return $is_update;
 	}
 
-
-
 }
