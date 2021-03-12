@@ -3908,3 +3908,7 @@ ul.nofitications-dropdown {
 .content-header-alignment{
   margin-bottom: 41px;
 }
+
+.required-star{
+  color: red;
+}
