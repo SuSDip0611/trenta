@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
 	<!-- Meta Tag -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title Tag  -->
-    <title>Treanta</title>
+	<title>Treanta</title>
 	<!-- Favicon -->
 	<!-- <link rel="icon" type="image/png" href="<?= base_url(); ?>assets/frontent/images/favicon.png"> -->
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-	
+
 	<!-- StyleSheet -->
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/bootstrap.css">
 	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/magnific-popup.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/magnific-popup.min.css">
 	<!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/font-awesome.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/font-awesome.css">
 	<!-- Fancybox -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/jquery.fancybox.min.css">
 	<!-- Themify Icons -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/themify-icons.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/themify-icons.css">
 	<!-- Nice Select CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/niceselect.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/niceselect.css">
 	<!-- Animate CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/animate.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/animate.css">
 	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
 	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/owl-carousel.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/owl-carousel.css">
 	<!-- Slicknav -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
-	
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
+
 	<!-- Eshop StyleSheet -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/reset.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/style.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/responsive.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/responsive.css">
 
-	
-	
+	<!-- slick -->
+
+	<link rel="stylesheet" href="assets/frontent/css/slick.css">
+	<link rel="stylesheet" href="assets/frontent/css/slick-theme.css">
+
+	<script src="assets/frontent/js/jquery.min.js"></script>
+	<script src="assets/frontent/js/slick.js"></script>
+
 </head>
+
 <body class="js">
-	
+
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -57,39 +65,39 @@
 		</div>
 	</div>
 	<!-- End Preloader -->
-	
-	
+
+
 	<!-- Header -->
 	<header class="header shop">
 		<!-- Topbar -->
-		<div class="topbar">
+		<!-- <div class="topbar">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4 col-md-12 col-12">
-						<!-- Top Left -->
-						<div class="top-left">
+					<div class="col-lg-4 col-md-12 col-12"> -->
+		<!-- Top Left -->
+		<!-- <div class="top-left">
 							<ul class="list-main">
 								<li><i class="ti-headphone-alt"></i> +91 000 000 0000</li>
 								<li><i class="ti-email"></i> example@example.com</li>
 							</ul>
-						</div>
-						<!--/ End Top Left -->
-					</div>
-					<div class="col-lg-8 col-md-12 col-12">
-						<!-- Top Right -->
-						<div class="right-content">
+						</div> -->
+		<!--/ End Top Left -->
+		<!-- </div>
+					<div class="col-lg-8 col-md-12 col-12"> -->
+		<!-- Top Right -->
+		<!-- <div class="right-content">
 							<ul class="list-main">
 								<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
 								<li><i class="ti-user"></i> <a href="#">My account</a></li>
 								<li><i class="ti-power-off"></i><a href="#">Login</a></li>
 							</ul>
-						</div>
-						<!-- End Top Right -->
-					</div>
+						</div> -->
+		<!-- End Top Right -->
+		<!-- </div>
 				</div>
-			</div>
-		</div>
+			</div> -->
+		<!-- </div> -->
 		<!-- End Topbar -->
 		<div class="middle-inner">
 			<div class="container">
@@ -98,14 +106,13 @@
 						<!-- Logo -->
 						<div class="logo">
 							<a href="#">
-								<!-- <img src="<?= base_url(); ?>assets/frontent/images/logo.png" alt="logo"> -->
-								<h3>Trenta</h3>
+								<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo">
 							</a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
 						<div class="search-top">
-							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+							<div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
 								<form class="search-form">
@@ -170,7 +177,7 @@
 											<span>Total</span>
 											<span class="total-amount">$134.00</span>
 										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<a href="#" class="btn animate">Checkout</a>
 									</div>
 								</div>
 								<!--/ End Shopping Item -->
@@ -257,12 +264,12 @@
 							<div class="menu-area">
 								<!-- Main Menu -->
 								<nav class="navbar navbar-expand-lg">
-									<div class="navbar-collapse">	
-										<div class="nav-inner">	
+									<div class="navbar-collapse">
+										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="#">Home</a></li>
-													<li><a href="#">Product</a></li>												
-													<li><a href="#">Service</a></li>
+												<li class="active"><a href="#">Home</a></li>
+												<li><a href="#">Product</a></li>
+												<!-- <li><a href="#">Service</a></li>
 													<li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="shop-grid.html">Shop Grid</a></li>
@@ -275,13 +282,13 @@
 														<ul class="dropdown">
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 														</ul>
-													</li>
-													<li><a href="contact.html">Contact Us</a></li>
-												</ul>
+													</li> -->
+												<li><a href="#">Contact Us</a></li>
+											</ul>
 										</div>
 									</div>
 								</nav>
-								<!--/ End Main Menu -->	
+								<!--/ End Main Menu -->
 							</div>
 						</div>
 					</div>
