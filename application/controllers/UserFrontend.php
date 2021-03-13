@@ -60,5 +60,22 @@ class UserFrontend extends FrontendMain
         echo json_encode($res);
         exit;
     }
+
+    public function displayCategory(){
+        // echo "string";
+        $this->global['pageTitle'] = 'Category';
+        $this->load_view('frontent/category', $this->global, NULL, NULL);
+    }
+
+    public function displayProducts(){
+        // echo "string";
+        $this->global['pageTitle'] = 'Products';
+        $this->load_view('frontent/products', $this->global, NULL, NULL);
+    }
+    public function displayProductDetails(){
+        // echo "string";
+        $this->global['pageTitle'] = 'Product Details';
+        $this->load_view('frontent/productsDetails', $this->global, NULL, NULL);
+    }
 }
 

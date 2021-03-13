@@ -81,4 +81,7 @@ $route['admin/delete_category'] = 'UserBackend/delete_category';
 
 /* *===* Frontend Routes Start *===* */
 $route['get_category_products'] = 'UserFrontend/get_category_products';
+$route['category'] = 'UserFrontend/displayCategory';
+$route['products'] = 'UserFrontend/displayProducts';
+$route['productsDetails'] = 'UserFrontend/displayProductDetails';
 /* *===* Frontend Routes End *===* */
