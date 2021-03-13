@@ -21,6 +21,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <link rel="icon" href="favicon.ico" type="image/x-icon" >
 <!-- font-awesome icons -->
 <link href="<?= base_url(); ?>assets/backend/css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/backend/css/datatable.css">
 <!-- //font-awesome icons -->
 <!-- chart -->
 <script src="<?= base_url(); ?>assets/backend/js/Chart.js"></script>
@@ -28,6 +29,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
  <!-- js-->
 <script src="<?= base_url(); ?>assets/backend/js/jquery-1.11.1.min.js"></script>
 <script src="<?= base_url(); ?>assets/backend/js/modernizr.custom.js"></script>
+<script type="text/javascript" charset="utf8" src="<?= base_url(); ?>assets/backend/js/datatable.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
@@ -40,9 +42,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--//end-animate-->
 <!-- Metis Menu -->
 <script src="<?= base_url(); ?>assets/backend/js/metisMenu.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
 <script src="<?= base_url(); ?>assets/backend/js/custom.js"></script>
-<script src="<?= base_url(); ?>assets/js/sweet_alert.js"></script>
-<script src="<?= base_url(); ?>assets/css/sweet_alert.css"></script>
+<!-- <script src="<?= base_url(); ?>assets/js/sweet_alert.js"></script> -->
+<!-- <script src="<?= base_url(); ?>assets/css/sweet_alert.css"></script> -->
 <link href="<?= base_url(); ?>assets/backend/css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
@@ -61,7 +64,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Product <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
 									<li>
-										<a href="<?= base_url(); ?>admin/add_new_product">Add</a>
+										<p>
+											<a href="<?= base_url(); ?>admin/add_new_product">Add</a>
+										</p>
 									</li>
 									<li>
 										<a href="<?= base_url(); ?>admin/product_list">All</a>

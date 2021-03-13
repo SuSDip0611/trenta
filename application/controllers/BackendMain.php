@@ -34,10 +34,6 @@ class BackendMain extends CI_Controller {
 	 */
 	function isLoggedIn() {
 		$isLoggedIn = $this->session->userdata ( 'isLoggedIn' );
-		// echo "<pre>";
-		// print_r($this->session->userdata());
-		// echo "<pre>";
-		// exit();
 		
 		if (! isset ( $isLoggedIn ) || $isLoggedIn != TRUE) {
 			redirect ( 'admin' );

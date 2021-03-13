@@ -1,4 +1,6 @@
 # Codeigniter files
 
 application/config/database.php
+assets/backend/images/category_image/*
+assets/backend/images/product_images/*
 .htaccess

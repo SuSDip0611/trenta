@@ -1,14 +1,14 @@
 
 <!-- Main content -->
 <div class="content-wrapper">
-  <section class="content-header">
-        <h1>
-          <i class="fa fa-list"></i> All categories
-          <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_category'); ?>">
-            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add New category
-          </a>
-        </h1>
-      </section>
+  <section class="content-header content-header-alignment">
+    <h1>
+      <i class="fa fa-list"></i> <?= $pageTitle; ?>
+      <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_category'); ?>">
+        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add New category
+      </a>
+    </h1>
+  </section>
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
@@ -34,7 +34,7 @@
                     <td class="text-center"><?php echo $count;?></td>
                     <td class="text-center"><?php echo $category->category_name;?></td>
                     <td class="text-center">
-                      <a href="<?= base_url('edit_category_page') ?>?id=<?php echo base64_encode($id); ?>" 
+                      <a href="<?= base_url('admin/edit_category') ?>?id=<?php echo base64_encode($id); ?>" 
                         class="btn common_btn_class staff-edit" data-vid="<?php echo base64_encode($id);?>"
                       >
                         <i class="fa fa-pencil" aria-hidden="true"></i>

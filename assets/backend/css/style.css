@@ -3899,3 +3899,16 @@ ul.nofitications-dropdown {
 .pip{
   margin-right: 1rem;
 }
+
+.old_img_div{
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.content-header-alignment{
+  margin-bottom: 41px;
+}
+
+.required-star{
+  color: red;
+}

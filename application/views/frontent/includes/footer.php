@@ -126,5 +126,10 @@
 	<script src="<?= base_url(); ?>assets/frontent/js/easing.js"></script>
 	<!-- Active JS -->
 	<script src="<?= base_url(); ?>assets/frontent/js/active.js"></script>
+
+	<script src="<?= base_url(); ?>assets/frontent/js/custom.js"></script>
+	<script>
+        var baseurl ='<?php echo base_url(); ?>';
+    </script>
 </body>
 </html>

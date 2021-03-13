@@ -1,9 +1,9 @@
 
 <!-- Main content -->
 <div class="content-wrapper">
-  <section class="content-header">
+  <section class="content-header content-header-alignment">
         <h1>
-          <i class="fa fa-list"></i> All Products
+          <i class="fa fa-list"></i> <?= $pageTitle; ?>
           <a class="btn common_btn_class pull-right" href="<?php echo base_url('/admin/add_new_product'); ?>">
             <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add New Product
           </a>
@@ -34,11 +34,11 @@
                   ?>
                   <tr>
                     <td class="text-center"><?php echo $count;?></td>
-                    <td class="text-center"><?php echo $product->praduct_name;?></td>  
+                    <td class="text-center"><?php echo $product->product_name;?></td>  
                     <td class="text-center"><?php echo $product->description;?></td>  
                     <td class="text-center"><?php echo $product->rating;?></td>
                     <td class="text-center">
-                      <a href="<?= base_url('edit_product_page') ?>?id=<?php echo base64_encode($id); ?>" 
+                      <a href="<?= base_url('admin/edit_product') ?>?id=<?php echo base64_encode($id); ?>" 
                         class="btn common_btn_class staff-edit" data-vid="<?php echo base64_encode($id);?>"
                       >
                         <i class="fa fa-pencil" aria-hidden="true"></i>
