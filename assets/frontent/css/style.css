@@ -245,22 +245,12 @@ Version:1.0
 }
 /* Logo */
 .header .logo {
-<<<<<<< HEAD
   float: left;
   margin-top: 35px;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
   width: 200px;
-=======
-	float: left;
-	margin-top: 35px;
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	transition: all 0.4s ease;
-	width: 200px;
-
->>>>>>> 8c24964ca3a3b8e3f7749271894a1aa2db475ac5
 }
 .header .navbar {
   padding: 0;
@@ -4999,32 +4989,16 @@ Version:1.0
 }
 
 .crop img {
-<<<<<<< HEAD
   width: 263px;
   height: 300px;
   margin: -75px 0 0 -100px;
 }
-
-/* Product Slider */
-=======
-    width: 263px;
-    height: 300px;
-    margin: -75px 0 0 -100px;
-}
-
->>>>>>> 8c24964ca3a3b8e3f7749271894a1aa2db475ac5
 .row_container {
   max-width: 1400px;
   margin: auto;
 }
-<<<<<<< HEAD
-/* .row_container .owl-item {
-  width: 250px !important;
-} */
-=======
-.productAlignment{
-	display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.productAlignment {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
->>>>>>> 8c24964ca3a3b8e3f7749271894a1aa2db475ac5
