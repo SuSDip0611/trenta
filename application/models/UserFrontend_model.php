@@ -12,12 +12,6 @@ class UserFrontend_model extends CI_Model
     public function get_category_products($cat_id)
     {
         $is_deleted = 0;
-
-        // echo "<pre>";
-        // print_r($cat_id);
-        // echo "</pre>";
-        // exit();
-
         $this->db
             ->select('*')
             ->from('tbl_products')
@@ -29,5 +23,38 @@ class UserFrontend_model extends CI_Model
         
         return $query->result();
     }
+
+    public function getAllCategory()
+    {
+        // $query = $this->db->get_where('tbl_categories', array('is_deleted' => '0'));
+        $this->db->select("*");
+        $this->db->from("tbl_categories");
+        $this->db->where(array('is_deleted' => '0'));
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get();  
+
+
+        if($query->num_rows() > 0) {
+            return $query->result();
+        }else{
+            return false;
+        }
+    }
+
+    // public function getAllProductBycategory($catId)
+    // {
+    //     // $query = $this->db->
+    //     $this->db->select("*");
+    //     $this->db->from("tbl_products");
+    //     $this->db->where(array('is_deleted' => '0', 'category' => $catId));
+    //     $this->db->order_by("id", "desc");
+    //     $query = $this->db->get();
+
+    //     if($query->num_rows() > 0) {
+    //         return $query->result();
+    //     }else{
+    //         return false;
+    //     }
+    // }
 
 }

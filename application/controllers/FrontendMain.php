@@ -9,5 +9,13 @@ class FrontendMain extends CI_Controller {
 		$this->load->view('frontent/includes/footer');
     }
 
+    function isUser() {
+		if (2 == ROLE_USER) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
     
 }
