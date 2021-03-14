@@ -1,1 +1,3 @@
-<h1>Hello</h1>
+<section class="mainBody">
+    
+</section>
