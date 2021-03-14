@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
 	<!-- Meta Tag -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title Tag  -->
-    <title>Treanta</title>
+	<title>Treanta</title>
 	<!-- Favicon -->
 	<!-- <link rel="icon" type="image/png" href="<?= base_url(); ?>assets/frontent/images/favicon.png"> -->
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-	
+
 	<!-- StyleSheet -->
-	
+
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/bootstrap.css">
 	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/magnific-popup.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/magnific-popup.min.css">
 	<!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/font-awesome.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/font-awesome.css">
 	<!-- Fancybox -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/jquery.fancybox.min.css">
 	<!-- Themify Icons -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/themify-icons.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/themify-icons.css">
 	<!-- Nice Select CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/niceselect.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/niceselect.css">
 	<!-- Animate CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/animate.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/animate.css">
 	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
 	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/owl-carousel.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/owl-carousel.css">
 	<!-- Slicknav -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
-	
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
+
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/lightslider.css">
 	<!-- Eshop StyleSheet -->
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/reset.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/style.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/responsive.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/responsive.css">
 
-	
-	
+
+
 </head>
+
 <body class="js">
-	
+
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -57,8 +60,8 @@
 		</div>
 	</div>
 	<!-- End Preloader -->
-	
-	
+
+
 	<!-- Header -->
 	<header class="header shop">
 		<!-- Topbar -->
@@ -258,13 +261,13 @@
 							<div class="menu-area">
 								<!-- Main Menu -->
 								<nav class="navbar navbar-expand-lg">
-									<div class="navbar-collapse">	
-										<div class="nav-inner">	
+									<div class="navbar-collapse">
+										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="#">Home</a></li>
-													<li><a href="#">Product</a></li>												
-													<!-- <li><a href="#">Service</a></li> -->
-													<!-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+												<li class="active"><a href="#">Home</a></li>
+												<li><a href="#">Product</a></li>
+												<!-- <li><a href="#">Service</a></li> -->
+												<!-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="shop-grid.html">Shop Grid</a></li>
 															<li><a href="cart.html">Cart</a></li>
@@ -277,12 +280,13 @@
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 														</ul>
 													</li>
- -->													<li><a href="#">Contact Us</a></li>
-												</ul>
+ -->
+												<li><a href="#">Contact Us</a></li>
+											</ul>
 										</div>
 									</div>
 								</nav>
-								<!--/ End Main Menu -->	
+								<!--/ End Main Menu -->
 							</div>
 						</div>
 					</div>
