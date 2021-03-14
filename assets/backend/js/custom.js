@@ -54,7 +54,7 @@ $(document).ready(function() {
             fileReader.onload = (function(e) {
               var file = e.target;
               $("<span class=\"pip\">" +
-                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=200px height=200px/>" +
+                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=100px height=100px/>" +
                 "</span>").insertAfter("#screenshots");
               /*$(".remove").click(function(){
                 $(this).parent(".pip").remove();
@@ -68,7 +68,7 @@ $(document).ready(function() {
     } 
 
     //Save product
-    $(document).on("click", ".save_new_product_btn", function(e){
+    /*$(document).on("click", ".save_new_product_btn", function(e){
         var form = $('#save_new_product_form')[0];
 
         var formData = new FormData(form);
@@ -97,7 +97,7 @@ $(document).ready(function() {
         });        
         // console.log('cat_name: ', cat_name);
         
-    });
+    });*/
 
     //Save product
     $(document).on("click", ".edit_product_btn", function(e){
@@ -312,6 +312,145 @@ $(document).ready(function() {
              }
         });
     });
+
+
+    $(document).on('click','#add_new_div_btn',function(e){
+        e.preventDefault();
+        var box_count = $('#box_count').val();
+		// alert(box_count);return;
+		box_count ++;
+		$('#box_count').val(box_count);
+
+		var html =`
+            <div class="my_box" id="box_loop_`+box_count+`">
+                <div class="p_dtl_div">
+                    <div class="col-md-11 ">
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="imagefiles">Product Image <span class="required-star">*</span></label>
+                                <input type="file" class="form-control file-control file-input" id="imagefiles" name="product_images[]" accept="image/*" multiple required> 
+                                <div class="preview_div clearfix">
+                                    <label for="" id="screenshots"></label>
+                                </div>
+                            </div>									
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="size">Size <span class="required-star">*</span></label> 
+                                <input type="number" class="form-control" id="size" name="size" placeholder="Enter size" required> 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="color">Choose color <span class="required-star">*</span></label> 
+                                <input type="color" class="form-control" id="color" name="color" placeholder="Enter color" required> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 add_new_div">
+                        <div class="button_box">
+                        <button type="button" class="btn btn-danger btn-block" name='submit' id='remove_div_btn' data-remove_indx="`+box_count+`"><i class="fa fa-minus"></i></button>
+                        </div>					
+                    </div>
+                </div>
+			</div>
+
+		`;
+            
+        $(".p_dtl_div").append(html);
+
+
+	});
+
+	$(document).on('click','#remove_div_btn',function(){
+        var remove_indx = $(this).data('remove_indx');
+		// console.log('box_count', remove_indx);return;
+		$("#box_loop_"+remove_indx).remove();
+		var box_count = $('#box_count').val();
+		box_count --;
+		$('#box_count').val(box_count);
+	});
+
+
+    /*VUE Start*/
+	var obj = {
+        foo: 'bar'
+    }
+    new Vue({
+        el: '#app',
+        data: {
+            Details: []
+        },
+        methods: {
+            saveProductDetails: function() {
+                
+				var form = $('#save_new_product_form')[0];
+		        var product_data = JSON.stringify(this.Details);
+
+                var formData = new FormData(form);
+		        formData.append('product_data',product_data);
+
+                $.ajax({
+		            type: "POST",
+		            dataType : "json",
+		            enctype: 'multipart/form-data',
+		            url: baseurl + "/admin/save_new_product",
+		            data: formData,
+		            processData: false,
+		            contentType: false,
+		            cache: false,
+		            timeout: 800000,
+		        }).done(function(data){
+					if (data.status = true) {
+                        swal("Done",data.msg,"success");
+                        setTimeout(function(){
+                            window.location.replace(baseurl+'/admin/product_list');
+                        },1000)
+                    }else {
+                        $('#myModal').modal('toggle');
+                        swal("Error",data.msg,"error");
+                    }
+		        });
+
+            },
+
+            addMoreDetails: function(i) {
+                this.Details.push({
+                    product_images: [{
+                        images:[]
+                    }],
+                    product_size:[{
+                        name: ''
+                    }],
+                    product_color: [{
+                        color: ''
+                    }],
+                });
+            },
+
+            removeDetails: function(i) {
+				this.Details.splice(i, 1);
+			},
+        },
+        created: function () {
+
+            this.Details.push({
+                product_images: [{
+                    images:[]
+                }],
+                product_size:[{
+                    name: ''
+                }],
+                product_color: [{
+                    color: ''
+                }],
+            });
+        }
+    });
+    /* VUE End*/
+
+
+
 
     $('.datatable').DataTable();
 });

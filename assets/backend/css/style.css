@@ -3912,3 +3912,18 @@ ul.nofitications-dropdown {
 .required-star{
   color: red;
 }
+
+.prd_dtl_div{
+  background: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  margin: 0.8rem;
+}
+
+.add_new_div{
+  margin-top: 1.3rem;
+}
+
+.details_div{
+  margin-bottom: 2rem;
+}
