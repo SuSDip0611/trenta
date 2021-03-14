@@ -28,11 +28,6 @@ class UserFrontend extends FrontendMain
             
             $value->images = $unserImgs;
         }
-        
-        // echo "<pre>";
-        // print_r($products);
-        // echo "</pre>";
-        // exit();
 
         $this->global['pageTitle'] = 'Home';
     	$this->global['products'] = $products;
@@ -63,19 +58,39 @@ class UserFrontend extends FrontendMain
 
     public function displayCategory(){
         // echo "string";
-        $this->global['pageTitle'] = 'Category';
-        $this->load_view('frontent/category', $this->global, NULL, NULL);
+        if($this->isUser() == FALSE) {
+            $this->index();
+        }else{
+            $result =  $this->UserFrontend_model->getAllCategory();
+            $this->global['pageTitle'] = 'Category';
+            $this->global['result'] = $result;
+            $this->load_view('frontent/category', $this->global, NULL, NULL);
+        }
     }
 
     public function displayProducts(){
         // echo "string";
-        $this->global['pageTitle'] = 'Products';
-        $this->load_view('frontent/products', $this->global, NULL, NULL);
+        if($this->isUser() == FALSE) {
+            $this->index();
+        }else{
+
+            $catId = $this->security->xss_clean(base64_decode($this->input->get('id')));
+            // $result = $this->UserFrontend_model->getAllProductBycategory($catId);
+            $products = $this->UserFrontend_model->get_category_products($catId);
+            
+            $this->global['pageTitle'] = 'Products';
+            $this->global['result'] = $products;
+            $this->load_view('frontent/products', $this->global, NULL, NULL);
+        }
     }
     public function displayProductDetails(){
         // echo "string";
-        $this->global['pageTitle'] = 'Product Details';
-        $this->load_view('frontent/productsDetails', $this->global, NULL, NULL);
+        if($this->isUser() == FALSE) {
+            $this->index();
+        }else{
+            $this->global['pageTitle'] = 'Product Details';
+            $this->load_view('frontent/productsDetails', $this->global, NULL, NULL);
+        }
     }
 }
 
