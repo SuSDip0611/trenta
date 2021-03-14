@@ -5069,6 +5069,7 @@ Version:1.0
 .productPricing{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .productPrice,.productDiscount{
   color: #000;
