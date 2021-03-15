@@ -1,39 +1,39 @@
-$(document).ready(function() {
-    
-    $(document).on("click", ".getDetailsByCatId", function(e){
-        
+$(document).ready(function () {
+
+    $(document).on("click", ".getDetailsByCatId", function (e) {
+
         e.preventDefault();
         var category_id = $(this).data("category_id");
-        
+
         $('.category-button li a.active').removeClass('active');
         $(this).addClass('active');
 
         jQuery.ajax({
-            type : "POST",
-            dataType : "json",
-            url : baseurl + "/get_category_products",
-            data : {  
-                category_id : category_id,
+            type: "POST",
+            dataType: "json",
+            url: baseurl + "/get_category_products",
+            data: {
+                category_id: category_id,
             },
 
-            success: function(data) {
+            success: function (data) {
 
                 if (data.success = true) {
 
-                    if(data.result.length>0){
+                    if (data.result.length > 0) {
 
                         $('.prodDiv').html('');
 
                         var html = '';
                         $.each(data.result, function (index, element) {
-                            
+
                             html = `
                                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                     <div class="single-product">
                                         <div class="product-img">
                                             <a href="#" class="">
-                                                <img class="default-img" src="`+baseurl+`assets/backend/images/product_images/`+element.id+`/`+element.images[0]+`" alt="Images">
-                                                <img class="hover-img" src="`+baseurl+`assets/backend/images/product_images/`+element.id+`/`+element.images[0]+`" alt="Images">
+                                                <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.images[0] + `" alt="Images">
+                                                <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.images[0] + `" alt="Images">
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">
@@ -47,7 +47,7 @@ $(document).ready(function() {
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <h3><a href="#">`+element.product_name+`</a></h3>
+                                            <h3><a href="#">`+ element.product_name + `</a></h3>
                                             <div class="product-price">
                                                 <span>$29.00</span>
                                             </div>
@@ -60,14 +60,34 @@ $(document).ready(function() {
 
                         });
 
-                    }else{
+                    } else {
                         $('.prodDiv').html('');
                         $('.prodDiv').append('No product added for this category');
                     }
-                    
+
                 }
 
             }
         })
+    });
+});
+
+
+$(document).ready(function () {
+    $("#content-slider").lightSlider({
+        loop: true,
+        keyPress: true
+    });
+    $('#image-gallery').lightSlider({
+        gallery: true,
+        item: 1,
+        thumbItem: 9,
+        slideMargin: 0,
+        speed: 500,
+        auto: true,
+        loop: true,
+        onSliderLoad: function () {
+            $('#image-gallery').removeClass('cS-hidden');
+        }
     });
 });

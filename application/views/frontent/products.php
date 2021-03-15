@@ -24,7 +24,7 @@
                         <div class="productPricing">
                             <p class="productPrice">₹ 499</p>
                             <p class="productMrp ml-2">Rs. 999</p>
-                            <p class="productDiscount ml-2">Rs. 499</p>
+                            <p class="productDiscount ml-2">64% off</p>
                         </div>
                     </div>
                 </a>
