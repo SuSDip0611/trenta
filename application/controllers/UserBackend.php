@@ -37,64 +37,77 @@ class UserBackend extends BackendMain {
         $stat = '';
         $msg = '';
         $res = array();
-
-        $size = $this->input->post('size');
-        $color = $this->input->post('color');
-        $rating = $this->input->post('rating');
-        $comment = $this->input->post('comment');
+        
+        // $status = '';
+        $price = $this->input->post('price');
         $category = $this->input->post('category');
         $description = $this->input->post('description');
         $praduct_name = $this->input->post('praduct_name');
 
-        if ($size != 0 && $color != '' && $rating != '' && $comment != '' && $description != '' && $praduct_name != '' && $category != 0) {
+
+        if ($price != '' && $description != '' && $praduct_name != '' && $category != 0) {
         	$flag = true;
         }else{$flag = false;}
 
         if ($flag) {
 
         	$product_data = array(
-        		'size' => $size,
-        		'color' => $color,
         		'is_deleted' => 0,
-        		'rating' => $rating,
-        		'comment' => $comment,
+        		'price' => $price,
         		'category' => $category,
         		'description' => $description,
         		'product_name' => $praduct_name,
-        		'created_at' => date('d-m-Y H:i:s')
+        		'created_at' => date('d-m-Y H:i:s'),
+        		'size' => serialize($this->input->post('product_size')),
         	);
 
         	$last_id = $this->UserBackend_model->save_new_product($product_data);
 
         	if ($last_id) {
+
+                $status = '';
+                $color_arr = $this->input->post('product_color');
+
+                foreach ($color_arr as $cl_key => $color) {
+
+                    
+                    $last_color_id = $this->UserBackend_model->save_product_color($last_id, $color);
+
+                    if ($last_color_id) {
+                        
+                        $img_status = $this->upload_multiple_img(($cl_key+1), $last_color_id, $last_id);
+        
+                        if ($img_status) {
+    
+                            $stat = $this->UserBackend_model->save_product_images($last_id, $last_color_id, serialize($img_status));
+        
+                        }else{
+                            $stat = false;
+                            $msg = 'Please select image files to upload on details part '.($cl_key+1);
+                            $res['status'] = $stat;
+                            $res['msg'] = $msg;
+                            exit;
+                        }
+
+                    }
+
+                    $status = true;
+
+                }
+                
+                
+                if ($status) {
+                    $stat = true;
+                    $msg = 'New Product Added';
+                    $res['status'] = $stat;
+                    $res['msg'] = $msg;
+                }else{
+                    $stat = error;
+                    $msg = 'Something went wrong, try again later';
+                    $res['status'] = $stat;
+                    $res['msg'] = $msg;
+                }
         		
-	        	$img_status = $this->upload_multiple_img($last_id);
-
-	        	if ($img_status) {
-
-	        		$prdt_images = array(
-	        			'images' => serialize($img_status)
-	        		);
-
-	        		$status = $this->UserBackend_model->update_product($last_id, $prdt_images);
-
-	        		if ($status) {
-	        			$stat = true;
-                        $msg = 'New Product Added';
-                        $res['status'] = $stat;
-                        $res['msg'] = $msg;
-	        		}else{
-	        			$stat = error;
-		                $msg = 'Something went wrong, try again later';
-		                $res['status'] = $stat;
-		                $res['msg'] = $msg;
-	        		}
-	        	}else{
-	        		$stat = false;
-		            $msg = 'Please select image files to upload';
-		            $res['status'] = $stat;
-		            $res['msg'] = $msg;
-	        	}
         	}else{
         		$stat = error;
                 $msg = 'Something went wrong, try again later';
@@ -273,23 +286,23 @@ class UserBackend extends BackendMain {
 
     }
 
-    public function upload_multiple_img($last_id)
+    public function upload_multiple_img($index, $color_id, $last_id)
     {
-    	if(!empty($_FILES['product_images']['name']) && count(array_filter($_FILES['product_images']['name'])) > 0){ 
+    	if(!empty($_FILES['product_image_'.$index]['name']) && count(array_filter($_FILES['product_image_'.$index]['name'])) > 0){ 
             
             $pd_imgs = array();
-            $filesCount = count($_FILES['product_images']['name']); 
+            $filesCount = count($_FILES['product_image_'.$index]['name']); 
 
             for($i = 0; $i < $filesCount; $i++){ 
-                $_FILES['prd_img']['name']     = $_FILES['product_images']['name'][$i]; 
-                $_FILES['prd_img']['type']     = $_FILES['product_images']['type'][$i]; 
-                $_FILES['prd_img']['tmp_name'] = $_FILES['product_images']['tmp_name'][$i]; 
-                $_FILES['prd_img']['error']     = $_FILES['product_images']['error'][$i]; 
-                $_FILES['prd_img']['size']     = $_FILES['product_images']['size'][$i]; 
+                $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
+                $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
+                $_FILES['prd_img']['tmp_name'] = $_FILES['product_image_'.$index]['tmp_name'][$i]; 
+                $_FILES['prd_img']['error']     = $_FILES['product_image_'.$index]['error'][$i]; 
+                $_FILES['prd_img']['size']     = $_FILES['product_image_'.$index]['size'][$i]; 
                 
                 
                 // File upload configuration 
-                $uploadPath = './assets/backend/images/product_images/'.$last_id; 
+                $uploadPath = './assets/backend/images/product_images/'.$last_id.'/'.$color_id; 
 
                 //Create new folder if it is not exist
                 if (!is_dir($uploadPath)) {
@@ -316,7 +329,7 @@ class UserBackend extends BackendMain {
                     $pd_imgs[] = $fileData['file_name'];
                 }else{ 
 
-                    $errorUploadType .= $_FILES['product_images']['name'].' | ';   
+                    $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
                 	return false; 
                 } 
             } 
