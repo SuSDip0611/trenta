@@ -712,6 +712,7 @@
 		</script>
 		<!-- //status -->
 		<script src="<?php echo base_url(); ?>assets/backend/js/sweetalert.min.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
 		<script>
 	        var baseurl ='<?php echo base_url(); ?>';
 	    </script>
