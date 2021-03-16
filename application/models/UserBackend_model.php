@@ -96,6 +96,33 @@ class UserBackend_model extends CI_Model
         return $insert_id;
 	}
 
+    public function save_product_color($product_id, $color)
+    {
+        $data_arr = array(
+            'product_id' => $product_id,
+            'colors' => $color,
+        );
+
+        $isInsert = $this->db->insert('tbl_product_colors', $data_arr);
+        $insert_id = $this->db->insert_id();
+
+        return $insert_id;
+    }
+
+    public function save_product_images($product_id, $product_color_id, $images)
+    {
+        $data_arr = array(
+            'product_id' => $product_id,
+            'product_color_id' => $product_color_id,
+            'images' => $images,
+        );
+
+        $isInsert = $this->db->insert('tbl_product_imgs', $data_arr);
+        $insert_id = $this->db->insert_id();
+
+        return $insert_id;
+    }
+
 	public function get_category_list()
 	{
 		$is_deleted = 0;

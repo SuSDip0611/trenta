@@ -14,7 +14,7 @@
             
 
             ?>
-                <a class="productCard card">
+                <a class="productCard p-3 wfc card">
                     <div class="productImage">
                         <img class="" src="<?= $imagesPath ?>">
                     </div>

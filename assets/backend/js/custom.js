@@ -36,29 +36,24 @@ $(function() {
 });
 
 $(document).ready(function() {
-    // console.log('baseUrl', baseUrl);
-    // console.log('window.location.origin', window.location.origin);
-        
-    // var baseurl=window.location.origin+'/trenta';
 
     /* Image preview */
     if (window.File && window.FileList && window.FileReader) {
         $("#imagefiles").on("change", function(e) {
-          var files = e.target.files,
+            var box_count = $('#box_count').val();
+            var files = e.target.files,
             filesLength = files.length;
-            $('.pip').remove();
+            // console.log(files);
+            // $('.pip_'.box_count).remove();
           for (var i = 0; i < filesLength; i++) {
             var count = i;
             var f = files[i]
             var fileReader = new FileReader();
             fileReader.onload = (function(e) {
               var file = e.target;
-              $("<span class=\"pip\">" +
-                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=100px height=100px/>" +
-                "</span>").insertAfter("#screenshots");
-              /*$(".remove").click(function(){
-                $(this).parent(".pip").remove();
-              }); */         
+              $("<span class=\"pip_"+box_count+"\">" +
+                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=50px height=50px/>" +
+                "</span>").insertAfter("#screenshots_".box_count);
             });
             fileReader.readAsDataURL(f);
           }
@@ -67,8 +62,80 @@ $(document).ready(function() {
         console.log("Your browser doesn't support to File API")
     } 
 
+
+    $(document).on("click", "#add_new_div_btn", function(e){
+		// alert(200);
+		var box_count = $('#box_count').val();
+		box_count ++;
+		$('#box_count').val(box_count);
+
+
+		var html = `
+			<div class="my_box" id="box_loop_`+box_count+`">
+                <div class="col-md-12 ">
+                    <div class="row">
+                        <div class="col-md-11 text-center" style="margin-top: 5px;">
+                            <label> Product Details</label>
+                        </div>
+                        <div class="col-md-1 tsk-btn">
+                            <div class="add_step" style="cursor: pointer;font-size: 25px;">
+                                <i class="fa fa-minus-circle" aria-hidden="true" data-index=`+box_count+` id='remove_new_div_btn' title='Remove new details' ></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details_div">
+                        <div class="col-md-11 p_dtl_div">
+                            <div class="col-md-4">
+                                <div class="form-group" > 
+                                    <label for="imagefiles">Product Image <span class="required-star">*</span></label>
+                                    <input type="file"
+                                        id="imagefiles"
+                                        class="form-control file-control file-input" 
+                                        accept="image/*"
+                                        name="product_image_`+box_count+`[]"
+                                        multiple 
+                                        required
+                                    > 
+                                    <div class="clearfix screenshots_div">
+                                        <label for="" id="screenshots_`+box_count+`"></label>
+                                    </div>
+                                </div>									
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" > 
+                                    <label for="size">Size <span class="required-star">*</span></label> 
+                                    <input type="number" class="form-control" id="size" name="product_size[]" placeholder="Enter size" required> 
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" > 
+                                    <label for="color">Choose color <span class="required-star">*</span></label> 
+                                    <input type="color" class="form-control" id="color" name="product_color[]" placeholder="Enter color" required> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>					
+                </div>
+                            
+			</div>
+
+			`;
+        $(".prd_dtl_div").append(html);
+
+
+	});
+
+	$(document).on("click", "#remove_new_div_btn", function(e){
+        var box_count = $(this).data('index');
+		console.log('box_count', box_count);
+		$("#box_loop_"+box_count).remove();
+		var box_count = $('#box_count').val();
+		box_count --;
+		$('#box_count').val(box_count);
+	});
+
     //Save product
-    /*$(document).on("click", ".save_new_product_btn", function(e){
+    $(document).on("click", ".save_new_product_btn", function(e){
         var form = $('#save_new_product_form')[0];
 
         var formData = new FormData(form);
@@ -97,7 +164,7 @@ $(document).ready(function() {
         });        
         // console.log('cat_name: ', cat_name);
         
-    });*/
+    });
 
     //Save product
     $(document).on("click", ".edit_product_btn", function(e){
@@ -314,66 +381,12 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('click','#add_new_div_btn',function(e){
-        e.preventDefault();
-        var box_count = $('#box_count').val();
-		// alert(box_count);return;
-		box_count ++;
-		$('#box_count').val(box_count);
-
-		var html =`
-            <div class="my_box" id="box_loop_`+box_count+`">
-                <div class="p_dtl_div">
-                    <div class="col-md-11 ">
-                        <div class="col-md-4">
-                            <div class="form-group"> 
-                                <label for="imagefiles">Product Image <span class="required-star">*</span></label>
-                                <input type="file" class="form-control file-control file-input" id="imagefiles" name="product_images[]" accept="image/*" multiple required> 
-                                <div class="preview_div clearfix">
-                                    <label for="" id="screenshots"></label>
-                                </div>
-                            </div>									
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group"> 
-                                <label for="size">Size <span class="required-star">*</span></label> 
-                                <input type="number" class="form-control" id="size" name="size" placeholder="Enter size" required> 
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group"> 
-                                <label for="color">Choose color <span class="required-star">*</span></label> 
-                                <input type="color" class="form-control" id="color" name="color" placeholder="Enter color" required> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1 add_new_div">
-                        <div class="button_box">
-                        <button type="button" class="btn btn-danger btn-block" name='submit' id='remove_div_btn' data-remove_indx="`+box_count+`"><i class="fa fa-minus"></i></button>
-                        </div>					
-                    </div>
-                </div>
-			</div>
-
-		`;
-            
-        $(".p_dtl_div").append(html);
 
 
-	});
-
-	$(document).on('click','#remove_div_btn',function(){
-        var remove_indx = $(this).data('remove_indx');
-		// console.log('box_count', remove_indx);return;
-		$("#box_loop_"+remove_indx).remove();
-		var box_count = $('#box_count').val();
-		box_count --;
-		$('#box_count').val(box_count);
-	});
 
 
     /*VUE Start*/
-	var obj = {
+	/*var obj = {
         foo: 'bar'
     }
     new Vue({
@@ -428,6 +441,30 @@ $(document).ready(function() {
                 });
             },
 
+            preView: function(e) {
+                // console.log('e: ', e);
+                var idx = event.target.getAttribute('data-id');
+                console.log('idx: ', idx);
+                var files = e.target.files,
+                filesLength = files.length;
+                $('.pip'+idx).remove();
+                for (var i = 0; i < filesLength; i++) {
+                    var count = i;
+                    var f = files[i]
+                    var fileReader = new FileReader();
+                    fileReader.onload = (function(e) {
+                        var file = e.target;
+                        $("<span class=\"pip_"+idx+"\ pre_img\">" +
+                        "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=50px height=50px/>" +
+                        "</span>").insertAfter(".preview_div_"+idx);
+                        // $(".remove").click(function(){
+                        // $(this).parent(".pip").remove();
+                        // });   
+                    });
+                    fileReader.readAsDataURL(f);
+                }
+            },
+
             removeDetails: function(i) {
 				this.Details.splice(i, 1);
 			},
@@ -446,7 +483,7 @@ $(document).ready(function() {
                 }],
             });
         }
-    });
+    });*/
     /* VUE End*/
 
 
