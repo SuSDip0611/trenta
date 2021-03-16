@@ -63,26 +63,14 @@
                 <h7>₹ 999</h7>
             </div>
             <div class="productSize mt-5">
-                <ul class="d-flex">
-                    <li>
-                        <h6>Size</h6>
-                    </li>
-                    <li class="sizeNo">
-                        <a href="">S</a>
-                    </li>
-                    <li class="sizeNo">
-                        <a href="">M</a>
-                    </li>
-                    <li class="sizeNo">
-                        <a href="">L</a>
-                    </li>
-                    <li class="sizeNo">
-                        <a href="">XL</a>
-                    </li>
-                    <li class="sizeNo">
-                        <a href="">XXL</a>
-                    </li>
-                </ul>
+                <div id="sizeSelector" class="d-flex align-items-center">
+                    <h6 class="mr-4">Size</h6>
+                    <button class="btnSelect">1</button>
+                    <button class="btnSelect">2</button>
+                    <button class="btnSelect">3</button>
+                    <button class="btnSelect">4</button>
+                    <button class="btnSelect">5</button>
+                </div>
             </div>
         </div>
     </div>

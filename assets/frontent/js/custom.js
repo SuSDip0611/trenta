@@ -76,7 +76,11 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#content-slider").lightSlider({
         loop: true,
-        keyPress: true
+        keyPress: true,
+        thumbItem: 9,
+        pager: false,
+        prevHtml: '<span><img src="../images/icons/leftW.png"></span> ',
+        nextHtml: '<span><img src="../images/icons/rightW.png"></span>',
     });
     $('#image-gallery').lightSlider({
         gallery: true,
@@ -84,7 +88,7 @@ $(document).ready(function () {
         thumbItem: 9,
         slideMargin: 0,
         speed: 500,
-        auto: true,
+        auto: false,
         loop: true,
         onSliderLoad: function () {
             $('#image-gallery').removeClass('cS-hidden');

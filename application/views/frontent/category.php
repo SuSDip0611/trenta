@@ -10,7 +10,7 @@
             $category_image = isset($singleResult->category_image) && $singleResult->category_image != '' ? $singleResult->category_image : '';
             $category_image_path = base_url().'assets/backend/images/category_image/'.$id.'/'.$category_image;
            ?>
-                <a class="productCard card" href="<?= base_url() ?>products?id=<?php echo base64_encode($id);?>">
+                <a class="productCatCard card" href="<?= base_url() ?>products?id=<?php echo base64_encode($id);?>">
                     <div class="productImage">
                         <img class="img_responsive" src="<?= $category_image_path ?>">
                     </div>

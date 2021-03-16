@@ -789,6 +789,7 @@ Version:1.0
 }
 .header.shop .main-category {
   position: absolute;
+  display: none;
   left: 0;
   top: 64px;
   background: #fff;
@@ -5017,6 +5018,10 @@ Version:1.0
   margin-bottom: 10px;
   padding: 5px;
 }
+.productCatCard {
+  height: 280px;
+  width: 210px;
+}
 .productImage {
   height: calc(100% - 80px);
 }
@@ -5125,4 +5130,33 @@ li.sizeNo {
 .lowerSlider a {
   height: 200px;
   width: 200px;
+}
+.green {
+  color: green;
+}
+.btnSelect {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active,
+.btnSelect:hover {
+  background-color: #666;
+  color: white;
+}
+.btnSelect {
+  margin-right: 15px !important;
+}
+.leftIcon {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+}
+.lSAction > .lSNext {
+  right: -170px !important;
 }
