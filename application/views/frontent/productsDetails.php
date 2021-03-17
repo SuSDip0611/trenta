@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="item mt-5 lowerSlider">
+<div class="item mt-5 lowerSlider">
         <div class="text-center">
             <h6>You may also like this</h6>
         </div>
@@ -130,5 +130,5 @@
                 <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
             </li>
         </ul>
-    </div> -->
+    </div>
 </section>

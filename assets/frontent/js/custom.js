@@ -82,19 +82,7 @@ $(document).ready(function () {
         prevHtml: '<span><img src="../images/icons/leftW.png"></span> ',
         nextHtml: '<span><img src="../images/icons/rightW.png"></span>',
     });
-    $('#image-gallery').lightSlider({
-        gallery: true,
-        item: 1,
-        thumbItem: 9,
-        slideMargin: 0,
-        speed: 500,
-        auto: false,
-        loop: true,
-        vertical: true,
-        onSliderLoad: function () {
-            $('#image-gallery').removeClass('cS-hidden');
-        }
-    });
+  
 });
 
 // Product show
