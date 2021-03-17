@@ -170,12 +170,12 @@ $(document).ready(function() {
             });
         }else {
 
-            $('.old_btns').show();
+            // $('.old_btns').show();
             var box_count = $(this).data('index');
-            console.log('ASD box_count: ',box_count);
+            // console.log('ASD box_count: ',box_count);
     		$("#box_loop_"+box_count).remove();
     		var box_count_new_val = $('#box_count').val();
-    		box_count --;
+    		box_count_new_val --;
     		$('#box_count').val(box_count_new_val);
         }
 	});
