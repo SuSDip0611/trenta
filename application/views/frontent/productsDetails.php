@@ -24,28 +24,59 @@
             <div class="productDname">
                 <h6>Color Block Women Round Neck Multicolor T-Shirt</h6>
             </div>
-            <div class="productPrice">
-                <h7>₹ 999</h7>
+            <div class="productPrice mt-3">
+                <h6>₹ 999</h6>
             </div>
-            <div class="productRating d-flex flex-row align-items-center">
-                <h6 class="mr-4">Rating</h6>
-                <span class=" mr-2 fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+            <div class="productRating d-flex flex-row align-items-center mt-3">
+                <span class="startRating">
+                    <p class="checked">4.5 <span class="fa fa-star checked"></span></p>
+                </span>
+
             </div>
-            <div class="productColor d-flex flex-row flex-wrap align-items-center mt-5">
+            <div class="productOffer mt-4">
+                <h6 class="mr-4">Available offers</h6>
+                <p><strong>Bank Offer</strong>10% off on ICICI Bank Cards, up to ₹300. On orders of ₹150 and above</p>
+                <p><strong>Bank Offer</strong>20% off on HDFC Bank Cards, up to ₹100. On orders of ₹750 and above</p>
+                <p><strong>Bank Offer</strong>50% off on KOTAK Bank Cards, up to ₹30. On orders of ₹50 and above</p>
+                <p><strong>Bank Offer</strong>15% off on SBI Bank Cards, up to ₹300. On orders of ₹15 and above</p>
+                <p><strong>Bank Offer</strong>10% off on DIGIBANK Bank Cards, up to ₹300. On orders of ₹175 and above</p>
+            </div>
+            <div class="productColor d-flex flex-row flex-wrap align-items-center mt-4">
                 <h6 class="mr-4">Color</h6>
                 <ul class="list-group d-flex flex-row">
-                    <li class="list-group-item"><img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" /></li>
-                    <li class="list-group-item"><img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" /></li>
-                    <li class="list-group-item"><img src="<?= base_url() ?>assets/frontent/images/pDetails/pink.jpg" alt="" /></li>
-                    <li class="list-group-item"><img src="<?= base_url() ?>assets/frontent/images/pDetails/green.jpg" alt="" /></li>
-                    <li class="list-group-item"><img src="<?= base_url() ?>assets/frontent/images/pDetails/red.jpg" alt="" /></li>
+                    <li class="list-group-item">
+                        <a href="#" class="text-center">
+                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" />
+                            <p>Black</p>
+                        </a>
+                     </li>
+                    <li class="list-group-item">
+                        <a href="#" class="text-center">
+                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" />
+                            <p>Black</p>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="text-center">
+                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/pink.jpg" alt="" />
+                            <p>Pink</p>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="text-center">
+                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/green.jpg" alt="" />
+                            <p>Green</p>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="text-center">
+                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/red.jpg" alt="" />
+                            <p>Red</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="productSize mt-5">
+            <div class="productSize mt-4">
                 <div id="sizeSelector" class="d-flex align-items-center">
                     <h6 class="mr-4">Size</h6>
                     <button class="btnSelect">1</button>
