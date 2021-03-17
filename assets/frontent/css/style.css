@@ -4877,7 +4877,13 @@ Version:1.0
 	20. Start Footer CSS
 ===============================*/
 .footer {
-  background: #222;
+  background: rgb(94, 119, 183);
+  background: linear-gradient(
+    99deg,
+    rgba(94, 119, 183, 1) 0%,
+    rgba(205, 149, 198, 1) 47%,
+    rgba(255, 248, 118, 1) 100%
+  );
 }
 .footer .about {
   padding-right: 50px;
