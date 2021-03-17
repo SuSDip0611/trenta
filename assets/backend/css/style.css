@@ -3901,6 +3901,8 @@ ul.nofitications-dropdown {
 }
 
 .old_img_div{
+  display: flex;
+  justify-content: space-between;
   margin-top: 1rem;
   margin-left: 1rem;
 }
