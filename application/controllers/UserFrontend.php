@@ -24,11 +24,17 @@ class UserFrontend extends FrontendMain
         $products = $this->UserFrontend_model->get_category_products($first_key);
 
         foreach ($products as $key => $value) {
-            $unserImgs =  unserialize($value->images);
-            
-            $value->images = $unserImgs;
-        }
 
+            // $unserImgs =  unserialize($value->images);
+            $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
+
+            $unserialize_imgs = unserialize($unserImgs->images);
+            
+
+            $value->color = $unserImgs->product_color_id;
+            $value->images = $unserialize_imgs[0];
+        }
+       
         $this->global['pageTitle'] = 'Home';
     	$this->global['products'] = $products;
     	$this->global['categories'] = $categories;
@@ -44,10 +50,19 @@ class UserFrontend extends FrontendMain
         $products = $this->UserFrontend_model->get_category_products($category_id);
 
         foreach ($products as $key => $value) {
-            $unserImgs =  unserialize($value->images);
+            $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
+
+            $unserialize_imgs = unserialize($unserImgs->images);
             
-            $value->images = $unserImgs;
+
+            $value->color = $unserImgs->product_color_id;
+            $value->images = $unserialize_imgs[0];
         }
+
+        /*echo "<pre>";
+        print_r($products);
+        echo "</pre>";
+        exit();*/
 
         $res['status'] = 'success';
         $res['result'] = $products;

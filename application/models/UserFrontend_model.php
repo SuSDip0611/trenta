@@ -41,6 +41,17 @@ class UserFrontend_model extends CI_Model
         }
     }
 
+    public function get_product_imgs($product_id='')
+    {
+        $this->db
+            ->select('*')
+            ->from('tbl_product_imgs')
+        ->where('product_id', $product_id);
+        $query = $this->db->get(); 
+        
+        return $query->row();
+    }
+
     // public function getAllProductBycategory($catId)
     // {
     //     // $query = $this->db->
