@@ -5019,26 +5019,23 @@ Version:1.0
   margin-bottom: 10px;
   padding: 5px;
 }
-<<<<<<< HEAD
-.productCatCard {
+<<<<<<< HEAD .productCatCard {
   height: 280px;
   width: 210px;
 }
-=======
-.productCatCard{
-  -webkit-box-shadow: 0px 0px 13px -2px rgba(186,184,186,1);
--moz-box-shadow: 0px 0px 13px -2px rgba(186,184,186,1);
-box-shadow: 0px 0px 13px -2px rgba(186,184,186,1);
+======= .productCatCard {
+  -webkit-box-shadow: 0px 0px 13px -2px rgba(186, 184, 186, 1);
+  -moz-box-shadow: 0px 0px 13px -2px rgba(186, 184, 186, 1);
+  box-shadow: 0px 0px 13px -2px rgba(186, 184, 186, 1);
 }
 .productCatImage {
   height: 280px;
   width: 210px;
 }
 
->>>>>>> a847ae4d74fb4bfe80c9c22ed3c5c110e9223984
-.productImage {
+>>>>>>>a847ae4d74fb4bfe80c9c22ed3c5c110e9223984 .productImage {
   height: 185.4px;
-  width:  154.5px;
+  width: 154.5px;
 }
 .max_width {
   width: calc(100% - 15%);
@@ -5175,4 +5172,66 @@ li.sizeNo {
 }
 .lSAction > .lSNext {
   right: -170px !important;
+}
+.productColor .list-group-item {
+  width: 100px;
+  height: 105px;
+  padding: 0px !important;
+  margin-right: 5px;
+}
+.productColor .list-group-item:last-child {
+  margin-right: 0px !important;
+}
+.productColor img {
+  width: 100%;
+  height: 100% !important;
+}
+.productThumb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 50px; */
+  padding: 15px;
+  height: 490px;
+  overflow-y: auto;
+}
+.productThumb img {
+  width: 70px !important;
+  margin-bottom: 5px !important;
+}
+.productImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.prdct_img {
+  display: none;
+}
+.active {
+  display: block !important;
+}
+img.prdct_img {
+  width: 100%;
+  height: 100%;
+}
+.productImg {
+  width: 450px;
+  height: 490px;
+  padding: 15px;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.productDetailSection {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* Hover Zoom */
+.block__pic {
+  width: 300px;
+}
+.checked {
+  color: orange;
 }

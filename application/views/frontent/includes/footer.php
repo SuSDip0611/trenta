@@ -128,7 +128,8 @@
 	<script src="<?= base_url(); ?>assets/frontent/js/active.js"></script>
 	<!-- Lightslider JS -->
 	<script src="<?= base_url(); ?>assets/frontent/js/lightslider.js"></script>
-
+	
+	<script src="<?= base_url(); ?>assets/frontent/js/zoomsl.js"></script>
 	<script src="<?= base_url(); ?>assets/frontent/js/custom.js"></script>
 	<script>
         var baseurl ='<?php echo base_url(); ?>';
