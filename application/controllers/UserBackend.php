@@ -504,9 +504,17 @@ class UserBackend extends BackendMain {
         	);
 
         	$last_id = $this->UserBackend_model->save_new_category($category_data);
+        // echo "<pre>";
+        // print_r($last_id);
+        // echo "</pre>";
+        // exit();
 
             if ($last_id) {
                 $img_save_status = $this->upload_single_image($last_id);
+                // echo "<pre>";
+                // print_r($img_save_status);
+                // echo "</pre>";
+                // exit();
 
                 if ($img_save_status) {
 
@@ -702,6 +710,7 @@ class UserBackend extends BackendMain {
 
     public function upload_single_image($id)
     {
+        // $errorUploadType = '';
         if(!empty($_FILES['category_image']['name'])){
             
             $cat_imgs = '';
@@ -720,6 +729,8 @@ class UserBackend extends BackendMain {
                 'encrypt_name' => TRUE,
                 // 'max_size' => "12352048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
             );
+
+
 
             // $config['upload_path'] = $uploadPath; 
             // $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
