@@ -163,8 +163,8 @@
 																<div class="single-product">
 																	<div class="product-img">
 																		<a href="#" class="">
-																			<img class="default-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->images[0]; ?>" alt="#">
-																			<img class="hover-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->images[0]; ?>" alt="#">
+																			<img class="default-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->color.'/'.$prods->images; ?>" alt="#">
+																			<img class="hover-img" src="<?php echo base_url().'assets/backend/images/product_images/'.$prods->id.'/'.$prods->color.'/'.$prods->images; ?>" alt="#">
 																		</a>
 																		<div class="button-head">
 																			<div class="product-action">
