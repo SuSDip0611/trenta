@@ -82,16 +82,27 @@ $(document).ready(function () {
         prevHtml: '<span><img src="../images/icons/leftW.png"></span> ',
         nextHtml: '<span><img src="../images/icons/rightW.png"></span>',
     });
-    $('#image-gallery').lightSlider({
-        gallery: true,
-        item: 1,
-        thumbItem: 9,
-        slideMargin: 0,
-        speed: 500,
-        auto: false,
-        loop: true,
-        onSliderLoad: function () {
-            $('#image-gallery').removeClass('cS-hidden');
-        }
-    });
+  
 });
+
+// Product show
+$(document).ready(function () {
+    });
+    $(".prdct_thumb")
+      .on("mouseenter", function (event) {
+        $(".prdct_img").removeClass("active");
+        productTarget = event.target.id;
+
+        console.log(productTarget);
+        $('[data-product=' + productTarget + ']').addClass('active');
+      })
+      .on("mouseleave", function () {
+      }, false);
+
+//   Hover Zoom
+      $(document).ready(function () {
+        $(".block__pic").imagezoomsl({
+            zoomrange: [3, 3]
+        });
+    });
+    
