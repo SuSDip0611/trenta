@@ -16,7 +16,7 @@
             ?>
                 <a class="productCard p-3 wfc card">
                     <div class="productImage">
-                        <img class="img_responsive" src="<?= $imagesPath ?>">
+                        <img class="" src="<?= $imagesPath ?>">
                     </div>
                     <div class="productText text-center">
                         <h7 class="productName"><?= $product_name; ?></h7>
@@ -24,7 +24,7 @@
                         <div class="productPricing">
                             <p class="productPrice">₹ 499</p>
                             <p class="productMrp ml-2">Rs. 999</p>
-                            <p class="productDiscount ml-2">64% off</p>
+                            <p class="productDiscount green ml-2">64% off</p>
                         </div>
                     </div>
                 </a>

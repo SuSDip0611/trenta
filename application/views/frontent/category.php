@@ -10,8 +10,13 @@
             $category_image = isset($singleResult->category_image) && $singleResult->category_image != '' ? $singleResult->category_image : '';
             $category_image_path = base_url().'assets/backend/images/category_image/'.$id.'/'.$category_image;
            ?>
+<<<<<<< HEAD
+                <a class="productCatCard card" href="<?= base_url() ?>products?id=<?php echo base64_encode($id);?>">
+                    <div class="productImage">
+=======
                 <a class="productCatCard mr-5 mt-3 p-2 card" href="<?= base_url() ?>products?id=<?php echo base64_encode($id);?>">
                     <div class="productCatImage">
+>>>>>>> a847ae4d74fb4bfe80c9c22ed3c5c110e9223984
                         <img class="img_responsive" src="<?= $category_image_path ?>">
                     </div>
                     <div class="productText py-2 text-center">
