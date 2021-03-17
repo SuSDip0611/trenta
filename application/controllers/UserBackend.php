@@ -58,7 +58,6 @@ class UserBackend extends BackendMain {
         		'description' => $description,
         		'product_name' => $praduct_name,
         		'created_at' => date('d-m-Y H:i:s'),
-        		'size' => serialize($this->input->post('product_size')),
         	);
 
         	$last_id = $this->UserBackend_model->save_new_product($product_data);
@@ -67,19 +66,21 @@ class UserBackend extends BackendMain {
 
                 $status = '';
                 $color_arr = $this->input->post('product_color');
+                $size_arr = $this->input->post('product_size');
 
                 foreach ($color_arr as $cl_key => $color) {
-
                     
                     $last_color_id = $this->UserBackend_model->save_product_color($last_id, $color);
 
                     if ($last_color_id) {
                         
+                        $last_size_id = $this->UserBackend_model->save_product_size($last_id, $last_color_id, $size_arr[$cl_key]);
+                        
                         $img_status = $this->upload_multiple_img(($cl_key+1), $last_color_id, $last_id);
         
                         if ($img_status) {
     
-                            $stat = $this->UserBackend_model->save_product_images($last_id, $last_color_id, serialize($img_status));
+                            $s_tat = $this->UserBackend_model->save_product_images($last_id, $last_color_id, serialize($img_status));
         
                         }else{
                             $stat = false;
@@ -92,9 +93,7 @@ class UserBackend extends BackendMain {
                     }
 
                     $status = true;
-
                 }
-                
                 
                 if ($status) {
                     $stat = true;
@@ -137,11 +136,77 @@ class UserBackend extends BackendMain {
 
         $data = $this->UserBackend_model->get_product_details($prod_id_base64decode);
 
+        $colors = $this->UserBackend_model->get_colors($prod_id_base64decode);
+        
+        $f_array = array();
+
+        $f_array['id'] = $data->id;
+        $f_array['product_name'] = $data->product_name;
+        $f_array['category'] = $data->category;
+        $f_array['description'] = $data->description;
+        $f_array['price'] = $data->price;
+
+        if (count($colors) > 0) {
+            foreach ($colors as $c_key => $color) {
+                
+                $main_arr = array();
+
+                $images = $this->UserBackend_model->get_color_images($color->id, $prod_id_base64decode);
+                $sizes = $this->UserBackend_model->get_product_sizes($color->id, $prod_id_base64decode);
+
+                // echo "<pre>";
+                // print_r($sizes->id);
+                // echo "</pre>";
+                
+                $main_arr['image_id'] = $images->id;
+                $main_arr['images'] = unserialize($images->images);
+                $main_arr['size_id'] = $sizes->id;
+                $main_arr['size'] = $sizes->size;
+                $main_arr['color_id'] = $color->id;
+                $main_arr['color'] = $color->colors;
+                
+                
+                
+                $f_array['details'][] = $main_arr;
+            }
+        }else{
+            $f_array['details'] = array();
+        }
+        
         $this->global['pageTitle'] = 'Edit Product';
         $this->global['categories'] = $categories;
-        $this->global['prod_details'] = $data;
+        $this->global['prod_details'] = $f_array;
 
         $this->loadViews('backend/edit_product', $this->global, NULL , NULL);
+    }
+
+    public function remove_product_details()
+    {
+        /*$res['status'] = true;
+        echo json_encode($res);
+        exit;*/
+
+        $size_id = $this->input->post('size_id');
+        $color_id = $this->input->post('color_id');
+        $image_id = $this->input->post('image_id');
+        $product_id = base64_decode($this->input->post('product_id'));
+
+        $data = $this->UserBackend_model->delete_product_color($product_id, $color_id);
+
+        if ($data) {
+            $s_status = $this->UserBackend_model->delete_product_sizes($size_id, $product_id, $color_id);
+            $c_status = $this->UserBackend_model->delete_product_color_images($image_id, $product_id, $color_id);
+        }
+
+        if ($s_status && $c_status) {
+            $res['status'] = true;            
+        }else{
+            $res['status'] = false;                        
+        }
+
+
+        echo json_encode($res);
+        exit;
     }
 
     public function update_product()
@@ -150,74 +215,117 @@ class UserBackend extends BackendMain {
         $stat = '';
         $msg = '';
         $res = array();
-
-        $size = $this->input->post('size');
-        $color = $this->input->post('color');
-        $rating = $this->input->post('rating');
-        $comment = $this->input->post('comment');
+        
+        $price = $this->input->post('price');
         $category = $this->input->post('category');
         $description = $this->input->post('description');
         $id = base64_decode($this->input->post('prod_id'));
         $praduct_name = $this->input->post('praduct_name');
 
-        // echo "<pre>";
-        // print_r($id);
-        // echo "</pre>";
-        // exit();
+        
+        $prod_details = $this->UserBackend_model->get_product_details($id);
 
-        if ($size != 0 && $color != '' && $rating != '' && $comment != '' && $description != '' && $praduct_name != '' && $category != 0) {
-        	$flag = true;
+        if ($price != '' && $description != '' && $praduct_name != '' && $category != 0) {
+            $flag = true;
         }else{$flag = false;}
 
         if ($flag) {
 
-        	$product_data = array(
-        		'size' => $size,
-        		'color' => $color,
-        		'is_deleted' => 0,
-        		'rating' => $rating,
-        		'comment' => $comment,
-        		'category' => $category,
-        		'description' => $description,
-        		'product_name' => $praduct_name,
-        	);
+            $product_data = array(
+                'price' => $price,
+                'category' => $category,
+                'description' => $description,
+                'product_name' => $praduct_name,
+            );
+
 
         	$status = $this->UserBackend_model->update_product($id, $product_data);
 
         	if ($status) {
-        		
-                if(!empty($_FILES['product_images']['name']) && count(array_filter($_FILES['product_images']['name'])) > 0){
-                    $img_status = $this->upload_multiple_img($id);
-                    
-                    if ($img_status) {
-    
-                        $prdt_images = array(
-                            'images' => serialize($img_status)
-                        );
-    
-                        $status = $this->UserBackend_model->update_product($id, $prdt_images);
-    
-                        if ($status) {
-                            $stat = true;
-                            $msg = 'Product details updated successfully';
-                            $res['status'] = $stat;
-                            $res['msg'] = $msg;
+
+                $color_arr = $this->input->post('product_color');
+                $size_arr = $this->input->post('product_size');
+
+                /*echo "<pre>";
+                print_r($_FILES['product_image_4']);
+                echo "</pre>";
+                exit();*/
+
+                if (!empty($color_arr)) {
+
+                    foreach ($color_arr as $cl_key => $color) {
+
+                        /*echo "<pre>";
+                        print_r($cl_key);
+                        echo "</pre>";*/
+
+                        $size_id = $this->input->post('size_id_'.($cl_key+1));
+                        $image_id = $this->input->post('image_id_'.($cl_key+1));
+                        $color_id = $this->input->post('color_id_'.($cl_key+1));
+
+                        if ($color_id && $image_id && $size_id)
+                        {
+                            $color_update_status = $this->UserBackend_model->update_product_color($id, $color_id, $color);
+
+                            $last_size_id = $this->UserBackend_model->update_product_size($id, $color_id, $size_id, $size_arr[$cl_key]);
+
+                            if(
+                                !empty($_FILES['product_image_'.($cl_key+1)]['name']) 
+                                && 
+                                count(array_filter($_FILES['product_image_'.($cl_key+1)]['name'])) > 0
+                            ){
+                                $img_status = $this->upload_multiple_img(($cl_key+1), $color_id, $id);
+                                
+                                if ($img_status) {
+            
+                                    $stat = $this->UserBackend_model->update_product_images($id, $color_id, $image_id, $img_status);
+                                }
+                            }
+
                         }else{
-                            $stat = error;
-                            $msg = 'Something went wrong, try again later';
-                            $res['status'] = $stat;
-                            $res['msg'] = $msg;
+
+                            $last_color_id = $this->UserBackend_model->save_product_color($id, $color); 
+
+                            if ($last_color_id) {
+                                
+                                $last_size_id = $this->UserBackend_model->save_product_size($id, $last_color_id, $size_arr[$cl_key]);
+                                
+                                $img_status = $this->upload_multiple_img(($cl_key+1), $last_color_id, $id);
+
+                                if ($img_status) {
+        
+                                    $s_tat = $this->UserBackend_model->save_product_images($id, $last_color_id, serialize($img_status));
+                
+                                }else{
+                                    $stat = false;
+                                    $msg = 'Please select image files to upload on details part '.($cl_key+1);
+                                    $res['status'] = $stat;
+                                    $res['msg'] = $msg;
+                                    
+                                    echo json_encode($res);
+                                    exit;
+                                }                           
+                            }
+                            
                         }
+
+                        $status = true;
+                    }
+                    // exit();
+                    if ($status) {
+                        $stat = true;
+                        $msg = 'Product updated successfully';
+                        $res['status'] = $stat;
+                        $res['msg'] = $msg;
                     }else{
-                        $stat = false;
-                        $msg = 'Please select image files to upload';
+                        $stat = error;
+                        $msg = 'Something went wrong, try again later';
                         $res['status'] = $stat;
                         $res['msg'] = $msg;
                     }
                 }else{
-                    $stat = true;
-                    $msg = 'Product details updated successfully';
-                    $res['status'] = $stat;
+                    $msg = 'No details entered. Please enter details';
+                    $res['status'] = 'error';
                     $res['msg'] = $msg;
                 }
 
@@ -235,6 +343,11 @@ class UserBackend extends BackendMain {
         	$res['status'] = $star;
         	$res['msg'] = $msg;        	
         }
+
+        /*echo "<pre>";
+        print_r($res);
+        echo "</pre>";
+        exit();*/
 
         echo json_encode($res);
         exit;
@@ -288,6 +401,9 @@ class UserBackend extends BackendMain {
 
     public function upload_multiple_img($index, $color_id, $last_id)
     {
+        echo "<pre>";
+        print_r($index);
+        echo "</pre>";
     	if(!empty($_FILES['product_image_'.$index]['name']) && count(array_filter($_FILES['product_image_'.$index]['name'])) > 0){ 
             
             $pd_imgs = array();

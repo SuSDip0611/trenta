@@ -65,6 +65,7 @@ $(document).ready(function() {
 
     $(document).on("click", "#add_new_div_btn", function(e){
 		// alert(200);
+        $('.old_btns').hide();
 		var box_count = $('#box_count').val();
 		box_count ++;
 		$('#box_count').val(box_count);
@@ -79,7 +80,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-md-1 tsk-btn">
                             <div class="add_step" style="cursor: pointer;font-size: 25px;">
-                                <i class="fa fa-minus-circle" aria-hidden="true" data-index=`+box_count+` id='remove_new_div_btn' title='Remove new details' ></i>
+                                <i class="fa fa-minus-circle" aria-hidden="true" data-edit_mode="false" data-index=`+box_count+` id='remove_new_div_btn' title='Remove new details' ></i>
                             </div>
                         </div>
                     </div>
@@ -115,23 +116,68 @@ $(document).ready(function() {
                             </div>
                         </div>
                     </div>					
-                </div>
-                            
+                </div>         
 			</div>
+		`;
 
-			`;
         $(".prd_dtl_div").append(html);
-
 
 	});
 
 	$(document).on("click", "#remove_new_div_btn", function(e){
-        var box_count = $(this).data('index');
-		console.log('box_count', box_count);
-		$("#box_loop_"+box_count).remove();
-		var box_count = $('#box_count').val();
-		box_count --;
-		$('#box_count').val(box_count);
+
+        var edit_mode = $(this).data('edit_mode');
+        
+        // return;
+        if (edit_mode == true){
+
+            var box_count = $(this).data('index');
+            var size_id = $(this).data('size_id');
+            var color_id = $(this).data('color_id');
+            var image_id = $(this).data('image_id');
+            var product_id = $(this).data('product_id');
+
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover those details!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                
+                if (willDelete) {
+                    jQuery.ajax({
+                        type : "POST",
+                        dataType : "json",
+                        url : baseurl + "admin/remove_product_details",
+                        data : { 
+                            size_id : size_id,
+                            color_id : color_id,
+                            image_id : image_id,
+                            product_id : product_id,
+                        } 
+                    }).done(function(data){
+                        if (data.status = true) {
+                            $("#box_loop_"+box_count).remove();
+                            var box_count_new_val = $('#box_count').val();
+                            box_count_new_val --;
+                            $('#box_count').val(box_count_new_val);
+                        }
+                    }); 
+                }
+
+            });
+        }else {
+
+            $('.old_btns').show();
+            var box_count = $(this).data('index');
+            console.log('ASD box_count: ',box_count);
+    		$("#box_loop_"+box_count).remove();
+    		var box_count_new_val = $('#box_count').val();
+    		box_count --;
+    		$('#box_count').val(box_count_new_val);
+        }
 	});
 
     //Save product
@@ -144,7 +190,7 @@ $(document).ready(function() {
             type: "POST",
             dataType : "json",
             enctype: 'multipart/form-data',
-            url: baseurl + "/admin/save_new_product",
+            url: baseurl + "admin/save_new_product",
             data: formData,
             processData: false,
             contentType: false,
@@ -176,14 +222,14 @@ $(document).ready(function() {
             type: "POST",
             dataType : "json",
             enctype: 'multipart/form-data',
-            url: baseurl + "/admin/update_product",
+            url: baseurl + "admin/update_product",
             data: formData,
             processData: false,
             contentType: false,
             cache: false,
             timeout: 800000,
         }).done(function(data){
-            if (data.status = true) {
+            if (data.status == true) {
                 swal("Done",data.msg,"success");
                 setTimeout(function(){
                     window.location.replace(baseurl+'/admin/product_list');
