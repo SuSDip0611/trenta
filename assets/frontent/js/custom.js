@@ -79,8 +79,8 @@ $(document).ready(function () {
         keyPress: true,
         thumbItem: 9,
         pager: false,
-        prevHtml: '<span><img src="../images/icons/leftW.png"></span> ',
-        nextHtml: '<span><img src="../images/icons/rightW.png"></span>',
+        prevHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/leftW.png"></div>`,
+        nextHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/rightW.png"></div>`,
     });
   
 });
