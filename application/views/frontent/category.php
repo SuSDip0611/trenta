@@ -1,4 +1,4 @@
-<!-- 
+ 
 <section class="productsContainer dfrw mb-5 mt-5">
     <?php
         if(!empty($result) && count($result) > 0) {
@@ -15,7 +15,7 @@
                     </div>
                     <div class="productText py-2 text-center">
                         <h7 class="productCategory"><?= $category_name; ?></h7>
-                        <!-- <p class="productColor">Blue , Golden</p> -->
+                       <p class="productColor">Blue , Golden</p>
                     </div>
                 </a>
            <?php
