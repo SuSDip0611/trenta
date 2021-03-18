@@ -5025,7 +5025,10 @@ Version:1.0
   margin-bottom: 10px;
   padding: 5px;
 }
-
+.productCatCard {
+  height: 280px;
+  width: 154.5px;
+}
 .productCatCard {
   -webkit-box-shadow: 0px 0px 13px -2px rgba(186, 184, 186, 1);
   -moz-box-shadow: 0px 0px 13px -2px rgba(186, 184, 186, 1);
@@ -5040,7 +5043,7 @@ Version:1.0
 }
 .productCatImage {
   height: 280px;
-  width: 210px;
+  width: 154.5px;
 }
 
 .productImage {
@@ -5255,4 +5258,7 @@ img.prdct_img {
   padding-right: 10px;
   padding-top: 2px;
   padding-bottom: 2px;
+}
+.footerText p {
+  color: #fff !important;
 }
