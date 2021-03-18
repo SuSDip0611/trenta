@@ -1,6 +1,9 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require('BackendMain.php');
+error_reporting(E_ALL);
+error_reporting(-1);
+ini_set('error_reporting', E_ALL);
 
 class UserBackend extends BackendMain {
 
@@ -128,7 +131,8 @@ class UserBackend extends BackendMain {
 
     public function edit_product()
     {
-        $prod_id = $this->input->get('id');
+        // $prod_id = $this->input->get('id');
+        $prod_id = $this->security->xss_clean($this->input->get('id'));
         
         $prod_id_base64decode = base64_decode($prod_id);
 
@@ -146,7 +150,7 @@ class UserBackend extends BackendMain {
         $f_array['description'] = $data->description;
         $f_array['price'] = $data->price;
 
-        if (count($colors) > 0) {
+        if (count($colors) > 0 && !empty($colors)) {
             foreach ($colors as $c_key => $color) {
                 
                 $main_arr = array();
@@ -154,10 +158,7 @@ class UserBackend extends BackendMain {
                 $images = $this->UserBackend_model->get_color_images($color->id, $prod_id_base64decode);
                 $sizes = $this->UserBackend_model->get_product_sizes($color->id, $prod_id_base64decode);
 
-                // echo "<pre>";
-                // print_r($sizes->id);
-                // echo "</pre>";
-                
+
                 $main_arr['image_id'] = $images->id;
                 $main_arr['images'] = unserialize($images->images);
                 $main_arr['size_id'] = $sizes->id;
@@ -168,10 +169,17 @@ class UserBackend extends BackendMain {
                 
                 
                 $f_array['details'][] = $main_arr;
+                
             }
         }else{
-            $f_array['details'] = array();
+            $f_array['details'][] = array();
         }
+
+        echo "<pre>";
+                // print_r($images);
+                print_r($f_array);
+                echo "</pre>";
+                exit();
         
         $this->global['pageTitle'] = 'Edit Product';
         $this->global['categories'] = $categories;

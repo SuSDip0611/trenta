@@ -92,6 +92,18 @@ class UserFrontend extends FrontendMain
             $catId = $this->security->xss_clean(base64_decode($this->input->get('id')));
             // $result = $this->UserFrontend_model->getAllProductBycategory($catId);
             $products = $this->UserFrontend_model->get_category_products($catId);
+
+            foreach ($products as $key => $value) {
+
+                // $unserImgs =  unserialize($value->images);
+                $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
+
+                $unserialize_imgs = unserialize($unserImgs->images);
+                
+
+                $value->color = $unserImgs->product_color_id;
+                $value->images = $unserialize_imgs[0];
+            }
             
             $this->global['pageTitle'] = 'Products';
             $this->global['result'] = $products;

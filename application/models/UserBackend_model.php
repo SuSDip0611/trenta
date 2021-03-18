@@ -241,8 +241,10 @@ class UserBackend_model extends CI_Model
         ->where('product_id', $product_id)
         ->where('product_color_id', $color_id);
         $query = $this->db->get(); 
-        
-        return $query->row();
+        if($query->num_rows() > 0){
+
+            return $query->row();
+        }
     }
 
     public function get_product_sizes($color_id, $product_id)
