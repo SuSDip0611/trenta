@@ -11,7 +11,7 @@
                     <img class="prdct_thumb" id="pr6" src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" />
                 </div>
                 <div class="productImg">
-                    <img class="prdct_img block__pic" data-product="pr1" src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" />
+                    <img class="prdct_img block__pic active" data-product="pr1" src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" />
                     <img class="prdct_img block__pic" data-product="pr2" src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" />
                     <img class="prdct_img block__pic" data-product="pr3" src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" />
                     <img class="prdct_img block__pic" data-product="pr4" src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" />

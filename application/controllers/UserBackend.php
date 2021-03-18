@@ -247,21 +247,20 @@ class UserBackend extends BackendMain {
                 $size_arr = $this->input->post('product_size');
 
                 /*echo "<pre>";
-                print_r($_FILES['product_image_4']);
-                echo "</pre>";
-                exit();*/
+                print_r($color_arr);
+                echo "</pre>";*/
+                
 
                 if (!empty($color_arr)) {
 
                     foreach ($color_arr as $cl_key => $color) {
 
-                        /*echo "<pre>";
-                        print_r($cl_key);
-                        echo "</pre>";*/
 
                         $size_id = $this->input->post('size_id_'.($cl_key+1));
                         $image_id = $this->input->post('image_id_'.($cl_key+1));
                         $color_id = $this->input->post('color_id_'.($cl_key+1));
+
+                        
 
                         if ($color_id && $image_id && $size_id)
                         {
@@ -285,6 +284,10 @@ class UserBackend extends BackendMain {
                         }else{
 
                             $last_color_id = $this->UserBackend_model->save_product_color($id, $color); 
+
+                            /*echo "<pre>";
+                            print_r($last_color_id);
+                            echo "</pre>";*/
 
                             if ($last_color_id) {
                                 
@@ -317,11 +320,17 @@ class UserBackend extends BackendMain {
                         $msg = 'Product updated successfully';
                         $res['status'] = $stat;
                         $res['msg'] = $msg;
+                        
+                        echo json_encode($res);
+                        exit;
                     }else{
                         $stat = error;
                         $msg = 'Something went wrong, try again later';
                         $res['status'] = $stat;
                         $res['msg'] = $msg;
+
+                        echo json_encode($res);
+                        exit;
                     }
                 }else{
                     $msg = 'No details entered. Please enter details';
@@ -401,10 +410,7 @@ class UserBackend extends BackendMain {
 
     public function upload_multiple_img($index, $color_id, $last_id)
     {
-        echo "<pre>";
-        print_r($index);
-        echo "</pre>";
-    	if(!empty($_FILES['product_image_'.$index]['name']) && count(array_filter($_FILES['product_image_'.$index]['name'])) > 0){ 
+        if(!empty($_FILES['product_image_'.$index]['name']) && count(array_filter($_FILES['product_image_'.$index]['name'])) > 0){ 
             
             $pd_imgs = array();
             $filesCount = count($_FILES['product_image_'.$index]['name']); 
@@ -504,9 +510,17 @@ class UserBackend extends BackendMain {
         	);
 
         	$last_id = $this->UserBackend_model->save_new_category($category_data);
+        // echo "<pre>";
+        // print_r($last_id);
+        // echo "</pre>";
+        // exit();
 
             if ($last_id) {
                 $img_save_status = $this->upload_single_image($last_id);
+                // echo "<pre>";
+                // print_r($img_save_status);
+                // echo "</pre>";
+                // exit();
 
                 if ($img_save_status) {
 
@@ -702,6 +716,7 @@ class UserBackend extends BackendMain {
 
     public function upload_single_image($id)
     {
+        // $errorUploadType = '';
         if(!empty($_FILES['category_image']['name'])){
             
             $cat_imgs = '';
@@ -720,6 +735,8 @@ class UserBackend extends BackendMain {
                 'encrypt_name' => TRUE,
                 // 'max_size' => "12352048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
             );
+
+
 
             // $config['upload_path'] = $uploadPath; 
             // $config['allowed_types'] = 'jpg|jpeg|png|gif'; 

@@ -159,6 +159,10 @@ class UserBackend_model extends CI_Model
 	{
 		$isInsert = $this->db->insert('tbl_categories', $data);
         $insert_id = $this->db->insert_id();
+        // echo "<pre>";
+        // print_r($insert_id);
+        // echo "</pre>";
+        // exit();
 
         return $insert_id;
 	}

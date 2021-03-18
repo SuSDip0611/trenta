@@ -32,8 +32,8 @@ $(document).ready(function () {
                                     <div class="single-product">
                                         <div class="product-img">
                                             <a href="#" class="">
-                                                <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.images[0] + `" alt="Images">
-                                                <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.images[0] + `" alt="Images">
+                                                <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/`+element.color+'/'+ element.images + `" alt="Images">
+                                                <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/`+element.color+'/'+ element.images + `" alt="Images">
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">

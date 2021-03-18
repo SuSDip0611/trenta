@@ -1,10 +1,9 @@
-
+<!-- 
 <section class="productsContainer dfrw mb-5 mt-5">
     <?php
         if(!empty($result) && count($result) > 0) {
            foreach ($result as $key => $singleResult) {
-               # code...
-           
+            
             $id = isset($singleResult->id) && $singleResult->id != '' ? $singleResult->id : '';
             $category_name = isset($singleResult->category_name) && $singleResult->category_name != '' ? $singleResult->category_name : '';
             $category_image = isset($singleResult->category_image) && $singleResult->category_image != '' ? $singleResult->category_image : '';

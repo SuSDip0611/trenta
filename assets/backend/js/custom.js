@@ -67,9 +67,9 @@ $(document).ready(function() {
 		// alert(200);
         $('.old_btns').hide();
 		var box_count = $('#box_count').val();
+        
 		box_count ++;
 		$('#box_count').val(box_count);
-
 
 		var html = `
 			<div class="my_box" id="box_loop_`+box_count+`">
@@ -80,7 +80,7 @@ $(document).ready(function() {
                         </div>
                         <div class="col-md-1 tsk-btn">
                             <div class="add_step" style="cursor: pointer;font-size: 25px;">
-                                <i class="fa fa-minus-circle" aria-hidden="true" data-edit_mode="false" data-index=`+box_count+` id='remove_new_div_btn' title='Remove new details' ></i>
+                                <i class="fa fa-minus-circle rmv_btn_`+box_count+`" aria-hidden="true" data-edit_mode="false" data-index=`+box_count+` id='remove_new_div_btn' title='Remove new details' ></i>
                             </div>
                         </div>
                     </div>
@@ -122,6 +122,8 @@ $(document).ready(function() {
 
         $(".prd_dtl_div").append(html);
 
+        $('.rmv_btn_'+(box_count-1)).hide();
+
 	});
 
 	$(document).on("click", "#remove_new_div_btn", function(e){
@@ -159,10 +161,12 @@ $(document).ready(function() {
                         } 
                     }).done(function(data){
                         if (data.status = true) {
-                            $("#box_loop_"+box_count).remove();
+                            /*$("#box_loop_"+box_count).remove();
                             var box_count_new_val = $('#box_count').val();
                             box_count_new_val --;
-                            $('#box_count').val(box_count_new_val);
+                            $('#box_count').val(box_count_new_val);*/
+
+                            window.location.reload();
                         }
                     }); 
                 }
@@ -170,12 +174,13 @@ $(document).ready(function() {
             });
         }else {
 
-            $('.old_btns').show();
+            // $('.old_btns').show();
             var box_count = $(this).data('index');
-            console.log('ASD box_count: ',box_count);
+            // console.log('ASD box_count: ',box_count);
     		$("#box_loop_"+box_count).remove();
+            $('.rmv_btn_'+(box_count-1)).show();
     		var box_count_new_val = $('#box_count').val();
-    		box_count --;
+    		box_count_new_val --;
     		$('#box_count').val(box_count_new_val);
         }
 	});
