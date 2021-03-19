@@ -4,36 +4,36 @@ require('BackendMain.php');
 
 class UserBackend extends BackendMain {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('UserBackend_model');
         $this->isLoggedIn(); 
     }
 
-	public function index() {
+    public function index() {
 
-		$this->global['pageTitle'] = 'Dashboard';
+        $this->global['pageTitle'] = 'Dashboard';
         $this->loadViews('backend/dashboard', $this->global, NULL , NULL);
 
     }
 
     public function add_new_product()
     {
-    	if($this->isAdmin() == FALSE) {
-    		$this->index();
-    	}else{
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
 
             $categories = $this->UserBackend_model->get_category_list();
-    		$this->global['pageTitle'] = 'Add Product';
-    		$this->global['categories'] = $categories;
-        	$this->loadViews('backend/add_new_product', $this->global, NULL , NULL);
-    	}
+            $this->global['pageTitle'] = 'Add Product';
+            $this->global['categories'] = $categories;
+            $this->loadViews('backend/add_new_product', $this->global, NULL , NULL);
+        }
     }
 
     public function save_new_product()
     {
-    	$flag = false;
+        $flag = false;
         $stat = '';
         $msg = '';
         $res = array();
@@ -46,23 +46,23 @@ class UserBackend extends BackendMain {
 
 
         if ($price != '' && $description != '' && $praduct_name != '' && $category != 0) {
-        	$flag = true;
+            $flag = true;
         }else{$flag = false;}
 
         if ($flag) {
 
-        	$product_data = array(
-        		'is_deleted' => 0,
-        		'price' => $price,
-        		'category' => $category,
-        		'description' => $description,
-        		'product_name' => $praduct_name,
-        		'created_at' => date('d-m-Y H:i:s'),
-        	);
+            $product_data = array(
+                'is_deleted' => 0,
+                'price' => $price,
+                'category' => $category,
+                'description' => $description,
+                'product_name' => $praduct_name,
+                'created_at' => date('d-m-Y H:i:s'),
+            );
 
-        	$last_id = $this->UserBackend_model->save_new_product($product_data);
+            $last_id = $this->UserBackend_model->save_new_product($product_data);
 
-        	if ($last_id) {
+            if ($last_id) {
 
                 $status = '';
                 $color_arr = $this->input->post('product_color');
@@ -106,20 +106,20 @@ class UserBackend extends BackendMain {
                     $res['status'] = $stat;
                     $res['msg'] = $msg;
                 }
-        		
-        	}else{
-        		$stat = error;
+                
+            }else{
+                $stat = error;
                 $msg = 'Something went wrong, try again later';
                 $res['status'] = $stat;
                 $res['msg'] = $msg;
-        	}
+            }
 
         }else{
-        	$stat= 'error';
-        	$msg = 'All fields are requried';
+            $stat= 'error';
+            $msg = 'All fields are requried';
 
-        	$res['status'] = $star;
-        	$res['msg'] = $msg;        	
+            $res['status'] = $star;
+            $res['msg'] = $msg;         
         }
 
         echo json_encode($res);
@@ -239,9 +239,9 @@ class UserBackend extends BackendMain {
             );
 
 
-        	$status = $this->UserBackend_model->update_product($id, $product_data);
+            $status = $this->UserBackend_model->update_product($id, $product_data);
 
-        	if ($status) {
+            if ($status) {
 
                 $color_arr = $this->input->post('product_color');
                 $size_arr = $this->input->post('product_size');
@@ -260,7 +260,18 @@ class UserBackend extends BackendMain {
                         $image_id = $this->input->post('image_id_'.($cl_key+1));
                         $color_id = $this->input->post('color_id_'.($cl_key+1));
 
-                        
+                        /*echo "<pre>";
+                        echo "size_id ".($cl_key+1).": ";
+                        print_r($size_id);
+                        echo "<br>";
+                        echo "image_id ".($cl_key+1).": ";
+                        print_r($image_id);
+                        echo "<br>";
+                        echo "color_id ".($cl_key+1).": ";
+                        print_r($color_id);
+                        echo "<br>";
+                        print_r($_FILES['product_image_'.($cl_key+1)]);
+                        echo "</pre>";*/
 
                         if ($color_id && $image_id && $size_id)
                         {
@@ -285,9 +296,9 @@ class UserBackend extends BackendMain {
 
                             $last_color_id = $this->UserBackend_model->save_product_color($id, $color); 
 
-                            /*echo "<pre>";
+                            echo "<pre>";
                             print_r($last_color_id);
-                            echo "</pre>";*/
+                            echo "</pre>";
 
                             if ($last_color_id) {
                                 
@@ -314,7 +325,7 @@ class UserBackend extends BackendMain {
 
                         $status = true;
                     }
-                    // exit();
+                    
                     if ($status) {
                         $stat = true;
                         $msg = 'Product updated successfully';
@@ -338,19 +349,19 @@ class UserBackend extends BackendMain {
                     $res['msg'] = $msg;
                 }
 
-        	}else{
-        		$stat = error;
+            }else{
+                $stat = error;
                 $msg = 'Something went wrong, try again later';
                 $res['status'] = $stat;
                 $res['msg'] = $msg;
-        	}
+            }
 
         }else{
-        	$stat= 'error';
-        	$msg = 'All fields are requried';
+            $stat= 'error';
+            $msg = 'All fields are requried';
 
-        	$res['status'] = $star;
-        	$res['msg'] = $msg;        	
+            $res['status'] = $star;
+            $res['msg'] = $msg;         
         }
 
         /*echo "<pre>";
@@ -416,44 +427,48 @@ class UserBackend extends BackendMain {
             $filesCount = count($_FILES['product_image_'.$index]['name']); 
 
             for($i = 0; $i < $filesCount; $i++){ 
-                $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
-                $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
-                $_FILES['prd_img']['tmp_name'] = $_FILES['product_image_'.$index]['tmp_name'][$i]; 
-                $_FILES['prd_img']['error']     = $_FILES['product_image_'.$index]['error'][$i]; 
-                $_FILES['prd_img']['size']     = $_FILES['product_image_'.$index]['size'][$i]; 
-                
-                
-                // File upload configuration 
-                $uploadPath = './assets/backend/images/product_images/'.$last_id.'/'.$color_id; 
 
-                //Create new folder if it is not exist
-                if (!is_dir($uploadPath)) {
-				    mkdir($uploadPath, 0777, TRUE);
-				}
+                if ($_FILES['product_image_'.$index]['name'][$i] != '') {
+                    
+                    $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
+                    $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
+                    $_FILES['prd_img']['tmp_name'] = $_FILES['product_image_'.$index]['tmp_name'][$i]; 
+                    $_FILES['prd_img']['error']     = $_FILES['product_image_'.$index]['error'][$i]; 
+                    $_FILES['prd_img']['size']     = $_FILES['product_image_'.$index]['size'][$i]; 
+                    
+                    
+                    // File upload configuration 
+                    $uploadPath = './assets/backend/images/product_images/'.$last_id.'/'.$color_id; 
 
-                $config['upload_path'] = $uploadPath; 
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                //$config['max_size']    = '100'; 
-                //$config['max_width'] = '1024'; 
-                //$config['max_height'] = '768'; 
-                 
-                // Load and initialize upload library 
-                $this->load->library('upload', $config); 
-                $this->upload->initialize($config); 
-                 
-                // Upload file to server 
-                if($this->upload->do_upload('prd_img')){ 
-                    // Uploaded file data 
-                    $fileData = $this->upload->data();
-                    $uploadData[$i]['file_name'] = $fileData['file_name']; 
-                    $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s"); 
-                    // $uploadData['file_name'] = $fileData['file_name']; 
-                    $pd_imgs[] = $fileData['file_name'];
-                }else{ 
+                    //Create new folder if it is not exist
+                    if (!is_dir($uploadPath)) {
+                        mkdir($uploadPath, 0777, TRUE);
+                    }
 
-                    $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
-                	return false; 
-                } 
+                    $config['upload_path'] = $uploadPath; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    //$config['max_size']    = '100'; 
+                    //$config['max_width'] = '1024'; 
+                    //$config['max_height'] = '768'; 
+                     
+                    // Load and initialize upload library 
+                    $this->load->library('upload', $config); 
+                    $this->upload->initialize($config); 
+                     
+                    // Upload file to server 
+                    if($this->upload->do_upload('prd_img')){ 
+                        // Uploaded file data 
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
+                        $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s"); 
+                        // $uploadData['file_name'] = $fileData['file_name']; 
+                        $pd_imgs[] = $fileData['file_name'];
+                    }else{ 
+
+                        $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
+                        return false; 
+                    } 
+                }
             } 
         }else{ 
             return false;
@@ -464,35 +479,35 @@ class UserBackend extends BackendMain {
 
     public function get_product_list()
     {
-    	if($this->isAdmin() == FALSE) {
-    		$this->index();
-    	}else{
-	    	$data = $this->UserBackend_model->get_product_list();
-	                
-	        $all_products = array(
-	            'all_products' => $data
-	        );
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $data = $this->UserBackend_model->get_product_list();
+                    
+            $all_products = array(
+                'all_products' => $data
+            );
 
-	        $this->global['pageTitle'] = 'Product List';
-	        $this->global['all_products'] = $data;
+            $this->global['pageTitle'] = 'Product List';
+            $this->global['all_products'] = $data;
 
-	        $this->loadViews('backend/all_product', $this->global, NULL , NULL);
-	    }
+            $this->loadViews('backend/all_product', $this->global, NULL , NULL);
+        }
     }
 
     public function add_new_category()
     {
-    	if($this->isAdmin() == FALSE) {
-    		$this->index();
-    	}else{
-    		$this->global['pageTitle'] = 'Add Category';
-	        $this->loadViews('backend/add_new_category', $this->global, NULL , NULL);
-	    }
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $this->global['pageTitle'] = 'Add Category';
+            $this->loadViews('backend/add_new_category', $this->global, NULL , NULL);
+        }
     }
 
     public function save_new_category()
     {
-    	$flag = false;
+        $flag = false;
         $stat = '';
         $msg = '';
         $res = array();
@@ -500,16 +515,16 @@ class UserBackend extends BackendMain {
         $category_name = $this->input->post('category_name');
 
         if ($category_name != '') {
-        	$flag = true;
+            $flag = true;
         }else{$flag = false;}
 
         if ($flag) {
 
-        	$category_data = array(
-        		'category_name' => $category_name,
-        	);
+            $category_data = array(
+                'category_name' => $category_name,
+            );
 
-        	$last_id = $this->UserBackend_model->save_new_category($category_data);
+            $last_id = $this->UserBackend_model->save_new_category($category_data);
         // echo "<pre>";
         // print_r($last_id);
         // echo "</pre>";
@@ -546,9 +561,9 @@ class UserBackend extends BackendMain {
 
                 }else {
                     $stat = false;
-		            $msg = 'Please select image files to upload';
-		            $res['status'] = $stat;
-		            $res['msg'] = $msg;
+                    $msg = 'Please select image files to upload';
+                    $res['status'] = $stat;
+                    $res['msg'] = $msg;
                 }
 
             }else{
@@ -560,11 +575,11 @@ class UserBackend extends BackendMain {
             }
 
         }else{
-        	$stat= 'error';
-        	$msg = 'All fields are requried';
+            $stat= 'error';
+            $msg = 'All fields are requried';
 
-        	$res['status'] = $star;
-        	$res['msg'] = $msg;        	
+            $res['status'] = $star;
+            $res['msg'] = $msg;         
         }
 
         echo json_encode($res);
@@ -573,15 +588,15 @@ class UserBackend extends BackendMain {
 
     public function get_category_list()
     {
-    	if($this->isAdmin() == FALSE) {
-    		$this->index();
-    	}else{
-	    	$data = $this->UserBackend_model->get_category_list();
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $data = $this->UserBackend_model->get_category_list();
 
-	    	$this->global['pageTitle'] = 'Category List';
-	    	$this->global['all_categories'] = $data;
-	        $this->loadViews('backend/all_categories', $this->global, NULL , NULL);
-	    }
+            $this->global['pageTitle'] = 'Category List';
+            $this->global['all_categories'] = $data;
+            $this->loadViews('backend/all_categories', $this->global, NULL , NULL);
+        }
     }
 
     public function edit_category_view()
