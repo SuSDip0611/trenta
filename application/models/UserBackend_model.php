@@ -99,12 +99,13 @@ class UserBackend_model extends CI_Model
 
     public function update_product_images($product_id, $color_id, $image_id, $images)
     {
-        $old_images = $this->get_color_images($product_color_id, $product_id);
+        $old_images = $this->get_color_images($color_id, $product_id);
 
-        $unserialize_old_images = unserialize($old_images);
+        $unserialize_old_images = unserialize($old_images->images);
+
 
         $new_imgs = serialize(array_merge($unserialize_old_images, $images));
-
+        
         $data = array(
             'images' => $new_imgs
         );

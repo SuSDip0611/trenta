@@ -260,7 +260,18 @@ class UserBackend extends BackendMain {
                         $image_id = $this->input->post('image_id_'.($cl_key+1));
                         $color_id = $this->input->post('color_id_'.($cl_key+1));
 
-                        
+                        /*echo "<pre>";
+                        echo "size_id ".($cl_key+1).": ";
+                        print_r($size_id);
+                        echo "<br>";
+                        echo "image_id ".($cl_key+1).": ";
+                        print_r($image_id);
+                        echo "<br>";
+                        echo "color_id ".($cl_key+1).": ";
+                        print_r($color_id);
+                        echo "<br>";
+                        print_r($_FILES['product_image_'.($cl_key+1)]);
+                        echo "</pre>";*/
 
                         if ($color_id && $image_id && $size_id)
                         {
@@ -285,9 +296,9 @@ class UserBackend extends BackendMain {
 
                             $last_color_id = $this->UserBackend_model->save_product_color($id, $color); 
 
-                            /*echo "<pre>";
+                            echo "<pre>";
                             print_r($last_color_id);
-                            echo "</pre>";*/
+                            echo "</pre>";
 
                             if ($last_color_id) {
                                 
@@ -314,7 +325,7 @@ class UserBackend extends BackendMain {
 
                         $status = true;
                     }
-                    // exit();
+                    
                     if ($status) {
                         $stat = true;
                         $msg = 'Product updated successfully';
@@ -416,44 +427,48 @@ class UserBackend extends BackendMain {
             $filesCount = count($_FILES['product_image_'.$index]['name']); 
 
             for($i = 0; $i < $filesCount; $i++){ 
-                $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
-                $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
-                $_FILES['prd_img']['tmp_name'] = $_FILES['product_image_'.$index]['tmp_name'][$i]; 
-                $_FILES['prd_img']['error']     = $_FILES['product_image_'.$index]['error'][$i]; 
-                $_FILES['prd_img']['size']     = $_FILES['product_image_'.$index]['size'][$i]; 
-                
-                
-                // File upload configuration 
-                $uploadPath = './assets/backend/images/product_images/'.$last_id.'/'.$color_id; 
 
-                //Create new folder if it is not exist
-                if (!is_dir($uploadPath)) {
-				    mkdir($uploadPath, 0777, TRUE);
-				}
+                if ($_FILES['product_image_'.$index]['name'][$i] != '') {
+                    
+                    $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
+                    $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
+                    $_FILES['prd_img']['tmp_name'] = $_FILES['product_image_'.$index]['tmp_name'][$i]; 
+                    $_FILES['prd_img']['error']     = $_FILES['product_image_'.$index]['error'][$i]; 
+                    $_FILES['prd_img']['size']     = $_FILES['product_image_'.$index]['size'][$i]; 
+                    
+                    
+                    // File upload configuration 
+                    $uploadPath = './assets/backend/images/product_images/'.$last_id.'/'.$color_id; 
 
-                $config['upload_path'] = $uploadPath; 
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                //$config['max_size']    = '100'; 
-                //$config['max_width'] = '1024'; 
-                //$config['max_height'] = '768'; 
-                 
-                // Load and initialize upload library 
-                $this->load->library('upload', $config); 
-                $this->upload->initialize($config); 
-                 
-                // Upload file to server 
-                if($this->upload->do_upload('prd_img')){ 
-                    // Uploaded file data 
-                    $fileData = $this->upload->data();
-                    $uploadData[$i]['file_name'] = $fileData['file_name']; 
-                    $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s"); 
-                    // $uploadData['file_name'] = $fileData['file_name']; 
-                    $pd_imgs[] = $fileData['file_name'];
-                }else{ 
+                    //Create new folder if it is not exist
+                    if (!is_dir($uploadPath)) {
+    				    mkdir($uploadPath, 0777, TRUE);
+    				}
 
-                    $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
-                	return false; 
-                } 
+                    $config['upload_path'] = $uploadPath; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    //$config['max_size']    = '100'; 
+                    //$config['max_width'] = '1024'; 
+                    //$config['max_height'] = '768'; 
+                     
+                    // Load and initialize upload library 
+                    $this->load->library('upload', $config); 
+                    $this->upload->initialize($config); 
+                     
+                    // Upload file to server 
+                    if($this->upload->do_upload('prd_img')){ 
+                        // Uploaded file data 
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
+                        $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s"); 
+                        // $uploadData['file_name'] = $fileData['file_name']; 
+                        $pd_imgs[] = $fileData['file_name'];
+                    }else{ 
+
+                        $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
+                    	return false; 
+                    } 
+                }
             } 
         }else{ 
             return false;
