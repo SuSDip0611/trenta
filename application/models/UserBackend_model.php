@@ -10,17 +10,17 @@
 class UserBackend_model extends CI_Model
 {
 
-	public function save_new_product($data)
-	{
-		$isInsert = $this->db->insert('tbl_products', $data);
+    public function save_new_product($data)
+    {
+        $isInsert = $this->db->insert('tbl_products', $data);
         $insert_id = $this->db->insert_id();
 
         return $insert_id;
-	}
+    }
 
-	public function get_product_list()
-	{
-		$is_deleted = 0;
+    public function get_product_list()
+    {
+        $is_deleted = 0;
 
         $this->db
             ->select('*')
@@ -31,17 +31,17 @@ class UserBackend_model extends CI_Model
         $query = $this->db->get(); 
         
         return $query->result();
-	}
+    }
 
-	public function get_product_details($id)
-	{
-		$this->db->select('*');
+    public function get_product_details($id)
+    {
+        $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->where('id', $id);
         $query = $this->db->get();
         
         return $query->row();
-	}
+    }
 
     public function delete_product_color($product_id, $id)
     {
@@ -76,13 +76,13 @@ class UserBackend_model extends CI_Model
         }
     }
 
-	public function update_product($id, $data)
-	{
-		$this->db->where('id', $id);
+    public function update_product($id, $data)
+    {
+        $this->db->where('id', $id);
         $is_update = $this->db->update('tbl_products', $data);
 
         return $is_update;
-	}
+    }
 
     public function update_product_color($product_id, $color_id, $color)
     {
@@ -99,12 +99,13 @@ class UserBackend_model extends CI_Model
 
     public function update_product_images($product_id, $color_id, $image_id, $images)
     {
-        $old_images = $this->get_color_images($product_color_id, $product_id);
+        $old_images = $this->get_color_images($color_id, $product_id);
 
-        $unserialize_old_images = unserialize($old_images);
+        $unserialize_old_images = unserialize($old_images->images);
+
 
         $new_imgs = serialize(array_merge($unserialize_old_images, $images));
-
+        
         $data = array(
             'images' => $new_imgs
         );
@@ -117,9 +118,9 @@ class UserBackend_model extends CI_Model
         return $is_update;
     }
 
-	public function deselect_image($id, $img)
-	{
-		$data = $this->get_product_details($id);
+    public function deselect_image($id, $img)
+    {
+        $data = $this->get_product_details($id);
 
         $unserialized_img = unserialize($data->images);
 
@@ -144,20 +145,20 @@ class UserBackend_model extends CI_Model
         }else{
             return false;
         }
-	}
+    }
 
-	public function delete_product($id, $data)
-	{
-		$this->db->where('id', $id);
+    public function delete_product($id, $data)
+    {
+        $this->db->where('id', $id);
         $is_update = $this->db->update('tbl_products', $data);
 
         
         return $is_update;
-	}
+    }
 
-	public function save_new_category($data)
-	{
-		$isInsert = $this->db->insert('tbl_categories', $data);
+    public function save_new_category($data)
+    {
+        $isInsert = $this->db->insert('tbl_categories', $data);
         $insert_id = $this->db->insert_id();
         // echo "<pre>";
         // print_r($insert_id);
@@ -165,7 +166,7 @@ class UserBackend_model extends CI_Model
         // exit();
 
         return $insert_id;
-	}
+    }
 
     public function save_product_color($product_id, $color)
     {
@@ -241,9 +242,8 @@ class UserBackend_model extends CI_Model
         ->where('product_id', $product_id)
         ->where('product_color_id', $color_id);
         $query = $this->db->get(); 
-        if($query->num_rows()>0){
-            return $query->row();
-        }
+        
+        return $query->row();
     }
 
     public function get_product_sizes($color_id, $product_id)
@@ -258,9 +258,9 @@ class UserBackend_model extends CI_Model
         return $query->row();
     }
 
-	public function get_category_list()
-	{
-		$is_deleted = 0;
+    public function get_category_list()
+    {
+        $is_deleted = 0;
 
         $this->db
             ->select('*')
@@ -270,34 +270,34 @@ class UserBackend_model extends CI_Model
         $query = $this->db->get(); 
         
         return $query->result();
-	}
+    }
 
-	public function get_category_details($id)
-	{
-		$this->db->select('*');
+    public function get_category_details($id)
+    {
+        $this->db->select('*');
         $this->db->from('tbl_categories');
         $this->db->where('id', $id);
         $query = $this->db->get();
         
         return $query->row();
-	}
+    }
 
-	public function update_category($id, $data)
-	{
-		$this->db->where('id', $id);
+    public function update_category($id, $data)
+    {
+        $this->db->where('id', $id);
         $is_update = $this->db->update('tbl_categories', $data);
 
         
         return $is_update;
-	}
+    }
 
-	public function delete_category($id, $data)
-	{
-		$this->db->where('id', $id);
+    public function delete_category($id, $data)
+    {
+        $this->db->where('id', $id);
         $is_update = $this->db->update('tbl_categories', $data);
 
         
         return $is_update;
-	}
+    }
 
 }

@@ -103,7 +103,7 @@
 															id="imagefiles"
 															class="form-control file-control file-input" 
 															accept="image/*"
-															name="product_image_1[]"
+															name="product_image_<?= $dt_key+1; ?>[]"
 															multiple
 														> 
 														<div class="clearfix screenshots_div">
