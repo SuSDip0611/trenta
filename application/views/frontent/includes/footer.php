@@ -76,6 +76,14 @@
 			</div>
 		</div>
 	</div>
+	<div class="socialStrip">
+		<div class="col-6 ml-auto">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
 	<div class="footerText px-5">
 		<p>Welcome to TRENTA Shopping</p>
 		<p>Welcome to TRENTA Shopping! TRENTA Shopping is a B2C marketplace network for fashion and lifestyle buyers and sellers in categories including fashion, lifestyle, and health & beauty to buy and sell effortlessly online. Browse the vast digital catalog with a huge in style selection at the most competitive prices from trusted sellers. Easily, enjoy our fast delivery services and benefit from flexible and secure online payments.</p>
