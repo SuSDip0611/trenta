@@ -241,8 +241,7 @@ class UserBackend_model extends CI_Model
         ->where('product_id', $product_id)
         ->where('product_color_id', $color_id);
         $query = $this->db->get(); 
-        if($query->num_rows() > 0){
-
+        if($query->num_rows()>0){
             return $query->row();
         }
     }

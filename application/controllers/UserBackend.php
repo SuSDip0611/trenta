@@ -1,9 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require('BackendMain.php');
-error_reporting(E_ALL);
-error_reporting(-1);
-ini_set('error_reporting', E_ALL);
 
 class UserBackend extends BackendMain {
 
@@ -131,14 +128,13 @@ class UserBackend extends BackendMain {
 
     public function edit_product()
     {
-        // $prod_id = $this->input->get('id');
-        $prod_id = $this->security->xss_clean($this->input->get('id'));
+        $prod_id = $this->input->get('id');
         
         $prod_id_base64decode = base64_decode($prod_id);
 
         $categories = $this->UserBackend_model->get_category_list();
-
         $data = $this->UserBackend_model->get_product_details($prod_id_base64decode);
+        
 
         $colors = $this->UserBackend_model->get_colors($prod_id_base64decode);
         
@@ -159,27 +155,35 @@ class UserBackend extends BackendMain {
                 $sizes = $this->UserBackend_model->get_product_sizes($color->id, $prod_id_base64decode);
 
 
-                $main_arr['image_id'] = $images->id;
-                $main_arr['images'] = unserialize($images->images);
-                $main_arr['size_id'] = $sizes->id;
-                $main_arr['size'] = $sizes->size;
-                $main_arr['color_id'] = $color->id;
-                $main_arr['color'] = $color->colors;
-                
-                
-                
-                $f_array['details'][] = $main_arr;
-                
+                if(!empty($images)){
+                    
+                    $image_id = $images->id && $images->id !='' ? $images->id : '';
+
+                    // echo "<pre>";
+                    // print_r($sizes);
+                    // echo "</pre>";
+                    // exit;
+                    
+            // echo "<pre>";
+            // print_r($image_id);
+            // echo "</pre>";
+            // exit;
+                    $main_arr['image_id'] = $image_id;
+                    $main_arr['images'] = unserialize($images->images);
+                    $main_arr['size_id'] = $sizes->id;
+                    $main_arr['size'] = $sizes->size;
+                    $main_arr['color_id'] = $color->id;
+                    $main_arr['color'] = $color->colors;
+                    
+                    
+                    
+                    $f_array['details'][] = $main_arr;
+                }
+
             }
         }else{
-            $f_array['details'][] = array();
+            $f_array['details'] = array();
         }
-
-        echo "<pre>";
-                // print_r($images);
-                print_r($f_array);
-                echo "</pre>";
-                exit();
         
         $this->global['pageTitle'] = 'Edit Product';
         $this->global['categories'] = $categories;
@@ -423,6 +427,18 @@ class UserBackend extends BackendMain {
             $pd_imgs = array();
             $filesCount = count($_FILES['product_image_'.$index]['name']); 
 
+            
+        // echo "<pre>";
+        // print_r($filesCount);
+        // echo "</pre>";
+        // echo "<pre>";
+        // print_r($color_id);
+        // echo "</pre>";
+        // echo "<pre>";
+        // print_r($last_id);
+        // echo "</pre>";
+        // exit();
+
             for($i = 0; $i < $filesCount; $i++){ 
                 $_FILES['prd_img']['name']     = $_FILES['product_image_'.$index]['name'][$i]; 
                 $_FILES['prd_img']['type']     = $_FILES['product_image_'.$index]['type'][$i]; 
@@ -457,8 +473,13 @@ class UserBackend extends BackendMain {
                     $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s"); 
                     // $uploadData['file_name'] = $fileData['file_name']; 
                     $pd_imgs[] = $fileData['file_name'];
-                }else{ 
+                }else{
 
+                    $error = array('error' => $this->upload->display_errors());
+                    echo "<pre>";
+                    print_r($error);
+                    echo "</pre>";
+                    exit();
                     $errorUploadType .= $_FILES['product_image_'.$index]['name'].' | ';   
                 	return false; 
                 } 
