@@ -5262,3 +5262,8 @@ img.prdct_img {
 .footerText p {
   color: #fff !important;
 }
+
+.size_select{
+  background-color: #666666;
+  color: #FFFFFF;
+}

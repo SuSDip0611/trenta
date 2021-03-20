@@ -41,12 +41,48 @@ class UserFrontend_model extends CI_Model
         }
     }
 
+    public function get_product_all_sizes($product_id='', $color_id)
+    {
+        $this->db
+            ->select('size')
+            ->from('tbl_product_size')
+            ->where('product_id', $product_id)
+        ->where('product_color !=', $color_id);
+        $query = $this->db->get(); 
+        
+        return $query->result();
+    }
+    
     public function get_product_imgs($product_id='')
     {
         $this->db
             ->select('*')
             ->from('tbl_product_imgs')
         ->where('product_id', $product_id);
+        $query = $this->db->get(); 
+        
+        return $query->row();
+    }
+
+    public function get_product_imgs_by_color($product_id='', $color_id='')
+    {
+        $this->db
+            ->select('images')
+            ->from('tbl_product_imgs')
+            ->where('product_id', $product_id)
+        ->where('product_color_id', $color_id);
+        $query = $this->db->get(); 
+        
+        return $query->row();
+    }
+    
+    public function get_product_sizes_by_color($product_id='', $color_id='')
+    {
+        $this->db
+            ->select('size')
+            ->from('tbl_product_size')
+            ->where('product_id', $product_id)
+        ->where('product_color', $color_id);
         $query = $this->db->get(); 
         
         return $query->row();
