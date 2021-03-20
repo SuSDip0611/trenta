@@ -1,0 +1,101 @@
+@media only screen and (min-width: 767px) {
+  .header-inner {
+    display: none;
+  }
+}
+.sticki {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+.jcsb {
+  justify-content: space-between;
+}
+.jcc {
+  justify-content: center;
+}
+.jcse {
+  justify-content: space-evenly;
+}
+.hfc {
+  height: fit-content;
+}
+.wfc {
+  width: fit-content;
+}
+.left_menu {
+  width: 20%;
+}
+.logo {
+  width: 46%;
+}
+.right_menu {
+  width: 33%;
+}
+.mw-50 {
+  max-width: 50% !important;
+}
+.header.shop .right-bar {
+  top: 0px !important;
+}
+.left_menu a {
+  background: #5e77b7;
+  background: -webkit-linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  background: -moz-linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  background: linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ce6363a3;
+  font-size: 2rem;
+}
+.linearGrad {
+  background: #5e77b7;
+  background: -webkit-linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  background: -moz-linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  background: linear-gradient(
+    to top right,
+    #5e77b7 0%,
+    #cd95c6 50%,
+    #fff876 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ce6363a3;
+}
+.sinlge-bar i {
+  font-size: 2rem !important;
+}
+.yellow {
+  color: #C79D08;
+}
+.sticky .logo{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 6%;
+    margin-top: 0px !important;
+}
