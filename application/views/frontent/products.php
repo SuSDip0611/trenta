@@ -21,7 +21,7 @@
             
 
             ?>
-                <a class="productCard p-3 wfc card">
+                <a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($id) ?> " class="productCard p-3 wfc card">
                     <div class="productImage">
                         <img class="" src="<?= $imagesPath ?>">
                     </div>
