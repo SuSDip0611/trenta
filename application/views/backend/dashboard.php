@@ -61,7 +61,7 @@
 				</div>
 				<!-- //four-grids -->
 				<!--row-->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-6">
 						<div class="panel panel-widget">
 							<div class="panel-title">
@@ -73,10 +73,10 @@
 							  </ul>
 							</div>
 							<div class="panel-body">
-								<!-- candlestick -->
+								
 								<div class="candlestick">
 									<script type="text/javascript">
-									  // Generate data
+									
 									  
 									  var data = [];
 									  
@@ -127,7 +127,7 @@
 									  });
 									</script>
 								</div>
-								<!-- //candlestick -->
+								
 							</div>
 						</div>
 					</div>
@@ -163,10 +163,10 @@
 						</div>
 					</div>
 					<div class="clearfix"> </div>
-				</div>
+				</div> -->
 				<!--//row-->
 				<!--row-->
-				<div class="row">
+			<!-- 	<div class="row">
 					<div class="col-md-7">
 						<div class="panel panel-widget">
 							<div class="panel-title">
@@ -204,10 +204,10 @@
 					</div>
 					
 					<div class="clearfix"> </div>
-				</div>
+				</div> -->
 				<!--//row-->
 				<!--row-->
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md-5 program-grid">
 						<div class="panel panel-widget">
 							<div class="panel-title">
@@ -238,15 +238,15 @@
 							  </ul>
 							</div>
 							<div class="panel-body">
-								<!-- status -->
+								
 								<div class="contain">	
 									<div class="gantt"></div>
 								</div>
-								<!-- status -->
+								
 							</div>
 						</div>
 					</div>
 					<div class="clearfix"> </div>
-				</div>
+				</div> -->
 				<!--//row-->
 			
