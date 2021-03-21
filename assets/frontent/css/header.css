@@ -128,9 +128,15 @@
   .sm_mt_10 {
     margin-top: 10px;
   }
-  .scroll_d_none{
+  .scroll_d_none {
     margin: auto;
   }
+  .header {
+    display: none;
+  }
+  /* .mobile_header {
+    display: block;
+  } */
 }
 @media only screen and (min-width: 768px) {
   .right_menu {
@@ -151,5 +157,8 @@
   .scroll_d_block {
     margin-top: 0px !important;
     margin-right: 2rem !important;
+  }
+  .mobile_header {
+    display: none;
   }
 }
