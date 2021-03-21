@@ -90,10 +90,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<a href="#"><i class="fa fa-cogs nav_icon"></i>Ticket Managemant <span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level collapse">
 									<li>
-										<a href="<?= base_url(); ?>admin/add_new_category">All Ticket</a>
+										<a href="<?= base_url(); ?>admin/all-tickets">All Ticket</a>
 									</li>
 									<li>
-										<a href="<?= base_url(); ?>admin/category_list">Rejected Ticket</a>
+										<a href="<?= base_url(); ?>admin/all-rejectedTickets">Rejected Ticket</a>
 									</li>
 								</ul>
 							</li>

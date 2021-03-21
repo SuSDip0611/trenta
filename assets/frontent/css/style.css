@@ -5017,6 +5017,9 @@ Version:1.0
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 5px;
+  height: 200px;
+  width: 174px;
+
 }
 .productCatCard {
   height: 280px;
@@ -5059,7 +5062,7 @@ Version:1.0
   flex-direction: row;
   flex-wrap: wrap;
 }
-@media only screen and (max-width: 1200px) {
+/*@media only screen and (max-width: 1200px) {
   .productCard {
     width: 19%;
   }
@@ -5090,7 +5093,7 @@ Version:1.0
     margin-left: auto;
     margin-right: auto;
   }
-}
+}*/
 .productMrp {
   text-decoration: line-through;
 }
@@ -5179,9 +5182,9 @@ li.sizeNo {
 .lSAction > .lSNext {
   right: -170px !important;
 }
-.productColor {
+/*.productColor {
   min-height: 150px !important;
-}
+}*/
 .productColor .list-group-item {
   width: 100px;
   height: 105px;

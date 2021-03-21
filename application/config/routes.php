@@ -77,6 +77,9 @@ $route['admin/category_list'] = 'UserBackend/get_category_list';
 $route['admin/edit_category'] = 'UserBackend/edit_category_view';
 $route['admin/update_category'] = 'UserBackend/update_category';
 $route['admin/delete_category'] = 'UserBackend/delete_category';
+$route['admin/all-tickets'] = 'UserBackend/displayAllTickets';
+$route['admin/all-rejectedTickets'] = 'UserBackend/displayAllRejectedTickets';
+$route['admin/check_active_tickets'] = 'UserBackend/check_active_tickets';
 /* *===* Backend Routes End *===* */
 
 

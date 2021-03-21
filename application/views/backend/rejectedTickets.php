@@ -38,12 +38,9 @@
                			
                				$gloabal_status = '';
                				$count++;
-               				
                				$id = isset($singleResult->id) && $singleResult->id !='' ? $singleResult->id : '';
                				$comment = isset($singleResult->comment) && $singleResult->comment !='' ? $singleResult->comment : '';
                				$created_at = isset($singleResult->created_at) && $singleResult->created_at !='' ? $singleResult->created_at : '';
-               				$newDate = date("d-m-Y", strtotime($created_at));
-               			
                				$status = isset($singleResult->status) && $singleResult->status !='' ? $singleResult->status : '';
 
                				if($status == 0){
@@ -58,7 +55,6 @@
 			                    <td class="text-center"><?= $count;?></td>
 			                    <td class="text-center"><?= $comment; ?></td>
 			                    <td class="text-center"><?= $gloabal_status; ?></td>
-			                    <td class="text-center"><?= $newDate; ?></td>
 			                    <td class="text-center">
 			                      <a href="javascript:void(0);" 
 			                        class="btn common_btn_class staff-edit" id="checkActive" data-tid="<?php echo base64_encode($id);?>">
