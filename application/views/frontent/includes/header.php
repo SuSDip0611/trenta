@@ -72,19 +72,27 @@
 
 		<!-- End Topbar -->
 		<div class="middle-inner" id="navbar">
-			<div class="container d-flex flex-row jcsb">
+			<div class="container d-flex flex_responsive jcsb ">
+				<div class="d-flex flex_responsive aismc">
+					<!-- Logo -->
+					<div class="logo scroll_d_block">
+						<a href="#" class="logo_wrap">
+							<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo" class="img_responsive">
+						</a>
+					</div>
 
-				<div class="left_menu d-flex jcse">
-					<a href="">Home</a>
-					<a href="">About Us</a>
+					<div class="left_menu aismc flex_responsive d-flex jcse sm_mt_10">
+						<a href="">Home</a>
+						<a href="" class="ml_md_3 sm_mt_10">About Us</a>
+					</div>
 				</div>
-				<!-- Logo -->
-				<div class="logo">
-					<a href="#">
-						<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo">
+				<div class="logo scroll_d_none sm_mt_10">
+					<a href="#" class="logo_wrap">
+						<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo" class="img_responsive">
 					</a>
 				</div>
-				<div class="d-flex flex-row jcsb right_menu">
+
+				<div class="d-flex flex_responsive jcsb right_menu aismc">
 					<div class="input-group linearGrad hfc mw-50">
 						<input type="text" class="form-control" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
 						<div class="input-group-append">
