@@ -54,45 +54,64 @@
 				<div class="row prd_dtl_div">
 					<div class="col-md-12 ">
 						<div class="row">
-							<div class="col-md-11 text-center" style="margin-top: 5px;">
-								<label> Product Details</label>
+							<div class="col-md-11 text-center details_header">
+								<label> Product Details Part 1</label>
 							</div>
 							<div class="col-md-1 tsk-btn">
-								<div class="add_step" style="cursor: pointer;font-size: 25px;">
+								<div style="cursor: pointer;font-size: 25px;">
 									<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_div_btn' title='Add new details'></i>
 								</div>
 							</div>
 						</div>
 						<div class="details_div">
 							<div class="col-md-11 p_dtl_div">
-								<div class="col-md-4">
-									<div class="form-group" > 
-										<label for="imagefiles">Product Image <span class="required-star">*</span></label>
-										<input type="file"
-											id="imagefiles"
-											class="form-control file-control file-input" 
-											accept="image/*"
-											name="product_image_1[]"
-											multiple 
-											required
-										> 
-										<div class="clearfix screenshots_div">
-											<label for="" id="screenshots_1"></label>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group" > 
+											<label for="color">Choose color <span class="required-star">*</span></label> 
+											<input type="color" class="form-control" id="color" name="product_color[]" placeholder="Enter color" required> 
 										</div>
-									</div>									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group" > 
-										<label for="size">Size <span class="required-star">*</span></label> 
-										<input type="number" class="form-control" id="size" name="product_size[]" placeholder="Enter size" required> 
+									</div>
+									<div class="col-md-6">
+										<div class="form-group" > 
+											<label for="imagefiles">Product Image <span class="required-star">*</span></label>
+											<input type="file"
+												id="imagefiles"
+												class="form-control file-control file-input" 
+												accept="image/*"
+												name="product_image_1[]"
+												multiple 
+												required
+											> 
+											<div class="clearfix screenshots_div">
+												<label for="" id="screenshots_1"></label>
+											</div>
+										</div>									
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="form-group" > 
-										<label for="color">Choose color <span class="required-star">*</span></label> 
-										<input type="color" class="form-control" id="color" name="product_color[]" placeholder="Enter color" required> 
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group" > 
+											<label for="size">Size <span class="required-star">*</span></label> 
+											<div class="row size_div_1">
+												<div class="col-md-4 ">
+													<input type="number" class="form-control ipt" name="product_size_1[]" placeholder="Enter size" required> 
+												</div>
+												<div class="col-md-1" style="cursor: pointer;">
+													<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_size_btn' data-tab_index = "1" title='Add new details'></i>
+												</div>
+											</div>
+										</div>
 									</div>
+									<div class="col-md-6">
+										<div class="form-group" > 
+											<label for="size">Stock <span class="required-star">*</span></label> 
+											<input type="number" class="form-control" name="product_stock[]" placeholder="Enter stock" required> 
+										</div>
+									</div>
+									<input type="hidden" id="tab_count_1" value="1"> 
 								</div>
+								
 							</div>
 						</div>				
 					</div>					
