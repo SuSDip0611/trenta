@@ -58,8 +58,7 @@
 	<div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
-				<span></span>
-				<span></span>
+				<img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo" class="img_responsive">
 			</div>
 		</div>
 	</div>
