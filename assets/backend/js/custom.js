@@ -75,8 +75,8 @@ $(document).ready(function() {
 			<div class="my_box" id="box_loop_`+box_count+`">
                 <div class="col-md-12 ">
                     <div class="row">
-                        <div class="col-md-11 text-center" style="margin-top: 5px;">
-                            <label> Product Details</label>
+                        <div class="col-md-11 text-center details_header" >
+                            <label> Product Details Part `+box_count+` </label>
                         </div>
                         <div class="col-md-1 tsk-btn">
                             <div class="add_step" style="cursor: pointer;font-size: 25px;">
@@ -86,34 +86,52 @@ $(document).ready(function() {
                     </div>
                     <div class="details_div">
                         <div class="col-md-11 p_dtl_div">
-                            <div class="col-md-4">
-                                <div class="form-group" > 
-                                    <label for="imagefiles">Product Image <span class="required-star">*</span></label>
-                                    <input type="file"
-                                        id="imagefiles"
-                                        class="form-control file-control file-input" 
-                                        accept="image/*"
-                                        name="product_image_`+box_count+`[]"
-                                        multiple 
-                                        required
-                                    > 
-                                    <div class="clearfix screenshots_div">
-                                        <label for="" id="screenshots_`+box_count+`"></label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" > 
+                                        <label for="color">Choose color <span class="required-star">*</span></label> 
+                                        <input type="color" class="form-control" id="color" name="product_color[]" placeholder="Enter color" required> 
                                     </div>
-                                </div>									
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group" > 
-                                    <label for="size">Size <span class="required-star">*</span></label> 
-                                    <input type="number" class="form-control" id="size" name="product_size[]" placeholder="Enter size" required> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" > 
+                                        <label for="imagefiles">Product Image <span class="required-star">*</span></label>
+                                        <input type="file"
+                                            id="imagefiles"
+                                            class="form-control file-control file-input" 
+                                            accept="image/*"
+                                            name="product_image_`+box_count+`[]"
+                                            multiple 
+                                            required
+                                        > 
+                                        <div class="clearfix screenshots_div">
+                                            <label for="" id="screenshots_`+box_count+`"></label>
+                                        </div>
+                                    </div>									
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group" > 
-                                    <label for="color">Choose color <span class="required-star">*</span></label> 
-                                    <input type="color" class="form-control" id="color" name="product_color[]" placeholder="Enter color" required> 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" > 
+                                        <label for="size">Size <span class="required-star">*</span></label>
+                                        <div class="row size_div_`+box_count+`">
+                                            <div class="col-md-4 ">
+                                                <input type="number" class="form-control" id="size" name="product_size_`+box_count+`[]" placeholder="Enter size" required> 
+                                            </div>
+                                            <div class="col-md-1">
+                                                <i class="fa fa-plus-circle" aria-hidden="true" data-tab_index = "`+box_count+`" id='add_new_size_btn' title='Add new details'></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" > 
+                                        <label for="size">Stock <span class="required-star">*</span></label> 
+                                        <input type="number" class="form-control " id="size" name="product_stock[]" placeholder="Enter stock" required> 
+                                    </div>
                                 </div>
                             </div>
+                            <input type="hidden" id="tab_count_`+box_count+`" value="1">
                         </div>
                     </div>					
                 </div>         
@@ -126,7 +144,7 @@ $(document).ready(function() {
 
 	});
 
-	$(document).on("click", "#remove_new_div_btn", function(e){
+    $(document).on("click", "#remove_new_div_btn", function(e){
 
         var edit_mode = $(this).data('edit_mode');
         
@@ -177,13 +195,102 @@ $(document).ready(function() {
             // $('.old_btns').show();
             var box_count = $(this).data('index');
             // console.log('ASD box_count: ',box_count);
-    		$("#box_loop_"+box_count).remove();
+            $("#box_loop_"+box_count).remove();
             $('.rmv_btn_'+(box_count-1)).show();
-    		var box_count_new_val = $('#box_count').val();
-    		box_count_new_val --;
-    		$('#box_count').val(box_count_new_val);
+            var box_count_new_val = $('#box_count').val();
+            box_count_new_val --;
+            $('#box_count').val(box_count_new_val);
         }
+    });
+
+    $(document).on("click", "#add_new_size_btn", function(e){
+        // $('.old_btns').hide();
+        var box_count = $('#box_count').val();
+		var tab_count = $('#tab_count_'+box_count).val();
+        // alert(tab_count);
+        // return;
+        console.log('tab_count', tab_count);
+        var tab_index = $(this).data('tab_index');
+        
+		tab_count ++;
+        $('#tab_count_'+box_count).val(tab_count);
+
+		var html = `
+            <div id="size_box_loop_`+box_count+`_`+tab_count+`">
+                <div class="col-md-4">
+                    <input type="number" class="form-control ipt" id="size" name="product_size_`+tab_count+`[]" placeholder="Enter size" required>
+                </div>
+                <div class="col-md-1" style="cursor: pointer;">
+                    <i class="fa fa-minus-circle rmv_btn_size_`+box_count+`_`+tab_count+`" aria-hidden="true" data-size_edit_mode="false" data-tab_index=`+tab_count+` id='remove_new_size_btn' title='Remove new details' ></i>
+                </div>
+            </div>
+		`;
+
+        $(".size_div_"+tab_index).append(html);
+
+        $('.rmv_btn_size_'+box_count+'_'+(tab_count-1)).hide();
+
 	});
+
+	$(document).on("click", "#remove_new_size_btn", function(e){
+
+        var edit_mode = $(this).data('size_edit_mode');
+
+
+        
+        // return;
+        if (edit_mode == true){
+
+            var box_count = $(this).data('index');
+            var size_id = $(this).data('size_id');
+            var color_id = $(this).data('color_id');
+            var image_id = $(this).data('image_id');
+            var product_id = $(this).data('product_id');
+
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover those details!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                
+                if (willDelete) {
+                    jQuery.ajax({
+                        type : "POST",
+                        dataType : "json",
+                        url : baseurl + "admin/remove_product_details",
+                        data : { 
+                            size_id : size_id,
+                            color_id : color_id,
+                            image_id : image_id,
+                            product_id : product_id,
+                        } 
+                    }).done(function(data){
+                        if (data.status = true) {
+                            /*$("#box_loop_"+box_count).remove();
+                            var box_count_new_val = $('#box_count').val();
+                            box_count_new_val --;
+                            $('#box_count').val(box_count_new_val);*/
+
+                            window.location.reload();
+                        }
+                    }); 
+                }
+
+            });
+        }else {
+            var tab_index = $(this).data('tab_index');
+            alert(tab_index);
+            $("#size_box_loop_"+tab_index).remove();
+            
+            $('.rmv_btn_size_'+(tab_count-1)).show();
+            var tab_count = $('#tab_count').val();
+            tab_count --;
+            $('#box_count').val(tab_count);
+        }
+    });
 
     //Save product
     $(document).on("click", ".save_new_product_btn", function(e){

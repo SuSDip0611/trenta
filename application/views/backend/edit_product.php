@@ -58,14 +58,17 @@
 					<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_div_btn' title='Add new details'></i>
 					<?php
 						if (!empty($prod_details['details'])) {
-							
+							$tab_index = '';
 							foreach ($prod_details['details'] as $dt_key => $dtl) {
 								$color=$dtl['color'];
+								$stock=$dtl['stock'];
 								$size=$dtl['size'];
 								$size_id=$dtl['size_id'];
 								$images=$dtl['images'];
 								$image_id=$dtl['image_id'];
 								$color_id=$dtl['color_id'];
+								$tab_index = count($size);
+							    
 					?>
 								<div class="my_box" id="box_loop_<?= $dt_key+1 ?>">
 									<input type="hidden" name="size_id_<?= $dt_key+1 ?>" value="<?= $size_id ?>">
@@ -73,8 +76,8 @@
 									<input type="hidden" name="image_id_<?= $dt_key+1 ?>" value="<?= $image_id ?>">
 									<div class="col-md-12 ">
 										<div class="row">
-											<div class="col-md-11 text-center" style="margin-top: 5px;">
-												<label> Product Details</label>
+											<div class="col-md-11 text-center details_header" >
+												<label> Product Details Part <?php echo ($dt_key+1); ?></label>
 											</div>
 											<div class="col-md-1 tsk-btn">
 												<div class="add_step" style="cursor: pointer;font-size: 25px;">
@@ -96,54 +99,88 @@
 										</div>
 										<div class="details_div">
 											<div class="col-md-11 p_dtl_div">
-												<div class="col-md-4">
-													<div class="form-group" > 
-														<label for="imagefiles">Product Image </label>
-														<input type="file"
-															id="imagefiles"
-															class="form-control file-control file-input" 
-															accept="image/*"
-															name="product_image_<?= $dt_key+1; ?>[]"
-															multiple
-														> 
-														<div class="clearfix screenshots_div">
-															<label for="" id="screenshots_1"></label>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group" > 
+															<label for="color">Choose color <span class="required-star">*</span></label> 
+															<input type="color" class="form-control" id="color" value="<?= $color; ?>" name="product_color[]" placeholder="Enter color" required> 
 														</div>
 													</div>
-													<?php if(count($images) > 0){ ?>
-									                    <div class="form-group ">
-									                        <label for="myImg">Previous images </label>
-									                        <div class="form-group old_img_div">
-									                            <?php foreach ($images as $img_key => $img){ ?>
-									                                <img id="myImg" class="upload_img_<?php echo $img_key; ?> imageThumb"
-									                                    src="<?php echo base_url().'assets/backend/images/product_images/'.$id.'/'.$color_id.'/'.$img; ?>"
-									                                    alt="Selected Image" width="50px" height="50px"
-									                                    style="margin: 2px;" 
-									                                />
-									                                <lable class="btn img_deselect_product" 
-									                                    data-img_name="<?php echo $img; ?>"
-									                                    data-uploadid="<?php echo $img_key; ?>"
-									                                    data-prod_id="<?php echo base64_encode($id); ?>"
-									                                >
-									                                    <i class="fa fa-times" aria-hidden="true"></i>
-									                                </lable>
-									                            <?php } ?>
-									                        </div>
-									                    </div>
-									                <?php } ?>								
-												</div>
-												<div class="col-md-4">
-													<div class="form-group" > 
-														<label for="size">Size <span class="required-star">*</span></label> 
-														<input type="number" class="form-control" id="size" value="<?= $size; ?>"  name="product_size[]" placeholder="Enter size" required> 
+													<div class="col-md-6">
+														<div class="form-group" > 
+															<label for="imagefiles">Product Image </label>
+															<input type="file"
+																id="imagefiles"
+																class="form-control file-control file-input" 
+																accept="image/*"
+																name="product_image_<?= $dt_key+1; ?>[]"
+																multiple
+															> 
+															<div class="clearfix screenshots_div">
+																<label for="" id="screenshots_1"></label>
+															</div>
+														</div>
+														<?php if(count($images) > 0){ ?>
+										                    <div class="form-group ">
+										                        <label for="myImg">Previous images </label>
+										                        <div class="form-group old_img_div">
+										                            <?php foreach ($images as $img_key => $img){ ?>
+										                                <img id="myImg" class="upload_img_<?php echo $img_key; ?> imageThumb"
+										                                    src="<?php echo base_url().'assets/backend/images/product_images/'.$id.'/'.$color_id.'/'.$img; ?>"
+										                                    alt="Selected Image" width="50px" height="50px"
+										                                    style="margin: 2px;" 
+										                                />
+										                                <lable class="btn img_deselect_product" 
+										                                    data-img_name="<?php echo $img; ?>"
+										                                    data-uploadid="<?php echo $img_key; ?>"
+										                                    data-prod_id="<?php echo base64_encode($id); ?>"
+										                                >
+										                                    <i class="fa fa-times" aria-hidden="true"></i>
+										                                </lable>
+										                            <?php } ?>
+										                        </div>
+										                    </div>
+										                <?php } ?>								
 													</div>
 												</div>
-												<div class="col-md-4">
-													<div class="form-group" > 
-														<label for="color">Choose color <span class="required-star">*</span></label> 
-														<input type="color" class="form-control" id="color" value="<?= $color; ?>" name="product_color[]" placeholder="Enter color" required> 
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group" > 
+															<label for="size">Size <span class="required-star">*</span></label>
+															<div class="row size_div_1">
+																<?php 
+																	if (count($size)) {
+																		foreach ($size as $s_key => $sz) 
+																		{
+																?>
+																		<div id="size_box_loop_<?= $s_key+1 ?>">
+																			
+																		</div>
+																			<div class="col-md-4 ">
+																				<input type="number" class="form-control ipt" value="<?= $sz; ?>"  name="product_size[]" placeholder="Enter size" required> 
+																			</div>
+																			<div class="col-md-1">
+																				<?php if ($s_key > 0) {?>
+																		                <i class="fa fa-minus-circle rmv_btn_size_`+tab_count+`" aria-hidden="true" data-edit_mode="false" data-tab_index="<?= ($s_key+1) ?>" id='remove_new_size_btn' title='Remove new details' ></i>
+																				<?php } else{?>
+																					<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_size_btn' data-tab_index="<?= ($s_key+1) ?>" title='Add new details'></i>
+																				<?php }?>
+																	        </div>
+																<?php 
+																		} 
+																	} 
+																?>
+															</div> 
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group" > 
+															<label for="size">Stock <span class="required-star">*</span></label> 
+															<input type="number" class="form-control " value="<?= $stock?>" name="product_stock[]" placeholder="Enter stock" required> 
+														</div>
 													</div>
 												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -153,7 +190,8 @@
 						}
 					?>		
 				</div>
-				<input type="hidden" id="box_count" value="<?= count($prod_details['details']) ?>">                
+				<input type="hidden" id="box_count" value="<?= count($prod_details['details']) ?>"> 
+				<input type="hidden" Id="tab_count" value="<?= $tab_index; ?>">               
 				<button type="submit" class="btn common_btn_class btn-lg btn-block edit_product_btn">Save</button> 
 		</div>
 	</div>

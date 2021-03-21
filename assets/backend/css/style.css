@@ -3933,3 +3933,17 @@ ul.nofitications-dropdown {
 .pre_img{
   margin-right: 5px;
 }
+
+.ipt{
+  margin-top: 5px;
+}
+
+.details_header{
+  margin-top: 5px;
+  background-color: #9a9696;
+  color: #000000;
+  width: 90%;
+  min-height: 2rem;
+  font-size: 20px;
+  margin-bottom: .4rem;
+}

@@ -168,11 +168,12 @@ class UserBackend_model extends CI_Model
         return $insert_id;
     }
 
-    public function save_product_color($product_id, $color)
+    public function save_product_color($product_id, $color, $stock)
     {
         $data_arr = array(
             'product_id' => $product_id,
             'colors' => $color,
+            'stock' => $stock,
         );
 
         $isInsert = $this->db->insert('tbl_product_colors', $data_arr);
