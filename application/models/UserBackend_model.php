@@ -168,11 +168,12 @@ class UserBackend_model extends CI_Model
         return $insert_id;
     }
 
-    public function save_product_color($product_id, $color)
+    public function save_product_color($product_id, $color, $stock)
     {
         $data_arr = array(
             'product_id' => $product_id,
             'colors' => $color,
+            'stock' => $stock,
         );
 
         $isInsert = $this->db->insert('tbl_product_colors', $data_arr);
@@ -299,5 +300,33 @@ class UserBackend_model extends CI_Model
         
         return $is_update;
     }
+
+    public function get_tickets(){
+        $is_deleted = 1;
+        $this->db
+            ->select('*')
+            ->from('tbl_tickets')
+            ->where(array('is_deleted' => $is_deleted, 'status' => '0'))
+        ->order_by('id', 'DESC');
+        $query = $this->db->get(); 
+        
+        if($query->num_rows() > 0){
+            return $query->result();
+        }
+    }
+
+    public function updateAproveStatus($id){
+
+        $this->db->where('id', $id);
+        $is_update = $this->db->update('tbl_tickets', array('status'=>'1'));
+
+        if($is_update){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    
 
 }

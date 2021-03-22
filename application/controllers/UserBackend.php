@@ -67,14 +67,18 @@ class UserBackend extends BackendMain {
                 $status = '';
                 $color_arr = $this->input->post('product_color');
                 $size_arr = $this->input->post('product_size');
+                $product_stock = $this->input->post('product_stock');
 
                 foreach ($color_arr as $cl_key => $color) {
                     
-                    $last_color_id = $this->UserBackend_model->save_product_color($last_id, $color);
+                    $size_arr = $this->input->post('product_size_'.($cl_key+1));
+
+                    
+                    $last_color_id = $this->UserBackend_model->save_product_color($last_id, $color, $product_stock[$cl_key]);
 
                     if ($last_color_id) {
                         
-                        $last_size_id = $this->UserBackend_model->save_product_size($last_id, $last_color_id, $size_arr[$cl_key]);
+                        $last_size_id = $this->UserBackend_model->save_product_size($last_id, $last_color_id, serialize($size_arr));
                         
                         $img_status = $this->upload_multiple_img(($cl_key+1), $last_color_id, $last_id);
         
@@ -154,16 +158,15 @@ class UserBackend extends BackendMain {
                 $images = $this->UserBackend_model->get_color_images($color->id, $prod_id_base64decode);
                 $sizes = $this->UserBackend_model->get_product_sizes($color->id, $prod_id_base64decode);
 
-                // echo "<pre>";
-                // print_r($sizes->id);
-                // echo "</pre>";
+                
                 
                 $main_arr['image_id'] = $images->id;
                 $main_arr['images'] = unserialize($images->images);
                 $main_arr['size_id'] = $sizes->id;
-                $main_arr['size'] = $sizes->size;
+                $main_arr['size'] = unserialize($sizes->size);
                 $main_arr['color_id'] = $color->id;
                 $main_arr['color'] = $color->colors;
+                $main_arr['stock'] = $color->stock;
                 
                 
                 
@@ -172,7 +175,7 @@ class UserBackend extends BackendMain {
         }else{
             $f_array['details'] = array();
         }
-        
+
         $this->global['pageTitle'] = 'Edit Product';
         $this->global['categories'] = $categories;
         $this->global['prod_details'] = $f_array;
@@ -601,16 +604,20 @@ class UserBackend extends BackendMain {
 
     public function edit_category_view()
     {
-        $cat_id = $this->input->get('id');
-        
-        $cat_id_base64decode = base64_decode($cat_id);
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $cat_id = $this->input->get('id');
+            
+            $cat_id_base64decode = base64_decode($cat_id);
 
-        $data = $this->UserBackend_model->get_category_details($cat_id_base64decode);
+            $data = $this->UserBackend_model->get_category_details($cat_id_base64decode);
 
-        $this->global['pageTitle'] = 'Edit Category';
-        $this->global['cat_details'] = $data;
+            $this->global['pageTitle'] = 'Edit Category';
+            $this->global['cat_details'] = $data;
 
-        $this->loadViews('backend/edit_category', $this->global, NULL , NULL);
+            $this->loadViews('backend/edit_category', $this->global, NULL , NULL);
+        }
     }
 
     public function update_category()
@@ -777,6 +784,55 @@ class UserBackend extends BackendMain {
         }
 
         return $cat_imgs;
+    }
+
+
+    public function displayAllTickets(){
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $result = $this->UserBackend_model->get_tickets();
+
+            $this->global['pageTitle'] = 'All Tickets';
+            $this->global['result'] = $result;
+
+            $this->loadViews('backend/allTickets', $this->global, NULL , NULL);
+        }
+    }
+
+    public function check_active_tickets(){
+        $tid = $this->security->xss_clean(base64_decode($this->input->post('tid')));
+        $result = $this->UserBackend_model->updateAproveStatus($tid);
+        
+        if($result == true){
+            $stat = true;
+            $msg = 'Ticket Approved';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }else{
+            $stat = error;
+            $msg = 'Something went wrong, try again later';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }
+
+        echo json_encode($res);
+        exit;
+    }
+
+    public function displayAllRejectedTickets(){
+         if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $result = $this->UserBackend_model->get_tickets();
+
+            $this->global['pageTitle'] = 'All Tickets';
+            $this->global['result'] = $result;
+
+            $this->loadViews('backend/rejectedTickets', $this->global, NULL , NULL);
+        }
     }
     
 }
