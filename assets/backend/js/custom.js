@@ -537,7 +537,46 @@ $(document).ready(function() {
     });
 
 
+     $(document).on("click", "#checkActive", function(e){
+        e.preventDefault();
+        
+        var tid = $(this).data('tid');
+        swal({
+          title: "Are you sure?",
+          text: "Once aproved, you will not be able to recover this record!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
 
+                jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : baseurl + "/admin/check_active_tickets",
+                    data : { tid : tid } 
+                }).done(function(data){
+                    if(data.status == true){
+                        swal({
+                            title: "Aproved Ticket",
+                            text: data.msg,
+                            icon: "success",
+                        });
+                        setTimeout(function(){
+                            window.location.replace(baseurl+'/admin/all-tickets');
+                        },1000)
+                    }else{
+                        swal({
+                            title: "Delete Category",
+                            text: data.msg,
+                            icon: "error",
+                        });
+                    }
+                });
+            }
+        })
+     })
 
 
 

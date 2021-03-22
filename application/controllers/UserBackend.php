@@ -604,16 +604,20 @@ class UserBackend extends BackendMain {
 
     public function edit_category_view()
     {
-        $cat_id = $this->input->get('id');
-        
-        $cat_id_base64decode = base64_decode($cat_id);
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $cat_id = $this->input->get('id');
+            
+            $cat_id_base64decode = base64_decode($cat_id);
 
-        $data = $this->UserBackend_model->get_category_details($cat_id_base64decode);
+            $data = $this->UserBackend_model->get_category_details($cat_id_base64decode);
 
-        $this->global['pageTitle'] = 'Edit Category';
-        $this->global['cat_details'] = $data;
+            $this->global['pageTitle'] = 'Edit Category';
+            $this->global['cat_details'] = $data;
 
-        $this->loadViews('backend/edit_category', $this->global, NULL , NULL);
+            $this->loadViews('backend/edit_category', $this->global, NULL , NULL);
+        }
     }
 
     public function update_category()
@@ -780,6 +784,55 @@ class UserBackend extends BackendMain {
         }
 
         return $cat_imgs;
+    }
+
+
+    public function displayAllTickets(){
+        if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $result = $this->UserBackend_model->get_tickets();
+
+            $this->global['pageTitle'] = 'All Tickets';
+            $this->global['result'] = $result;
+
+            $this->loadViews('backend/allTickets', $this->global, NULL , NULL);
+        }
+    }
+
+    public function check_active_tickets(){
+        $tid = $this->security->xss_clean(base64_decode($this->input->post('tid')));
+        $result = $this->UserBackend_model->updateAproveStatus($tid);
+        
+        if($result == true){
+            $stat = true;
+            $msg = 'Ticket Approved';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }else{
+            $stat = error;
+            $msg = 'Something went wrong, try again later';
+
+            $res['status'] = $stat;
+            $res['msg'] = $msg;
+        }
+
+        echo json_encode($res);
+        exit;
+    }
+
+    public function displayAllRejectedTickets(){
+         if($this->isAdmin() == FALSE) {
+            $this->index();
+        }else{
+            $result = $this->UserBackend_model->get_tickets();
+
+            $this->global['pageTitle'] = 'All Tickets';
+            $this->global['result'] = $result;
+
+            $this->loadViews('backend/rejectedTickets', $this->global, NULL , NULL);
+        }
     }
     
 }

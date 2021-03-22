@@ -7,7 +7,7 @@
 				<div class="col-lg-4 col-md-4 col-12 px-5">
 					<div class="logo">
 						<a href="<?= base_url(); ?>">
-							<img src="<?= base_url(); ?>assets/frontent/images/logoL.png" alt="#">
+							<img src="<?= base_url(); ?>assets/frontent/images/logoL.png" alt="#" class="footerLogo">
 						</a>
 					</div>
 				</div>
@@ -78,35 +78,33 @@
 	</div>
 	<div class="socialStrip">
 		<div class="col-6 ml-auto">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div>
+			<img src="<?= base_url(); ?>assets/frontent/images/footer.png" alt="#">
+			</div>
 		</div>
-	</div>
-	<div class="footerText px-5">
-		<p class="text-white">Welcome to TRENTA Shopping</p>
-		<p class="text-white">Welcome to TRENTA Shopping! TRENTA Shopping is a B2C marketplace network for fashion and lifestyle buyers and sellers in categories including fashion, lifestyle, and health & beauty to buy and sell effortlessly online. Browse the vast digital catalog with a huge in style selection at the most competitive prices from trusted sellers. Easily, enjoy our fast delivery services and benefit from flexible and secure online payments.</p>
-	</div>
-	<!-- End Footer Top -->
-	<div class="copyright">
-		<div class="px-5">
-			<div class="inner">
-				<div class="row">
-					<div class="col-lg-6 col-12">
-						<div class="left">
-							<p>&#169; Copyright <?php echo date("Y"); ?> Design by <a href="http://www.microresolve.com/" target="_blank" style="color:#fff;">MicroResolve</a> - All Rights Reserved.</p>
+		<div class="footerText px-5">
+			<p class="text-white">Welcome to TRENTA Shopping</p>
+			<p class="text-white">Welcome to TRENTA Shopping! TRENTA Shopping is a B2C marketplace network for fashion and lifestyle buyers and sellers in categories including fashion, lifestyle, and health & beauty to buy and sell effortlessly online. Browse the vast digital catalog with a huge in style selection at the most competitive prices from trusted sellers. Easily, enjoy our fast delivery services and benefit from flexible and secure online payments.</p>
+		</div>
+		<!-- End Footer Top -->
+		<div class="copyright">
+			<div class="px-5">
+				<div class="inner">
+					<div class="row">
+						<div class="col-lg-6 col-12">
+							<div class="left">
+								<p>&#169; Copyright <?php echo date("Y"); ?> Design by <a href="http://www.microresolve.com/" target="_blank" style="color:#fff;">MicroResolve</a> - All Rights Reserved.</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-lg-6 col-12">
-						<div class="right">
-							<img src="<?= base_url(); ?>assets/frontent/images/payments.png" alt="#">
+						<div class="col-lg-6 col-12">
+							<div class="right">
+								<img src="<?= base_url(); ?>assets/frontent/images/payments.png" alt="#">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </footer>
 <!-- /End Footer Area -->
 

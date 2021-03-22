@@ -77,8 +77,9 @@ $(document).ready(function () {
     $("#content-slider").lightSlider({
         loop: true,
         keyPress: true,
-        thumbItem: 9,
-        pager: false,
+        thumbItem: 3,
+        item: 3,
+        pager: true,
         prevHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/leftW.png"></div>`,
         nextHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/rightW.png"></div>`,
     });
