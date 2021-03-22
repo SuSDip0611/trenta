@@ -118,7 +118,7 @@ $(document).ready(function() {
                                             <div class="col-md-4 ">
                                                 <input type="number" class="form-control" id="size" name="product_size_`+box_count+`[]" placeholder="Enter size" required> 
                                             </div>
-                                            <div class="col-md-1">
+                                            <div class="col-md-1" style="cursor: pointer;">
                                                 <i class="fa fa-plus-circle" aria-hidden="true" data-tab_index = "`+box_count+`" id='add_new_size_btn' title='Add new details'></i>
                                             </div>
                                         </div>
@@ -204,31 +204,30 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#add_new_size_btn", function(e){
-        // $('.old_btns').hide();
-        var box_count = $('#box_count').val();
-		var tab_count = $('#tab_count_'+box_count).val();
-        // alert(tab_count);
-        // return;
-        console.log('tab_count', tab_count);
+        
         var tab_index = $(this).data('tab_index');
+		var tab_count = $('#tab_count_'+tab_index).val();
+
+        console.log('tab_index', tab_index);
+        console.log('tab_count', tab_count);
         
 		tab_count ++;
-        $('#tab_count_'+box_count).val(tab_count);
+        $('#tab_count_'+tab_index).val(tab_count);
 
 		var html = `
-            <div id="size_box_loop_`+box_count+`_`+tab_count+`">
+            <div id="size_box_loop_`+tab_index+`_`+tab_count+`">
                 <div class="col-md-4">
-                    <input type="number" class="form-control ipt" id="size" name="product_size_`+tab_count+`[]" placeholder="Enter size" required>
+                    <input type="number" class="form-control ipt" id="size" name="product_size_`+tab_index+`[]" placeholder="Enter size" required>
                 </div>
                 <div class="col-md-1" style="cursor: pointer;">
-                    <i class="fa fa-minus-circle rmv_btn_size_`+box_count+`_`+tab_count+`" aria-hidden="true" data-size_edit_mode="false" data-tab_index=`+tab_count+` id='remove_new_size_btn' title='Remove new details' ></i>
+                    <i class="fa fa-minus-circle rmv_btn_size_`+tab_index+`_`+tab_count+`" aria-hidden="true" data-size_edit_mode="false" data-box_index=`+tab_index+` data-tab_index=`+tab_count+` id='remove_new_size_btn' title='Remove new details' ></i>
                 </div>
             </div>
 		`;
 
         $(".size_div_"+tab_index).append(html);
 
-        $('.rmv_btn_size_'+box_count+'_'+(tab_count-1)).hide();
+        $('.rmv_btn_size_'+tab_index+'_'+(tab_count-1)).hide();
 
 	});
 
@@ -241,10 +240,8 @@ $(document).ready(function() {
         // return;
         if (edit_mode == true){
 
-            var box_count = $(this).data('index');
             var size_id = $(this).data('size_id');
-            var color_id = $(this).data('color_id');
-            var image_id = $(this).data('image_id');
+            var size_value = $(this).data('size_value');
             var product_id = $(this).data('product_id');
 
             swal({
@@ -260,11 +257,10 @@ $(document).ready(function() {
                     jQuery.ajax({
                         type : "POST",
                         dataType : "json",
-                        url : baseurl + "admin/remove_product_details",
+                        url : baseurl + "admin/remove_product_size",
                         data : { 
                             size_id : size_id,
-                            color_id : color_id,
-                            image_id : image_id,
+                            size_value : size_value,
                             product_id : product_id,
                         } 
                     }).done(function(data){
@@ -282,10 +278,12 @@ $(document).ready(function() {
             });
         }else {
             var tab_index = $(this).data('tab_index');
-            alert(tab_index);
-            $("#size_box_loop_"+tab_index).remove();
+            var box_index = $(this).data('box_index');
+            // alert(tab_index);
+            console.log('rmv_btn_size_', '.rmv_btn_size_'+box_index+'_'+tab_index);
+            $("#size_box_loop_"+box_index+"_"+tab_index).remove();
             
-            $('.rmv_btn_size_'+(tab_count-1)).show();
+            $('.rmv_btn_size_'+box_index+'_'+(tab_index-1)).show();
             var tab_count = $('#tab_count').val();
             tab_count --;
             $('#box_count').val(tab_count);

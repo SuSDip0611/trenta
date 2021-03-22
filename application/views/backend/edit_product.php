@@ -147,25 +147,32 @@
 													<div class="col-md-6">
 														<div class="form-group" > 
 															<label for="size">Size <span class="required-star">*</span></label>
-															<div class="row size_div_1">
+															<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_size_btn' data-tab_index="<?= ($dt_key+1) ?>" title='Add new details' style="cursor: pointer;"></i>
+															<div class="row size_div_<?= ($dt_key+1) ?>">
 																<?php 
 																	if (count($size)) {
 																		foreach ($size as $s_key => $sz) 
 																		{
 																?>
 																		<div id="size_box_loop_<?= $s_key+1 ?>">
-																			
-																		</div>
 																			<div class="col-md-4 ">
 																				<input type="number" class="form-control ipt" value="<?= $sz; ?>"  name="product_size[]" placeholder="Enter size" required> 
 																			</div>
-																			<div class="col-md-1">
-																				<?php if ($s_key > 0) {?>
-																		                <i class="fa fa-minus-circle rmv_btn_size_`+tab_count+`" aria-hidden="true" data-edit_mode="false" data-tab_index="<?= ($s_key+1) ?>" id='remove_new_size_btn' title='Remove new details' ></i>
-																				<?php } else{?>
-																					<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_size_btn' data-tab_index="<?= ($s_key+1) ?>" title='Add new details'></i>
-																				<?php }?>
-																	        </div>
+																			<div class="col-md-1" style="cursor: pointer;"> 
+																                <i 
+																                	class="fa fa-minus-circle rmv_btn_size_<?= ($dt_key+1) ?>" 
+																                	aria-hidden="true" 
+																                	data-edit_mode="false" 
+																                	data-tab_index="<?= ($dt_key+1) ?>" 
+																                	data-product_id="<?= base64_encode($id); ?>"
+																                	data-size_id="<?= $size_id ?>"
+																                	data-size_value="<?= $sz ?>"
+																                	id='remove_new_size_btn' 
+																                	data-size_edit_mode="true"
+																                	title='Remove new details' 
+																                ></i>
+																	        </div>				
+																		</div>
 																<?php 
 																		} 
 																	} 
@@ -179,6 +186,7 @@
 															<input type="number" class="form-control " value="<?= $stock?>" name="product_stock[]" placeholder="Enter stock" required> 
 														</div>
 													</div>
+													<input type="hidden" Id="tab_count_<?= $dt_key+1 ?>" value="<?= $tab_index; ?>"> 
 												</div>
 												
 											</div>
@@ -191,7 +199,6 @@
 					?>		
 				</div>
 				<input type="hidden" id="box_count" value="<?= count($prod_details['details']) ?>"> 
-				<input type="hidden" Id="tab_count" value="<?= $tab_index; ?>">               
 				<button type="submit" class="btn common_btn_class btn-lg btn-block edit_product_btn">Save</button> 
 		</div>
 	</div>
