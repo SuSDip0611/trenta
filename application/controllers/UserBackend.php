@@ -41,9 +41,9 @@ class UserBackend extends BackendMain {
         // $status = '';
         $price = $this->input->post('price');
         $category = $this->input->post('category');
+        $returnable = $this->input->post('returnable');
         $description = $this->input->post('description');
         $praduct_name = $this->input->post('praduct_name');
-
 
         if ($price != '' && $description != '' && $praduct_name != '' && $category != 0) {
             $flag = true;
@@ -56,6 +56,7 @@ class UserBackend extends BackendMain {
                 'price' => $price,
                 'category' => $category,
                 'description' => $description,
+                'returnable' => $returnable,
                 'product_name' => $praduct_name,
                 'created_at' => date('d-m-Y H:i:s'),
             );
@@ -145,10 +146,11 @@ class UserBackend extends BackendMain {
         $f_array = array();
 
         $f_array['id'] = $data->id;
-        $f_array['product_name'] = $data->product_name;
-        $f_array['category'] = $data->category;
-        $f_array['description'] = $data->description;
         $f_array['price'] = $data->price;
+        $f_array['category'] = $data->category;
+        $f_array['returnable'] = $data->returnable;
+        $f_array['description'] = $data->description;
+        $f_array['product_name'] = $data->product_name;
 
         if (count($colors) > 0) {
             foreach ($colors as $c_key => $color) {
@@ -240,6 +242,7 @@ class UserBackend extends BackendMain {
         
         $price = $this->input->post('price');
         $category = $this->input->post('category');
+        $returnable = $this->input->post('returnable');
         $description = $this->input->post('description');
         $id = base64_decode($this->input->post('prod_id'));
         $praduct_name = $this->input->post('praduct_name');
@@ -256,6 +259,7 @@ class UserBackend extends BackendMain {
             $product_data = array(
                 'price' => $price,
                 'category' => $category,
+                'returnable' => $returnable,
                 'description' => $description,
                 'product_name' => $praduct_name,
             );

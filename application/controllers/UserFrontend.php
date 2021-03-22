@@ -110,6 +110,7 @@ class UserFrontend extends FrontendMain
             $this->load_view('frontent/products', $this->global, NULL, NULL);
         }
     }
+
     public function displayProductDetails(){
         // echo "string";
 
@@ -136,20 +137,14 @@ class UserFrontend extends FrontendMain
             $current_product_color = $product_colors[0]->colors;
             $current_product_sizes = $this->UserFrontend_model->get_product_sizes_by_color($product_id, $product_colors[0]->id);
             
+
+            $sizes = unserialize($current_product_sizes->size);
+            
             $c_count = count($product_colors);
-            for ($i=1; $i < $c_count; $i++) { 
-                $colors[] = $product_colors[$i]->colors;
+            for ($i=0; $i < $c_count; $i++) { 
+                $colors[$product_colors[$i]->id] = $product_colors[$i]->colors;
             }
             
-            $p_count = count($product_all_sizes);
-            for ($i=0; $i < $p_count; $i++) { 
-                $sizes[] = $product_all_sizes[$i]->size;
-            }
-            
-            // echo"<pre>";
-            // print_r($sizes);
-            // echo"</pre>";
-            // exit;
             
             $product_array['id'] = $product_data->id;
             $product_array['name'] = $product_data->product_name;
@@ -157,7 +152,6 @@ class UserFrontend extends FrontendMain
             $product_array['description'] = $product_data->description;
             $product_array['image'] = $unserialize_imgs[0];
             $product_array['price'] = $product_data->price;
-            $product_array['size'] = $current_product_sizes->size;
             $product_array['color'] = $current_product_color;
             $product_array['color_id'] = $product_colors[0]->id;
             $product_array['all_images'] = $images;
@@ -170,6 +164,37 @@ class UserFrontend extends FrontendMain
             $this->global['product_details'] = $product_array;
             $this->load_view('frontent/productsDetails', $this->global, NULL, NULL);
         }
+    }
+
+    public function get_product_imgs_by_color()
+    {
+        $color_id = $this->security->xss_clean($this->input->post('color_id'));
+        $product_id = $this->security->xss_clean(base64_decode($this->input->post('product_id')));
+
+        $product_imgs = $this->UserFrontend_model->get_product_imgs_by_color($product_id, $color_id);
+        $unserialize_imgs = unserialize($product_imgs->images);
+
+        $product_sizes = $this->UserFrontend_model->get_product_sizes_by_color($product_id, $color_id);
+        $unserialize_sizes = unserialize($product_sizes->size);
+
+        /*echo "<pre>";
+        print_r($unserialize_sizes);
+        echo "</pre>";
+        exit();*/
+
+
+        if (count($unserialize_imgs) > 0) {
+            $res['status'] = true;
+            $res['sizes'] = $unserialize_sizes;
+            $res['images'] = $unserialize_imgs;
+        }else{
+            $res['status'] = false;
+            $res['sizes'] = array();
+            $res['images'] = array();
+        }
+
+        echo json_encode($res);
+        exit;
     }
 }
 

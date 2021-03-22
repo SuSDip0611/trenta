@@ -122,8 +122,6 @@
 <script src="<?= base_url(); ?>assets/frontent/js/slicknav.min.js"></script>
 <!-- Owl Carousel JS -->
 <script src="<?= base_url(); ?>assets/frontent/js/owl-carousel.js"></script>
-<!-- Magnific Popup JS -->
-<script src="<?= base_url(); ?>assets/frontent/js/magnific-popup.js"></script>
 <!-- Waypoints JS -->
 <script src="<?= base_url(); ?>assets/frontent/js/waypoints.min.js"></script>
 <!-- Countdown JS -->
@@ -143,8 +141,10 @@
 <!-- Lightslider JS -->
 <script src="<?= base_url(); ?>assets/frontent/js/lightslider.js"></script>
 
-<script src="<?= base_url(); ?>assets/frontent/js/zoomsl.js"></script>
 <script src="<?= base_url(); ?>assets/frontent/js/custom.js"></script>
+<script src="<?= base_url(); ?>assets/frontent/js/zoomsl.js"></script>
+<!-- Magnific Popup JS -->
+<script src="<?= base_url(); ?>assets/frontent/js/magnific-popup.js"></script>
 <script>
 	var baseurl = '<?php echo base_url(); ?>';
 </script>

@@ -537,7 +537,7 @@ $(document).ready(function() {
     });
 
 
-     $(document).on("click", "#checkActive", function(e){
+    $(document).on("click", "#checkActive", function(e){
         e.preventDefault();
         
         var tid = $(this).data('tid');
@@ -577,112 +577,6 @@ $(document).ready(function() {
             }
         })
      })
-
-
-
-    /*VUE Start*/
-	/*var obj = {
-        foo: 'bar'
-    }
-    new Vue({
-        el: '#app',
-        data: {
-            Details: []
-        },
-        methods: {
-            saveProductDetails: function() {
-                
-				var form = $('#save_new_product_form')[0];
-		        var product_data = JSON.stringify(this.Details);
-
-                var formData = new FormData(form);
-		        formData.append('product_data',product_data);
-
-                $.ajax({
-		            type: "POST",
-		            dataType : "json",
-		            enctype: 'multipart/form-data',
-		            url: baseurl + "/admin/save_new_product",
-		            data: formData,
-		            processData: false,
-		            contentType: false,
-		            cache: false,
-		            timeout: 800000,
-		        }).done(function(data){
-					if (data.status = true) {
-                        swal("Done",data.msg,"success");
-                        setTimeout(function(){
-                            window.location.replace(baseurl+'/admin/product_list');
-                        },1000)
-                    }else {
-                        $('#myModal').modal('toggle');
-                        swal("Error",data.msg,"error");
-                    }
-		        });
-
-            },
-
-            addMoreDetails: function(i) {
-                this.Details.push({
-                    product_images: [{
-                        images:[]
-                    }],
-                    product_size:[{
-                        name: ''
-                    }],
-                    product_color: [{
-                        color: ''
-                    }],
-                });
-            },
-
-            preView: function(e) {
-                // console.log('e: ', e);
-                var idx = event.target.getAttribute('data-id');
-                console.log('idx: ', idx);
-                var files = e.target.files,
-                filesLength = files.length;
-                $('.pip'+idx).remove();
-                for (var i = 0; i < filesLength; i++) {
-                    var count = i;
-                    var f = files[i]
-                    var fileReader = new FileReader();
-                    fileReader.onload = (function(e) {
-                        var file = e.target;
-                        $("<span class=\"pip_"+idx+"\ pre_img\">" +
-                        "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"width=50px height=50px/>" +
-                        "</span>").insertAfter(".preview_div_"+idx);
-                        // $(".remove").click(function(){
-                        // $(this).parent(".pip").remove();
-                        // });   
-                    });
-                    fileReader.readAsDataURL(f);
-                }
-            },
-
-            removeDetails: function(i) {
-				this.Details.splice(i, 1);
-			},
-        },
-        created: function () {
-
-            this.Details.push({
-                product_images: [{
-                    images:[]
-                }],
-                product_size:[{
-                    name: ''
-                }],
-                product_color: [{
-                    color: ''
-                }],
-            });
-        }
-    });*/
-    /* VUE End*/
-
-
-
 
     $('.datatable').DataTable();
 });

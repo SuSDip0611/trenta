@@ -87,23 +87,113 @@ $(document).ready(function () {
 });
 
 // Product show
-$(document).ready(function () {
-    });
-    $(".prdct_thumb")
-      .on("mouseenter", function (event) {
-        $(".prdct_img").removeClass("active");
-        productTarget = event.target.id;
+$(".prdct_thumb")
+  .on("mouseenter", function (event) {
+    $(".prdct_img").removeClass("active");
+    productTarget = event.target.id;
 
-        console.log(productTarget);
-        $('[data-product=' + productTarget + ']').addClass('active');
-      })
-      .on("mouseleave", function () {
-      }, false);
+    console.log(productTarget);
+    $('[data-product=' + productTarget + ']').addClass('active');
+  })
+  .on("mouseleave", function () {
+  }, false);
 
 //   Hover Zoom
-      $(document).ready(function () {
-        $(".block__pic").imagezoomsl({
-            zoomrange: [3, 3]
-        });
+  $(document).ready(function () {
+    $(".block__pic").imagezoomsl({
+        zoomrange: [3, 3]
     });
+});
     
+$(document).ready(function () {
+    //Change Img on color click
+    $(document).on("click", ".product_color_btn", function(e){
+        e.preventDefault();
+        
+        var color_id = $(this).data('color_id');
+        var product_id = $(this).data('product_id');
+
+        jQuery.ajax({
+            type : "POST",
+            dataType : "json",
+            url : baseurl + "/get_product_imgs_by_color",
+            data : { 
+                color_id : color_id,
+                product_id: product_id 
+            } 
+        }).done(function(data){
+            
+            if(data.status == true){
+
+                $('.productImgContainer').html('');
+                $('#sizeSelector').html('');
+
+                var html = `<div class="productThumb">`;
+
+                if (data.images.length > 0) {
+
+                    $.each(data.images, function(index, image){
+                        html += `
+                            <img 
+                                class="prdct_thumb" 
+                                id="pr`+(index+2)+`" 
+                                data-product="pr`+(index+2)+`"
+                                src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+image+` " 
+                            />
+                        `;
+                    });
+
+                    html += '</div>';
+
+                    html += '<div class="productImg">';
+
+                    html += `
+                        <img 
+                            class="prdct_img block__pic active" 
+                            id="pr1" 
+                            data-product="pr1"
+                            src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+data.images[0]+` " 
+                        />
+                    `;
+
+                    $.each(data.images, function(index, image){
+                        html += `
+                            <img 
+                                class="prdct_img block__pic"
+                                id="pr`+(index+2)+`" 
+                                data-product="pr`+(index+2)+`"
+                                src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+image+` " 
+                            />
+                        `;
+                    });
+
+                    html += '</div>';
+
+
+                    $('.productImgContainer').append(html);
+
+                }
+                
+                if (data.sizes.length > 0) {
+
+                    var size_html = '<h6 class="mr-4">Available Sizes</h6>';
+
+                    $.each(data.sizes, function(indx, size){
+                        size_html+= `<button class="btnSelect">`+size+`</button>`;
+                    });
+
+                    $('#sizeSelector').append(size_html);
+                }
+
+                
+            }else{
+                swal({
+                    title: "Product Details",
+                    text: 'Somthing went wrong, try again later',
+                    icon: "error",
+                });
+            }
+        });
+
+    });
+});

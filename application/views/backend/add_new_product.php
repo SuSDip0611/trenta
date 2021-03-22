@@ -29,13 +29,13 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group"> 
 							<label for="price">Price <span class="required-star">*</span></label> 
 							<input type="number" class="form-control" id="price" name="price" placeholder="Product Price" required> 
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group"> 
 							<label for="description">Product Category <span class="required-star">*</span></label>
 							<select class="form-control" name="category" required>
@@ -49,6 +49,13 @@
 								?>
 							</select>
 						</div> 
+					</div>
+					<div class="col-md-4">	
+					<div class="form-group" style="display: flex; justify-content: space-around;"> 
+						<label for="description">Is Product Returnable <span class="required-star">*</span></label>
+						<input type="radio" name="returnable" value="0" id="no"><label for="no">No</label>
+						<input type="radio" name="returnable" value="1" id="yes"><label for="yes">Yes</label>
+					</div>									
 					</div>									
 				</div>
 				<div class="row prd_dtl_div">

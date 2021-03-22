@@ -3,7 +3,6 @@
         <div class="productImageSection col-sm-10 col-md-4 col-lg-4">
             <div class="productImgContainer">
                 <div class="productThumb">
-                <!-- <img class="prdct_thumb active" data-product="pr1" id="pr1" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $product_details['image'] ?>" alt="" /> -->
                     <?php 
                         if (count($product_details['all_images']) >0) {
                             foreach ($product_details['all_images'] as $key => $img) 
@@ -21,8 +20,8 @@
                     <img class="prdct_thumb" id="pr6" src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /> -->
                 </div>
                 <div class="productImg">
-                    <img class="prdct_img block__pic ddd active" data-product="pr1" id="pr1" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $product_details['image'] ?>" alt="" />
-                <?php 
+                    <img class="prdct_img block__pic active" data-product="pr1" id="pr1" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $product_details['image'] ?>" alt="" />
+                    <?php 
                         if (count($product_details['all_images']) >0) {
                             foreach ($product_details['all_images'] as $key => $img) 
                             {
@@ -66,13 +65,22 @@
             <div class="productColor d-flex flex-row flex-wrap align-items-center mt-4">
                 <h6 class="mr-4">Color</h6>
                 <ul class="list-group d-flex flex-row">
-                    <li class="list-group-item">
-                        <a href="#" class="text-center">
-                            <img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" />
-                            <p>Black</p>
+                    <?php foreach ($product_details['colors'] as $color_id => $av_color) { ?>
+                        <a 
+                            href="javascript:void(0);" 
+                            class="product_color_btn" 
+                            data-color_id="<?php echo $color_id; ?>" 
+                            data-product_id="<?php echo base64_encode($product_details['id']); ?>"
+                        >
+                            <li class="list-group-item" style="background-color: <?php echo $av_color; ?> ">
+                                <!-- <a href="#" class="text-center">
+                                    <input type="color" value="<?= $av_color; ?>" name="" disabled>
+                                    <p>Black</p>
+                                </a> -->
+                            </li> 
                         </a>
-                     </li>
-                    <li class="list-group-item">
+                    <?php } ?>
+                    <!-- <li class="list-group-item">
                         <a href="#" class="text-center">
                             <img src="<?= base_url() ?>assets/frontent/images/pDetails/black.jpg" alt="" />
                             <p>Black</p>
@@ -95,13 +103,13 @@
                             <img src="<?= base_url() ?>assets/frontent/images/pDetails/red.jpg" alt="" />
                             <p>Red</p>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="productSize mt-4">
                 <div id="sizeSelector" class="d-flex align-items-center">
-                    <h6 class="mr-4">Size</h6>
-                    <button class="btnSelect size_select"><?php echo $product_details['size']; ?></button>
+                    <h6 class="mr-4">Available Sizes</h6>
+                    <!-- <button class="btnSelect size_select"><?php echo $product_details['size']; ?></button> -->
                     <?php 
                         if (count($product_details['sizes']) >0) {
                             foreach ($product_details['sizes'] as $key => $sz) 

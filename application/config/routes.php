@@ -89,4 +89,5 @@ $route['get_category_products'] = 'UserFrontend/get_category_products';
 $route['category'] = 'UserFrontend/displayCategory';
 $route['products'] = 'UserFrontend/displayProducts';
 $route['productsDetails'] = 'UserFrontend/displayProductDetails';
+$route['get_product_imgs_by_color'] = 'UserFrontend/get_product_imgs_by_color';
 /* *===* Frontend Routes End *===* */
