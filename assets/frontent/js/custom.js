@@ -32,8 +32,8 @@ $(document).ready(function () {
                                     <div class="single-product">
                                         <div class="product-img">
                                             <a href="#" class="">
-                                                <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/`+element.color+'/'+ element.images + `" alt="Images">
-                                                <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/`+element.color+'/'+ element.images + `" alt="Images">
+                                                <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.color + '/' + element.images + `" alt="Images">
+                                                <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.color + '/' + element.images + `" alt="Images">
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">
@@ -80,50 +80,50 @@ $(document).ready(function () {
         thumbItem: 3,
         item: 3,
         pager: true,
-        prevHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/leftW.png"></div>`,
-        nextHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="`+baseurl+`assets/frontent/images/icons/rightW.png"></div>`,
+        prevHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="` + baseurl + `assets/frontent/images/icons/leftW.png"></div>`,
+        nextHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="` + baseurl + `assets/frontent/images/icons/rightW.png"></div>`,
     });
-  
+
 });
 
 // Product show
 $(".prdct_thumb")
-  .on("mouseenter", function (event) {
-    $(".prdct_img").removeClass("active");
-    productTarget = event.target.id;
+    .on("mouseenter", function (event) {
+        $(".prdct_img").removeClass("active");
+        productTarget = event.target.id;
 
-    console.log(productTarget);
-    $('[data-product=' + productTarget + ']').addClass('active');
-  })
-  .on("mouseleave", function () {
-  }, false);
+        console.log(productTarget);
+        $('[data-product=' + productTarget + ']').addClass('active');
+    })
+    .on("mouseleave", function () {
+    }, false);
 
 //   Hover Zoom
-  $(document).ready(function () {
+$(document).ready(function () {
     $(".block__pic").imagezoomsl({
         zoomrange: [3, 3]
     });
 });
-    
+
 $(document).ready(function () {
     //Change Img on color click
-    $(document).on("click", ".product_color_btn", function(e){
+    $(document).on("click", ".product_color_btn", function (e) {
         e.preventDefault();
-        
+
         var color_id = $(this).data('color_id');
         var product_id = $(this).data('product_id');
 
         jQuery.ajax({
-            type : "POST",
-            dataType : "json",
-            url : baseurl + "/get_product_imgs_by_color",
-            data : { 
-                color_id : color_id,
-                product_id: product_id 
-            } 
-        }).done(function(data){
-            
-            if(data.status == true){
+            type: "POST",
+            dataType: "json",
+            url: baseurl + "/get_product_imgs_by_color",
+            data: {
+                color_id: color_id,
+                product_id: product_id
+            }
+        }).done(function (data) {
+
+            if (data.status == true) {
 
                 $('.productImgContainer').html('');
                 $('#sizeSelector').html('');
@@ -132,13 +132,13 @@ $(document).ready(function () {
 
                 if (data.images.length > 0) {
 
-                    $.each(data.images, function(index, image){
+                    $.each(data.images, function (index, image) {
                         html += `
                             <img 
                                 class="prdct_thumb" 
-                                id="pr`+(index+2)+`" 
-                                data-product="pr`+(index+2)+`"
-                                src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+image+` " 
+                                id="pr`+ (index + 2) + `" 
+                                data-product="pr`+ (index + 2) + `"
+                                src="`+ baseurl + `assets/backend/images/product_images/` + atob(product_id) + `/` + color_id + `/` + image + ` " 
                             />
                         `;
                     });
@@ -152,17 +152,17 @@ $(document).ready(function () {
                             class="prdct_img block__pic active" 
                             id="pr1" 
                             data-product="pr1"
-                            src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+data.images[0]+` " 
+                            src="`+ baseurl + `assets/backend/images/product_images/` + atob(product_id) + `/` + color_id + `/` + data.images[0] + ` " 
                         />
                     `;
 
-                    $.each(data.images, function(index, image){
+                    $.each(data.images, function (index, image) {
                         html += `
                             <img 
                                 class="prdct_img block__pic"
-                                id="pr`+(index+2)+`" 
-                                data-product="pr`+(index+2)+`"
-                                src="`+baseurl+`assets/backend/images/product_images/`+atob(product_id)+`/`+color_id+`/`+image+` " 
+                                id="pr`+ (index + 2) + `" 
+                                data-product="pr`+ (index + 2) + `"
+                                src="`+ baseurl + `assets/backend/images/product_images/` + atob(product_id) + `/` + color_id + `/` + image + ` " 
                             />
                         `;
                     });
@@ -173,20 +173,20 @@ $(document).ready(function () {
                     $('.productImgContainer').append(html);
 
                 }
-                
+
                 if (data.sizes.length > 0) {
 
                     var size_html = '<h6 class="mr-4">Available Sizes</h6>';
 
-                    $.each(data.sizes, function(indx, size){
-                        size_html+= `<button class="btnSelect">`+size+`</button>`;
+                    $.each(data.sizes, function (indx, size) {
+                        size_html += `<button class="btnSelect">` + size + `</button>`;
                     });
 
                     $('#sizeSelector').append(size_html);
                 }
 
-                
-            }else{
+
+            } else {
                 swal({
                     title: "Product Details",
                     text: 'Somthing went wrong, try again later',
@@ -196,4 +196,10 @@ $(document).ready(function () {
         });
 
     });
+});
+
+$(document).ready(function () {
+
+    $("#owl-example").owlCarousel();
+    items: 3;
 });
