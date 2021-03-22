@@ -76,6 +76,42 @@ class UserBackend_model extends CI_Model
         }
     }
 
+    public function delete_product_single_size($product_id, $id, $value)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_product_size');
+        $this->db->where('id', $id);
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->get();
+        
+        $data = $query->row();
+
+        $sizes = unserialize($data->size);
+
+        $nw = array();
+        foreach ($sizes as $key => $size) {
+            if ($size != $value) {
+                $nw[] = $size;
+            }
+        }
+
+        $nw_dt = array(
+            'size' => serialize($nw)
+        );
+        
+        $this->db->where('id', $id);
+        $this->db->where('product_id', $product_id);
+        $is_update = $this->db->update('tbl_product_size', $nw_dt);
+
+        return $is_update;
+
+        if($is_update == 1){
+            return true;      
+        }else{
+            return false;
+        }
+    }
+
     public function update_product($id, $data)
     {
         $this->db->where('id', $id);

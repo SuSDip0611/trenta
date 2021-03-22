@@ -65,6 +65,7 @@ $route['admin/dashboard'] = 'UserBackend';
 $route['admin/add_new_product'] = 'UserBackend/add_new_product';
 $route['admin/save_new_product'] = 'UserBackend/save_new_product';
 $route['admin/remove_product_details'] = 'UserBackend/remove_product_details';
+$route['admin/remove_product_size'] = 'UserBackend/remove_product_size';
 $route['admin/edit_product'] = 'UserBackend/edit_product';
 $route['admin/deselect_image'] = 'UserBackend/deselect_image';
 $route['admin/update_product'] = 'UserBackend/update_product';

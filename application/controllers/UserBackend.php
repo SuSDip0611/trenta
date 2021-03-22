@@ -212,6 +212,25 @@ class UserBackend extends BackendMain {
         exit;
     }
 
+    public function remove_product_size()
+    {
+        $size_id = $this->input->post('size_id');
+        $size_value = $this->input->post('size_value');
+        $product_id = base64_decode($this->input->post('product_id'));
+
+        $data = $this->UserBackend_model->delete_product_single_size($product_id, $size_id, $size_value);
+
+        if ($data) {
+            $res['status'] = true;            
+        }else{
+            $res['status'] = false;                        
+        }
+
+
+        echo json_encode($res);
+        exit;
+    }
+
     public function update_product()
     {
         $flag = false;
