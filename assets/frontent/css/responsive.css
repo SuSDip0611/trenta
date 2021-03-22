@@ -7,7 +7,6 @@ Version:1.0
 ========================================*/
 /* Tablet Screen */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-<<<<<<< HEAD
   .section {
     padding: 50px 0px;
   }
@@ -398,9 +397,9 @@ Version:1.0
     background: transparent;
     overflow: hidden;
   }
-  .slicknav_nav li a i {
+  /* .slicknav_nav li a i {
     display: none;
-  }
+  } */
   .slicknav_nav li:hover a {
     color: #f7941d;
     background: transparent;
@@ -1110,9 +1109,9 @@ Version:1.0
     background: transparent;
     overflow: hidden;
   }
-  .slicknav_nav li a i {
+  /* .slicknav_nav li a i {
     display: none;
-  }
+  } */
   .slicknav_nav li:hover a {
     color: #f7941d;
     background: transparent;
@@ -1455,7 +1454,6 @@ Version:1.0
   }
   .shop .nice-select {
     width: 100%;
-    display: ;
     margin-top: 4px;
   }
   .shop .view-mode {
@@ -1465,16 +1463,11 @@ Version:1.0
     width: 100%;
   }
   .shop .view-mode li {
-    display: inline-block;
     margin-right: 5px;
     display: inline-block;
     margin: 0;
-    mar0-t: mar;
     margin-top: 4px;
     width: 100%;
-    display: block;
-    display: inline-block;
-    display: ;
   }
   .shop .view-mode li a {
     width: 80px;
@@ -1677,7 +1670,7 @@ Version:1.0
     font-size: 15px;
     margin: 10px 0 10px;
   }
-=======
+
 .section{
 	padding:50px 0px;
 }
@@ -2080,9 +2073,9 @@ Version:1.0
 	background: transparent;
 	overflow: hidden;
 }
-.slicknav_nav li a i{
+/* .slicknav_nav li a i{
 	display:none;
-}
+} */
 .slicknav_nav li:hover a{
 	color:#F7941D;
 	background:transparent;
@@ -2798,9 +2791,9 @@ Version:1.0
 	background: transparent;
 	overflow: hidden;
 }
-.slicknav_nav li a i{
+/* .slicknav_nav li a i{
 	display:none;
-}
+} */
 .slicknav_nav li:hover a{
 	color:#F7941D;
 	background:transparent;
@@ -3141,7 +3134,6 @@ Version:1.0
 }
 .shop .nice-select {
 	width: 100%;
-	display: ;
 	margin-top: 4px;
 }
 .shop .view-mode {
@@ -3153,14 +3145,9 @@ Version:1.0
 .shop .view-mode li {
 	display: inline-block;
 	margin-right: 5px;
-	display: inline-block;
 	margin: 0;
-	mar0-t: mar;
 	margin-top: 4px;
 	width: 100%;
-	display: block;
-	display: inline-block;
-	display: ;
 }
 .shop .view-mode li a {
 	width: 80px;
@@ -3362,5 +3349,5 @@ Version:1.0
 .quickview-content h3 {
 	font-size: 15px;
 	margin: 10px 0 10px;
->>>>>>> 8c24964ca3a3b8e3f7749271894a1aa2db475ac5
+
 }

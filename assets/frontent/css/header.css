@@ -131,7 +131,7 @@
   .scroll_d_none {
     margin: auto;
   }
-  .header {
+  .header.shop {
     display: none;
   }
   /* .mobile_header {
