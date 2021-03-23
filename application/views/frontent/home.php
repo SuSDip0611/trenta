@@ -117,12 +117,20 @@
 							if (count($categories) > 0) {
 								foreach ($categories as $key => $cat) {
 							?>
-									<li class="nav-item"><a href="javascript:void(0)" class="nav-link  <?php if ($count == 1) { ?> active <?php } ?> getDetailsByCatId" data-category_id="<?= $cat->id ?>" href="#man" role="tab"><?php echo $cat->category_name ?></a></li>
+									<li class="nav-item">
+										<a href="javascript:void(0)" class="nav-link  <?php if ($count == 1) { ?> active <?php } ?> getDetailsByCatId" data-category_id="<?= $cat->id ?>" href="#man" role="tab">
+											<?php echo $cat->category_name ?>											
+										</a>
+									</li>
+							<?php if ($count == 1) { $cat_id = base64_encode($cat->id); } ?>
 							<?php
 									$count++;
 								}
 							}
 							?>
+							<div class="see-more pull-right" id="see_more" >
+								<a href="<?= base_url()?>products?id=<?= $cat_id ?>">See more</a>
+							</div>
 						</ul>
 						<!--/ End Tab Nav -->
 					</div>

@@ -208,8 +208,8 @@ $(document).ready(function() {
         var tab_index = $(this).data('tab_index');
 		var tab_count = $('#tab_count_'+tab_index).val();
 
-        console.log('tab_index', tab_index);
-        console.log('tab_count', tab_count);
+        /*console.log('tab_index', tab_index);
+        console.log('tab_count', tab_count);*/
         
 		tab_count ++;
         $('#tab_count_'+tab_index).val(tab_count);

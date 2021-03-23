@@ -17,27 +17,49 @@ class UserFrontend extends FrontendMain
 
 	public function index()
 	{
+        $all_cats = array();
         $categories = $this->UserBackend_model->get_category_list();
 
-        $first_key = $categories[0]->id;
+        foreach ($categories as $c_key => $cat) {
+            $prods = $this->UserFrontend_model->get_category_products($cat->id);
 
-        $products = $this->UserFrontend_model->get_category_products($first_key);
+            if (count($prods) > 0) {
+                $all_cats[] = $cat;
+            }else{
+                continue;
+            }
+        }
 
-        foreach ($products as $key => $value) {
 
-            // $unserImgs =  unserialize($value->images);
+        $cat_prods = $this->UserFrontend_model->get_category_products($all_cats[0]->id);
+        /*echo "<pre>";
+        print_r($cat_prods);
+        echo "</pre>"; 
+        exit();*/
+        
+
+        foreach ($cat_prods as $key => $value) {
+
             $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
 
-            $unserialize_imgs = unserialize($unserImgs->images);
-            
+            if ($unserImgs != '') {
+                               
+                $unserialize_imgs = unserialize($unserImgs->images);
+                
 
-            $value->color = $unserImgs->product_color_id;
-            $value->images = $unserialize_imgs[0];
+                $value->color = $unserImgs->product_color_id;
+                $value->images = $unserialize_imgs[0];
+            }else{
+                $value->color = 0;
+                $value->images = 0;
+            }
+
         }
+
        
         $this->global['pageTitle'] = 'Home';
-    	$this->global['products'] = $products;
-    	$this->global['categories'] = $categories;
+    	$this->global['products'] = $cat_prods;
+    	$this->global['categories'] = $all_cats;
 
 
 		$this->load_view('frontent/home', $this->global, NULL, NULL);

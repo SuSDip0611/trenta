@@ -60,6 +60,11 @@ $(document).ready(function () {
 
                         });
 
+                        $('#see_more').html('');
+                        var see_more_html = '<a href="'+baseurl+'/products?id='+ btoa(category_id) +'">See more</a>';
+                        $('#see_more').append(see_more_html);
+
+
                     } else {
                         $('.prodDiv').html('');
                         $('.prodDiv').append('No product added for this category');
@@ -70,10 +75,7 @@ $(document).ready(function () {
             }
         })
     });
-});
-
-
-$(document).ready(function () {
+    
     $("#content-slider").lightSlider({
         loop: true,
         keyPress: true,
@@ -84,28 +86,24 @@ $(document).ready(function () {
         nextHtml: `<div style="height:30px; width: 30px"><img style="width:100%" src="` + baseurl + `assets/frontent/images/icons/rightW.png"></div>`,
     });
 
-});
+    // Product show
+    $(".prdct_thumb")
+        .on("mouseenter", function (event) {
+            $(".prdct_img").removeClass("active");
+            productTarget = event.target.id;
 
-// Product show
-$(".prdct_thumb")
-    .on("mouseenter", function (event) {
-        $(".prdct_img").removeClass("active");
-        productTarget = event.target.id;
+            console.log(productTarget);
+            $('[data-product=' + productTarget + ']').addClass('active');
+        })
+        .on("mouseleave", function () {
+        }, false);
+    
 
-        console.log(productTarget);
-        $('[data-product=' + productTarget + ']').addClass('active');
-    })
-    .on("mouseleave", function () {
-    }, false);
-
-//   Hover Zoom
-$(document).ready(function () {
+    //   Hover Zoom
     $(".block__pic").imagezoomsl({
         zoomrange: [3, 3]
     });
-});
-
-$(document).ready(function () {
+    
     //Change Img on color click
     $(document).on("click", ".product_color_btn", function (e) {
         e.preventDefault();
@@ -196,9 +194,6 @@ $(document).ready(function () {
         });
 
     });
-});
-
-$(document).ready(function () {
 
     $("#owl-example").owlCarousel();
     items: 3;
