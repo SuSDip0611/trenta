@@ -1,5 +1,5 @@
 <section class="px-3">
-	
+
 </section>
 <!--/ End Slider Area -->
 
@@ -8,7 +8,7 @@
 <div class="product-area most-popular section">
 	<div class="row_container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 sliderContainer">
 				<div id="owl-demo" class="owl-carousel popular-slider">
 					<!-- Start Single Product -->
 					<div class="single-product">
@@ -16,16 +16,7 @@
 							<a href="#">
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
 							</a>
-							<div class="button-head">
-								<div class="product-action">
-									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-								</div>
-								<div class="product-action-2">
-									<a title="Add to cart" href="#">Add to cart</a>
-								</div>
-							</div>
+
 						</div>
 					</div>
 					<!-- End Single Product -->
@@ -35,16 +26,7 @@
 							<a href="#">
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Only.jpg" alt="#">
 							</a>
-							<div class="button-head">
-								<div class="product-action">
-									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-								</div>
-								<div class="product-action-2">
-									<a title="Add to cart" href="#">Add to cart</a>
-								</div>
-							</div>
+
 						</div>
 					</div>
 					<!-- End Single Product -->
@@ -54,16 +36,7 @@
 							<a href="#">
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Nike.jpg" alt="#">
 							</a>
-							<div class="button-head">
-								<div class="product-action">
-									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-								</div>
-								<div class="product-action-2">
-									<a title="Add to cart" href="#">Add to cart</a>
-								</div>
-							</div>
+
 						</div>
 					</div>
 					<!-- End Single Product -->
@@ -73,19 +46,12 @@
 							<a href="#">
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
 							</a>
-							<div class="button-head">
-								<div class="product-action">
-									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-								</div>
-								<div class="product-action-2">
-									<a title="Add to cart" href="#">Add to cart</a>
-								</div>
-							</div>
 						</div>
 					</div>
 					<!-- End Single Product -->
+				</div>
+				<div class="shopNowButtonWrap">
+					<a class="btnCustom btn-outline-light shopNowButton">Shop Now</a>
 				</div>
 			</div>
 		</div>
@@ -119,17 +85,19 @@
 							?>
 									<li class="nav-item">
 										<a href="javascript:void(0)" class="nav-link  <?php if ($count == 1) { ?> active <?php } ?> getDetailsByCatId" data-category_id="<?= $cat->id ?>" href="#man" role="tab">
-											<?php echo $cat->category_name ?>											
+											<?php echo $cat->category_name ?>
 										</a>
 									</li>
-							<?php if ($count == 1) { $cat_id = base64_encode($cat->id); } ?>
+									<?php if ($count == 1) {
+										$cat_id = base64_encode($cat->id);
+									} ?>
 							<?php
 									$count++;
 								}
 							}
 							?>
-							<div class="see-more pull-right" id="see_more" >
-								<a href="<?= base_url()?>products?id=<?= $cat_id ?>">See more</a>
+							<div class="see-more pull-right" id="see_more">
+								<a href="<?= base_url() ?>products?id=<?= $cat_id ?>">See more</a>
 							</div>
 						</ul>
 						<!--/ End Tab Nav -->
@@ -1527,7 +1495,7 @@
 								<img class="hover-img" src="<?= base_url() ?>assets/frontent/images/1.10..jpg" alt="#">
 								<span class="out-of-stock">Hot</span>
 							</a>
-							<div class="button-head">
+							<!-- <div class="button-head">
 								<div class="product-action">
 									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
 									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
@@ -1536,7 +1504,7 @@
 								<div class="product-action-2">
 									<a title="Add to cart" href="#">Add to cart</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="product-content">
 							<h3><a href="#">Black Sunglass For Women</a></h3>
@@ -1554,7 +1522,7 @@
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/1.11.jpg" alt="#">
 								<img class="hover-img" src="<?= base_url() ?>assets/frontent/images/1.11.jpg" alt="#">
 							</a>
-							<div class="button-head">
+							<!-- <div class="button-head">
 								<div class="product-action">
 									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
 									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
@@ -1563,7 +1531,7 @@
 								<div class="product-action-2">
 									<a title="Add to cart" href="#">Add to cart</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="product-content">
 							<h3><a href="#">Women Hot Collection</a></h3>
@@ -1581,7 +1549,7 @@
 								<img class="hover-img" src="<?= base_url() ?>assets/frontent/images/1.12.jpg" alt="#">
 								<span class="new">New</span>
 							</a>
-							<div class="button-head">
+							<!-- <div class="button-head">
 								<div class="product-action">
 									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
 									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
@@ -1590,7 +1558,7 @@
 								<div class="product-action-2">
 									<a title="Add to cart" href="#">Add to cart</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="product-content">
 							<h3><a href="#">Awesome Pink Show</a></h3>
@@ -1607,7 +1575,7 @@
 								<img class="default-img" src="<?= base_url() ?>assets/frontent/images/1.13.jpg" alt="#">
 								<img class="hover-img" src="<?= base_url() ?>assets/frontent/images/1.13.jpg" alt="#">
 							</a>
-							<div class="button-head">
+							<!-- <div class="button-head">
 								<div class="product-action">
 									<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
 									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
@@ -1616,7 +1584,7 @@
 								<div class="product-action-2">
 									<a title="Add to cart" href="#">Add to cart</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="product-content">
 							<h3><a href="#">Awesome Bags Collection</a></h3>

@@ -1396,6 +1396,9 @@ Version:1.0
   width: 100%;
   margin-top: -30px;
 }
+.single-product .owl-controls {
+  display: none !important;
+}
 .hero-area2 .owl-carousel .owl-nav div {
   height: 60px;
   width: 40px;
@@ -5036,7 +5039,7 @@ Version:1.0
   margin: -75px 0 0 -100px;
 }
 .row_container {
-  max-width: 1400px;
+  /* max-width: 2000px; */
   margin: auto;
 }
 .productAlignment {
@@ -5060,7 +5063,6 @@ Version:1.0
   padding: 5px;
   height: 200px;
   width: 174px;
-
 }
 .productCatCard {
   height: 280px;
@@ -5317,13 +5319,12 @@ img.prdct_img {
   .sm_mt_10 {
     margin-top: 0px;
   }
-  .mobileHeader{
+  .mobileHeader {
     display: none;
   }
-  .mobileNav{
+  .mobileNav {
     display: none;
   }
-  
 }
 @media screen and (max-width: 768px) {
   .d_sm_none {
@@ -5335,15 +5336,13 @@ img.prdct_img {
   .sm_mt_10 {
     margin-top: 10px;
   }
-  .webHeader{
+  .webHeader {
     display: none;
   }
-  .middle-inner{
+  .middle-inner {
     display: none;
   }
- 
 }
-
 
 .searchIcon i {
   font-size: 18px;
@@ -5364,11 +5363,11 @@ img.prdct_img {
 .sticky .centerLogo {
   display: none;
 }
-.centerLogo img{
-  max-width: 50% !important
+.centerLogo img {
+  max-width: 50% !important;
 }
-.leftLogo img{
-  max-width: 100% !important
+.leftLogo img {
+  max-width: 100% !important;
 }
 .linearGrad {
   background: #5e77b7;
@@ -5397,34 +5396,63 @@ img.prdct_img {
   border: 1px solid #ce6363a3;
   border-radius: 5px;
 }
-.fs2rem{
+.fs2rem {
   font-size: 2rem;
 }
 
-.product_color_btn{
+.product_color_btn {
   margin-right: 10px;
 }
-.header input:focus{
+.header input:focus {
   box-shadow: none;
 }
-.searchBar{
+.searchBar {
   max-width: 250px;
 }
-.hfc{
+.hfc {
   height: fit-content;
 }
-.jcsb{
+.jcsb {
   justify-content: space-between;
 }
-.aic{
+.aic {
   align-items: center;
 }
-.webMenu a{
+.webMenu a {
   font-size: 1.5rem;
 }
-.mobileNavIcon{
+.mobileNavIcon {
   display: none;
 }
-.show .mobileNavIcon{
+.show .mobileNavIcon {
   display: flex !important;
+}
+.btnCustom {
+  position: relative;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f6f7fb !important;
+  border: 1px solid #f6f7fb;
+  display: inline-block;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  z-index: 5;
+  display: inline-block;
+  padding: 13px 32px;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+.btnCustom:hover {
+  color: #f6f7fb;
+  background-color: transparent !important;
+  border-color: #f6f7fb;
+  cursor: pointer;
+}
+.shopNowButtonWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
 }

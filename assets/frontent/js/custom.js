@@ -196,30 +196,55 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function() {
+// $(document).ready(function() {
  
-    var owl = $("#owl-demo");
+//     var owl = $("#owl-demo");
    
-    owl.owlCarousel({
-        items : 10, //10 items above 1000px browser width
-        itemsDesktop : [1000,5], //5 items between 1000px and 901px
-        itemsDesktopSmall : [900,3], // betweem 900px and 601px
-        itemsTablet: [600,2], //2 items between 600 and 0
-        itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-    });
+//     owl.owlCarousel({
+//         items : 10, //10 items above 1000px browser width
+//         itemsDesktop : [1000,3], //5 items between 1000px and 901px
+//         itemsDesktopSmall : [900,3], // betweem 900px and 601px
+//         itemsTablet: [600,2], //2 items between 600 and 0
+//         itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+//     });
    
-    // Custom Navigation Events
-    $(".next").click(function(){
-      owl.trigger('owl.next');
-    })
-    $(".prev").click(function(){
-      owl.trigger('owl.prev');
-    })
-    $(".play").click(function(){
-      owl.trigger('owl.play',1000); 
-    })
-    $(".stop").click(function(){
-      owl.trigger('owl.stop');
-    })
+//     // Custom Navigation Events
+//     $(".next").click(function(){
+//       owl.trigger('owl.next');
+//     })
+//     $(".prev").click(function(){
+//       owl.trigger('owl.prev');
+//     })
+//     $(".play").click(function(){
+//       owl.trigger('owl.play',1000); 
+//     })
+//     $(".stop").click(function(){
+//       owl.trigger('owl.stop');
+//     })
    
-  });
+//   });
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    items:3,
+    center:true,
+    dots: false,
+    nav: true,
+    navText: [
+      "<i class='fa fa-caret-left'></i>",
+      "<i class='fa fa-caret-right'></i>"
+    ],
+    autoplay: false,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 4
+      }
+    }
+  })

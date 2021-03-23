@@ -34,7 +34,8 @@
     <!-- Flex Slider CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/owl-carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"/>
     <!-- Slicknav -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
 
