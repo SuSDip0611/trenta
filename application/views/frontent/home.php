@@ -9,7 +9,7 @@
 	<div class="row_container">
 		<div class="row">
 			<div class="col-12">
-				<div class="owl-carousel popular-slider">
+				<div id="owl-demo" class="owl-carousel popular-slider">
 					<!-- Start Single Product -->
 					<div class="single-product">
 						<div class="product-img">
