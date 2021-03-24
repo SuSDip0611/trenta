@@ -51,7 +51,7 @@
 					<!-- End Single Product -->
 				</div>
 				<div class="shopNowButtonWrap">
-					<a class="btnCustom btn-outline-light shopNowButton">Shop Now</a>
+					<a href="<?= base_url();?>category" class="btnCustom btn-outline-light shopNowButton">Shop Now</a>
 				</div>
 			</div>
 		</div>
