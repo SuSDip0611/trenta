@@ -5,6 +5,10 @@
                 <div class="productThumb">
                     <?php 
                         if (count($product_details['all_images']) >0) {
+                            // echo "<pre>";
+                            // print_r($product_details);
+                            // echo "</pre>";
+                            // exit();
                             foreach ($product_details['all_images'] as $key => $img) 
                             {
                     ?>
@@ -54,12 +58,15 @@
 
             </div>
             <div class="productOffer mt-4">
-                <!-- <h6 class="mr-4">Available offers</h6>
+                <h6 class="mr-4">Available offers</h6>
                 <p><strong>Bank Offer</strong>10% off on ICICI Bank Cards, up to ₹300. On orders of ₹150 and above</p>
                 <p><strong>Bank Offer</strong>20% off on HDFC Bank Cards, up to ₹100. On orders of ₹750 and above</p>
                 <p><strong>Bank Offer</strong>50% off on KOTAK Bank Cards, up to ₹30. On orders of ₹50 and above</p>
                 <p><strong>Bank Offer</strong>15% off on SBI Bank Cards, up to ₹300. On orders of ₹15 and above</p>
-                <p><strong>Bank Offer</strong>10% off on DIGIBANK Bank Cards, up to ₹300. On orders of ₹175 and above</p> -->
+                <p><strong>Bank Offer</strong>10% off on DIGIBANK Bank Cards, up to ₹300. On orders of ₹175 and above</p>
+            </div>
+            <div class="productOffer mt-4">
+                <h6 class="mr-4">Product Spacification</h6>
                 <strong><?php echo $product_details['description']?></strong>
             </div>
             <div class="productColor d-flex flex-row flex-wrap align-items-center mt-4">
@@ -124,6 +131,9 @@
                     <button class="btnSelect">4</button>
                     <button class="btnSelect">5</button> -->
                 </div>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success" style="border-radius: 10px">BUY NOW</button>
             </div>
         </div>
     </div>
