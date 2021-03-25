@@ -45,7 +45,7 @@ class UserBackend extends BackendMain {
         $description = $this->input->post('description');
         $praduct_name = $this->input->post('praduct_name');
 
-        if ($price != '' && $description != '' && $praduct_name != '' && $category != 0) {
+        if ($price != '' && $description != '' && $praduct_name != '' && $category != 0 && $returnable != '') {
             $flag = true;
         }else{$flag = false;}
 
@@ -66,8 +66,8 @@ class UserBackend extends BackendMain {
             if ($last_id) {
 
                 $status = '';
-                $color_arr = $this->input->post('product_color');
                 $size_arr = $this->input->post('product_size');
+                $color_arr = $this->input->post('product_color');
                 $product_stock = $this->input->post('product_stock');
 
                 foreach ($color_arr as $cl_key => $color) {
@@ -151,6 +151,11 @@ class UserBackend extends BackendMain {
         $f_array['returnable'] = $data->returnable;
         $f_array['description'] = $data->description;
         $f_array['product_name'] = $data->product_name;
+
+        /*echo "<pre>";
+        print_r($f_array);
+        echo "</pre>";
+        exit();*/
 
         if (count($colors) > 0) {
             foreach ($colors as $c_key => $color) {
@@ -281,29 +286,22 @@ class UserBackend extends BackendMain {
 
                     foreach ($color_arr as $cl_key => $color) {
 
+                        $size_arr = $this->input->post('product_size_'.($cl_key+1));  
+
+                        /*echo "<pre>";
+                        print_r($size_arr);
+                        echo "</pre>";
+                        exit();  */
 
                         $size_id = $this->input->post('size_id_'.($cl_key+1));
                         $image_id = $this->input->post('image_id_'.($cl_key+1));
                         $color_id = $this->input->post('color_id_'.($cl_key+1));
 
-                        /*echo "<pre>";
-                        echo "size_id ".($cl_key+1).": ";
-                        print_r($size_id);
-                        echo "<br>";
-                        echo "image_id ".($cl_key+1).": ";
-                        print_r($image_id);
-                        echo "<br>";
-                        echo "color_id ".($cl_key+1).": ";
-                        print_r($color_id);
-                        echo "<br>";
-                        print_r($_FILES['product_image_'.($cl_key+1)]);
-                        echo "</pre>";*/
-
                         if ($color_id && $image_id && $size_id)
                         {
                             $color_update_status = $this->UserBackend_model->update_product_color($id, $color_id, $color);
 
-                            $last_size_id = $this->UserBackend_model->update_product_size($id, $color_id, $size_id, $size_arr[$cl_key]);
+                            $last_size_id = $this->UserBackend_model->update_product_size($id, $color_id, $size_id, serialize($size_arr));
 
                             if(
                                 !empty($_FILES['product_image_'.($cl_key+1)]['name']) 
@@ -321,10 +319,6 @@ class UserBackend extends BackendMain {
                         }else{
 
                             $last_color_id = $this->UserBackend_model->save_product_color($id, $color); 
-
-                            echo "<pre>";
-                            print_r($last_color_id);
-                            echo "</pre>";
 
                             if ($last_color_id) {
                                 
@@ -401,10 +395,11 @@ class UserBackend extends BackendMain {
 
     public function deselect_image(Type $var = null)
     {
-        $prod_id = base64_decode($this->input->post('prod_id'));
+        $image_id = $this->input->post('image_id');
         $img_name = $this->input->post('img_name');
+        $product_id = base64_decode($this->input->post('product_id'));
 
-        $data = $this->UserBackend_model->deselect_image($prod_id, $img_name);
+        $data = $this->UserBackend_model->deselect_image($image_id, $img_name);
 
         if ($data == 1) {
             $res = true;

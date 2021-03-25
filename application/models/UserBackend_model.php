@@ -156,9 +156,10 @@ class UserBackend_model extends CI_Model
 
     public function deselect_image($id, $img)
     {
-        $data = $this->get_product_details($id);
+        $data = $this->get_product_images($id);
 
         $unserialized_img = unserialize($data->images);
+
 
         $new_imgs = array();
 
@@ -173,7 +174,7 @@ class UserBackend_model extends CI_Model
         $p_Info = array('images'=> $serialize_img);
 
         $this->db->where('id', $id);
-        $is_update = $this->db->update('tbl_products', $p_Info);
+        $is_update = $this->db->update('tbl_product_imgs', $p_Info);
         
         
         if($is_update == 1){
@@ -181,6 +182,16 @@ class UserBackend_model extends CI_Model
         }else{
             return false;
         }
+    }
+
+    public function get_product_images($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_product_imgs');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        
+        return $query->row();
     }
 
     public function delete_product($id, $data)
@@ -196,11 +207,7 @@ class UserBackend_model extends CI_Model
     {
         $isInsert = $this->db->insert('tbl_categories', $data);
         $insert_id = $this->db->insert_id();
-        // echo "<pre>";
-        // print_r($insert_id);
-        // echo "</pre>";
-        // exit();
-
+        
         return $insert_id;
     }
 
@@ -363,6 +370,6 @@ class UserBackend_model extends CI_Model
         }
     }
 
-    
+
 
 }

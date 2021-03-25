@@ -1,9 +1,10 @@
 <?php
     $id = $prod_details['id'];
-	$product_name = $prod_details['product_name'];
-	$category = $prod_details['category'];
-	$description = $prod_details['description'];
 	$price = $prod_details['price'];
+	$category = $prod_details['category'];
+	$returnable = $prod_details['returnable'];
+	$description = $prod_details['description'];
+	$product_name = $prod_details['product_name'];
 ?>
 <div class="forms">
 	<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
@@ -31,13 +32,13 @@
 
 
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group"> 
 							<label for="price">Price <span class="required-star">*</span></label> 
 							<input type="number" class="form-control" id="price" name="price" value="<?= $price; ?>" placeholder="Product Price" required> 
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group"> 
 							<label for="description">Product Category <span class="required-star">*</span></label>
 							<select class="form-control" name="category" required>
@@ -50,10 +51,16 @@
 									}
 								?>
 							</select>
-						</div> 
-					</div>									
+						</div>
+					</div>
+					<div class="col-md-4">	
+						<div class="form-group" style="display: flex; justify-content: space-around;"> 
+							<label for="description">Is Product Returnable <span class="required-star">*</span></label>
+							<input type="radio" name="returnable" <?php if($returnable == 0){?> checked="checked" <?php }?> value="0" id="no" required><label for="no">No</label>
+							<input type="radio" name="returnable" <?php if($returnable == 1){?> checked="checked" <?php }?> value="1" id="yes" required><label for="yes">Yes</label>
+						</div>							
+					</div>	
 				</div>
-
 				<div class="row prd_dtl_div">
 					<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_div_btn' title='Add new details'></i>
 					<?php
@@ -125,7 +132,7 @@
 										                        <label for="myImg">Previous images </label>
 										                        <div class="form-group old_img_div">
 										                            <?php foreach ($images as $img_key => $img){ ?>
-										                                <img id="myImg" class="upload_img_<?php echo $img_key; ?> imageThumb"
+										                                <img id="myImg" class="upload_img_<?php echo $dt_key+1 ; ?>_<?= $img_key; ?> imageThumb"
 										                                    src="<?php echo base_url().'assets/backend/images/product_images/'.$id.'/'.$color_id.'/'.$img; ?>"
 										                                    alt="Selected Image" width="50px" height="50px"
 										                                    style="margin: 2px;" 
@@ -133,7 +140,9 @@
 										                                <lable class="btn img_deselect_product" 
 										                                    data-img_name="<?php echo $img; ?>"
 										                                    data-uploadid="<?php echo $img_key; ?>"
-										                                    data-prod_id="<?php echo base64_encode($id); ?>"
+										                                    data-product_id="<?php echo base64_encode($id); ?>"
+										                                    data-image_id="<?= $image_id; ?>"
+										                                    data-tab_index="<?= $dt_key+1; ?>"
 										                                >
 										                                    <i class="fa fa-times" aria-hidden="true"></i>
 										                                </lable>
@@ -156,13 +165,13 @@
 																?>
 																		<div id="size_box_loop_<?= $s_key+1 ?>">
 																			<div class="col-md-4 ">
-																				<input type="number" class="form-control ipt" value="<?= $sz; ?>"  name="product_size[]" placeholder="Enter size" required> 
+																				<input type="number" class="form-control ipt" value="<?= $sz; ?>"  name="product_size_<?= $dt_key+1 ?>[]" placeholder="Enter size" required> 
 																			</div>
 																			<div class="col-md-1" style="cursor: pointer;"> 
 																                <i 
 																                	class="fa fa-minus-circle rmv_btn_size_<?= ($dt_key+1) ?>" 
 																                	aria-hidden="true" 
-																                	data-edit_mode="false" 
+																                	data-edit_mode="true" 
 																                	data-tab_index="<?= ($dt_key+1) ?>" 
 																                	data-product_id="<?= base64_encode($id); ?>"
 																                	data-size_id="<?= $size_id ?>"

@@ -356,9 +356,11 @@ $(document).ready(function() {
     //Deselect product image
     $(document).on('click','.img_deselect_product',function(){
 
+        var image_id = $(this).data('image_id');
         var img_name = $(this).data('img_name');
-        var img_id = $(this).data('uploadid');
-        var prod_id = $(this).data('prod_id');
+        var img_index = $(this).data('uploadid');
+        var tab_index = $(this).data('tab_index');
+        var product_id = $(this).data('product_id');
 
         var THIS = $(this);
 
@@ -371,19 +373,23 @@ $(document).ready(function() {
         })
         .then((willDelete) => {
             if (willDelete) {
+
                 jQuery.ajax({
                     type : "POST",
                     dataType : "json",
                     url : baseurl + "/admin/deselect_image",
                     data : { 
+                        image_id: image_id,
                         img_name : img_name,
-                        prod_id : prod_id,
+                        product_id : product_id,
                     } 
                 }).done(function(data){
+
                     if (data = true) {
                         THIS.remove();
-                        $('.upload_img_'+img_id).remove();
+                        $('.upload_img_'+tab_index+'_'+img_index).remove();
                     }
+                    
                 }); 
              }
         });

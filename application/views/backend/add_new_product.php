@@ -51,11 +51,11 @@
 						</div> 
 					</div>
 					<div class="col-md-4">	
-					<div class="form-group" style="display: flex; justify-content: space-around;"> 
-						<label for="description">Is Product Returnable <span class="required-star">*</span></label>
-						<input type="radio" name="returnable" value="0" id="no"><label for="no">No</label>
-						<input type="radio" name="returnable" value="1" id="yes"><label for="yes">Yes</label>
-					</div>									
+						<div class="form-group" style="display: flex; justify-content: space-around;"> 
+							<label for="description">Is Product Returnable <span class="required-star">*</span></label>
+							<input type="radio" name="returnable" value="0" id="no" required><label for="no">No</label>
+							<input type="radio" name="returnable" value="1" id="yes" required><label for="yes">Yes</label>
+						</div>									
 					</div>									
 				</div>
 				<div class="row prd_dtl_div">
