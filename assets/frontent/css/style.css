@@ -5414,13 +5414,18 @@ img.prdct_img {
   height: fit-content;
 }
 .jcsb {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 .aic {
   align-items: center;
 }
 .webMenu a {
   font-size: 1.5rem;
+}
+.webMenu {
+  height: fit-content;
+  margin-left: 4rem;
+  margin-top: 1rem;
 }
 .mobileNavIcon {
   display: none;
@@ -5456,4 +5461,49 @@ img.prdct_img {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+}
+.humberger_icon {
+  width: 30px;
+}
+.navbar-collapse {
+  align-items: normal !important;
+}
+.iconArea {
+  width: 110px;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdown-menu-right{
+  top: 60px !important;
+  right: 10px !important;
+  width: 300px !important;
+  padding:15px !important;
+}
+.dispCulmn{
+  display: flex !important;
+  flex-direction: column !important;
+}
+.shopping-list li {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between !important;
+  border-top: 1px solid #000;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.shopping-list a {
+  font-size: 1rem;
+}
+.bottom{
+  border-top: 1px solid #000;
+}
+.megamenu h7{
+  font-weight: 500;
+}
+.megamenu a{
+  font-weight: 400;
+}
+.megamenu h7,a{
+  font-size: 14px;
 }

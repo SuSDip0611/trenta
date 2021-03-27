@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="zxx">
+<!DOCTYPE HTML>
+<html lang="en">
 
 <head>
     <!-- Meta Tag -->
@@ -34,8 +34,8 @@
     <!-- Flex Slider CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/flex-slider.min.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
     <!-- Slicknav -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/slicknav.min.css">
 
@@ -48,165 +48,245 @@
 
 </head>
 
-<body class="js">
 
-    <!-- Preloader -->
-    <!-- <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div> -->
-    <!-- End Preloader -->
 
-    <!-- Header -->
-    <header class="header shop">
-        <div class="middle-inner">
-            <div class="container">
-                <div class="d-flex">
-                    <div class="col-lg-4 col-md-2 col-12 d-flex">
+<style type="text/css">
+    @media all and (min-width: 992px) {
+        .navbar {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
-                        <div class="logo leftLogo">
-                            <a href="#">
-                                <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo">
-                            </a>
-                        </div>
-                        <div class="d-flex aic webMenu ml-3 d_sm_none">
-                            <a href="#" class="linearGrad">Home</a>
-                            <a href="#" class="linearGrad ml-2">About Us</a>
-                        </div>
+        .navbar .has-megamenu {
+            position: static !important;
+        }
+
+        .navbar .megamenu {
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .navbar .nav-link {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+</style>
+</head>
+
+<body class="bg-light">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link" href="#" data-toggle="dropdown"><img src="https://img.pngio.com/hamburger-menu-menu-menu-bar-icon-png-and-vector-for-free-hamburger-icon-png-512_512.png" style="width:30px"> </a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row">
+                            <div class="col-md-3 dispCulmn">
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu One</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                                <div class="col-megamenu mt-3">
+                                    <h7 class="title linearGrad">Title Menu One</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-md-3 dispCulmn">
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Two</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                       
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Two</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                            <div class="col-md-3 dispCulmn">
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Three</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Three</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                            </div>
+                            <div class="col-md-3 dispCulmn">
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Four</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Title Menu Four</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Custom Menu</a></li>
+                                    </ul>
+                                </div> <!-- col-megamenu.// -->
+                            </div><!-- end col-3 -->
+                        </div><!-- end row -->
+                    </div> <!-- dropdown-mega-menu.// -->
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav w-100">
+                <li class="nav-item d-flex">
+                    <div class="d-flex aic webMenu d_sm_none">
+                        <a href="#" class="linearGrad">Home</a>
+                        <a href="#" class="linearGrad ml-2">About Us</a>
                     </div>
-
-                    <div class="logo col-lg-4 centerLogo text-center d_sm_none">
+                </li>
+                <li class="nav-item d-flex mx-auto mt-3">
+                    <div class="logo centerLogo text-center">
                         <a href="#">
-                            <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" alt="logo">
+                            <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" style="width:400px">
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-md-3 d-flex jcsb ml-auto aic">
-
-                        <div class="input-group searchBar hfc mb-3">
-                            <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <span class="input-group-text linearGrad" id="basic-addon2"><i class="ti-search"></i></span>
-                            </div>
-                        </div>
-
-                        <div class="right-bar mb-3">
-
-                            <div class="sinlge-bar">
-                                <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="sinlge-bar">
-                                <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="sinlge-bar shopping">
-                                <a href="#" class="single-icon linearGrad"><i class="ti-bag"></i> <span class="total-count">2</span></a>
-
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        <a href="#">View Cart</a>
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                            <h4><a href="#">Woman Ring</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                            <h4><a href="#">Woman Necklace</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                        </li>
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
-                                        </div>
-                                        <a href="#" class="btn animate">Checkout</a>
-                                    </div>
-                                </div>
-
-                            </div>
+                </li>
+                <li class="nav-item d-flex ml-auto">
+                    <div class="input-group searchBar hfc mt-3">
+                        <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text linearGrad" id="basic-addon2"><i class="ti-search"></i></span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Header Start -->
-        <nav class="navbar navbar-expand-lg navbar-light mobileNav">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse pl-2" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto w-100">
-                    <li class="nav-item active">
-                        <a class="nav-link linearGrad" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link linearGrad" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="mobileNavIcon">
-
-                            <div class="sinlge-bar ml-2">
-                                <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item d-flex ml-3 iconArea">
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                    </div>
+                    <a href="#" class="single-icon linearGrad nav-link" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <div class="shopping-item">
+                            <div class="dropdown-cart-header d-flex jcsb">
+                                <span>2 Items</span>
+                                <a href="#">View Cart</a>
                             </div>
-                            <div class="sinlge-bar ml-2">
-                                <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="sinlge-bar shopping ml-2" style="position:relative">
-                                <a href="#" class="single-icon linearGrad"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+                            <ul class="shopping-list">
+                                <li>
+                                    <div class="dispCulmn">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                        <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                </li>
+                                <li>
+                                    <div class="dispCulmn">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                        <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                </li>
+                                <li>
+                                    <div class="dispCulmn">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                        <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                    </div>
+                                    <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                </li>
 
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        <a href="#">View Cart</a>
-                                    </div>
-                                    <ul class="shopping-list">
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                            <h4><a href="#">Woman Ring</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                            <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                            <h4><a href="#">Woman Necklace</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                        </li>
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
-                                        </div>
-                                        <a href="#" class="btn animate">Checkout</a>
-                                    </div>
+                            </ul>
+                            <div class="bottom ">
+                                <div class="total d-flex jcsb">
+                                    <span>Total</span>
+                                    <span class="total-amount">$134.00</span>
                                 </div>
-
+                                <div class="text-center">
+                                    <a href="#" class="btn animate text-light">Checkout</a>
+                                </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="input-group searchBar hfc mt-2 pl-2">
-                <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <span class="input-group-text linearGrad" id="basic-addon2"><i class="ti-search"></i></span>
-                </div>
-            </div>
-            <!-- Mobile Nav Icon -->
+                    </ul>
+                </li>
 
-        </nav>
-        <!-- Mobile Header End -->
-    </header>
-    <!--/ End Header -->
+            </ul>
+
+        </div> <!-- navbar-collapse.// -->
+
+    </nav>
+
+
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(document).on('click', '.dropdown-menu', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
+
+</html>

@@ -5,6 +5,7 @@ class FrontendMain extends CI_Controller {
 
     public function load_view($link, $param = []){
 		$this->load->view('frontent/includes/header');
+		// $this->load->view('frontent/includes/header-Original');
 		$this->load->view($link, $param);
 		$this->load->view('frontent/includes/footer');
     }
