@@ -1,5 +1,5 @@
  
-<section class="productsContainer dfrw mb-5 mt-5">
+<section class="productsContainer dfrw mb-5 bodyStart">
     <?php
         if(!empty($result) && count($result) > 0) {
            foreach ($result as $key => $singleResult) {

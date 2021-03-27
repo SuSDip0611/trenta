@@ -1,4 +1,4 @@
-<section class="mainBody max_width mt-4 mb-4">
+<section class="mainBody max_width mb-4 bodyStart">
     <div class="productDetail d-flex flex-row flex-wrap">
         <div class="productImageSection col-sm-10 col-md-4 col-lg-4">
             <div class="productImgContainer">

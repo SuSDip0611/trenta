@@ -1,11 +1,6 @@
-<section class="px-3">
 
-</section>
-<!--/ End Slider Area -->
-
-<!-- Start Small Banner  -->
 <!-- Carasaul -->
-<div class="product-area most-popular section">
+<div class="product-area most-popular bodyStart section">
 	<div class="row_container">
 		<div class="row">
 			<div class="col-12 sliderContainer">

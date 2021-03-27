@@ -196,20 +196,20 @@
 
 
             <ul class="navbar-nav w-100">
-                <li class="nav-item d-flex">
+                <li class="nav-item d-flex w_30">
                     <div class="d-flex aic webMenu d_sm_none">
                         <a href="#" class="linearGrad">Home</a>
                         <a href="#" class="linearGrad ml-2">About Us</a>
                     </div>
                 </li>
-                <li class="nav-item d-flex mx-auto mt-3">
+                <li class="nav-item d-flex mx-auto mt-3 w_30">
                     <div class="logo centerLogo text-center">
                         <a href="#">
                             <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" style="width:400px">
                         </a>
                     </div>
                 </li>
-                <li class="nav-item d-flex ml-auto">
+                <li class="nav-item d-flex ml-auto w_10">
                     <div class="input-group searchBar hfc mt-3">
                         <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
                         <div class="input-group-append">
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item d-flex ml-3 iconArea">
+                <li class="nav-item d-flex ml-3 w_5 iconArea">
                     <div class="sinlge-bar">
                         <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     </div>
@@ -302,13 +302,14 @@
         <div class="logo">
             <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" style="width: 100px">
         </div>
+        <div></div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link linearGrad" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link linearGrad" href="#">About us</a>
                 </li>
                 <li class="nav-item d-flex iconArea">
                     <div class="sinlge-bar">
@@ -368,11 +369,11 @@
             <form class="form-inline my-2 my-lg-0">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
+                    <div class="input-group-append linearGrad">
                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
                     </div>
                 </div>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
             </form>
         </div>
     </nav>
