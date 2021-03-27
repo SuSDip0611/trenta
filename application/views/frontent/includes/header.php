@@ -79,7 +79,7 @@
 <body class="bg-light">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbarWeb">
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown has-megamenu">
@@ -117,7 +117,7 @@
                                         <li><a href="#">Custom Menu</a></li>
                                         <li><a href="#">Custom Menu</a></li>
                                         <li><a href="#">Custom Menu</a></li>
-                                       
+
                                     </ul>
                                 </div> <!-- col-megamenu.// -->
                                 <div class="col-megamenu">
@@ -224,6 +224,99 @@
                     <div class="sinlge-bar">
                         <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                     </div>
+                    <a href="#" class="single-icon linearGrad nav-link" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">
+                            <p>2</p>
+                        </span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <div class="shopping-item">
+                            <div class="dropdown-cart-header d-flex jcsb">
+                                <span>2 Items</span>
+                                <a href="#">View Cart</a>
+                            </div>
+                            <ul class="shopping-list">
+                                <li>
+                                    <div class="dispCulmn">
+                                        <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                        <a href="#" class="remove" title="Remove this item">
+                                            <i class="fa fa-remove"></i></a>
+                                    </div>
+
+                                    <div class="dispRow">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dispCulmn">
+                                        <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                        <a href="#" class="remove" title="Remove this item">
+                                            <i class="fa fa-remove"></i></a>
+                                    </div>
+
+                                    <div class="dispRow">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dispCulmn">
+                                        <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+                                        <a href="#" class="remove" title="Remove this item">
+                                            <i class="fa fa-remove"></i></a>
+                                    </div>
+
+                                    <div class="dispRow">
+                                        <h4><a href="#">Woman Ring</a></h4>
+                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                            <div class="bottom ">
+                                <div class="total d-flex jcsb">
+                                    <span>Total</span>
+                                    <span class="total-amount">$134.00</span>
+                                </div>
+                                <div class="text-center">
+                                    <div class="linearGrad">
+                                        <a href="#" class="btn text-light" style="background: #BA7184;">Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div> <!-- navbar-collapse.// -->
+
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mobileNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="logo">
+            <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" style="width: 100px">
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item d-flex iconArea">
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                    </div>
                     <a href="#" class="single-icon linearGrad nav-link" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">2</span></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <div class="shopping-item">
@@ -272,12 +365,17 @@
                 </li>
 
             </ul>
-
-        </div> <!-- navbar-collapse.// -->
-
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
     </nav>
-
-
 </body>
 
 <script type="text/javascript">

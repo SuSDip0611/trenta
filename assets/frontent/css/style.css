@@ -35,6 +35,36 @@ Version:1.0
 20. 404 Error CSS
 21. Footer CSS
 ========================================*/
+body {
+  font-family: fontawesome;
+}
+@font-face {
+  font-family: themify;
+  src: url(../fonts/themify.ttf);
+}
+@font-face {
+  font-family: fontawesome;
+  src: url(../fonts/fontawesome-webfont.ttf);
+}
+@media (min-width: 992px) {
+  .navbar .megamenu {
+    left: 8% !important;
+    width: 1135px !important;
+    padding: 20px !important;
+    height: 385px;
+    background-color: white;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 100px 179px 15px rgba(135, 132, 135, 1);
+    -moz-box-shadow: 0px 100px 179px 15px rgba(135, 132, 135, 1);
+    box-shadow: 0px 100px 179px 15px rgba(135, 132, 135, 1);
+  }
+  .mobileNav {
+    display: none !important;
+  }
+}
+.dropdown-menu {
+  border: none !important;
+}
 .color-plate {
   position: fixed;
   display: block;
@@ -519,11 +549,11 @@ Version:1.0
   margin-bottom: 15px;
   position: relative;
 }
-.header .shopping-list li .remove {
+ li .remove {
   position: absolute;
   left: 0;
-  bottom: 16px;
-  margin-top: -20px;
+  bottom: 0;
+  /* margin-top: -20px; */
   height: 20px;
   width: 20px;
   line-height: 18px;
@@ -1079,11 +1109,11 @@ Version:1.0
 .header.shop .right-bar .sinlge-bar .single-icon:hover {
   color: #f7941d;
 }
-.header.shop .right-bar .sinlge-bar .single-icon .total-count {
+#navbarWeb .total-count {
   position: absolute;
-  top: -7px;
-  right: -8px;
-  background: #f6931d;
+  top: 5px;
+  right: 10px;
+  background: #f6931dbf;
   width: 18px;
   height: 18px;
   line-height: 18px;
@@ -1091,6 +1121,13 @@ Version:1.0
   color: #fff;
   border-radius: 100%;
   font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbarWeb .total-count p {
+  color: #fff;
+  margin-bottom: 0 !important;
 }
 /* .mobileNavIcon .total-count {
   position: absolute;
@@ -5353,6 +5390,8 @@ img.prdct_img {
   top: 0;
   width: 100%;
   z-index: 9;
+  border-bottom: 1px solid #dedddd;
+  background-color: #fff;
 }
 .leftLogo {
   display: none;
@@ -5361,9 +5400,9 @@ img.prdct_img {
   display: block;
   width: 150px;
 }
-.sticky .centerLogo {
+/* .sticky .centerLogo {
   display: none;
-}
+} */
 .centerLogo img {
   max-width: 50% !important;
 }
@@ -5421,6 +5460,7 @@ img.prdct_img {
 }
 .webMenu a {
   font-size: 1.5rem;
+  width: max-content;
 }
 .webMenu {
   height: fit-content;
@@ -5474,36 +5514,44 @@ img.prdct_img {
   justify-content: space-between;
   align-items: center;
 }
-.dropdown-menu-right{
+.dropdown-menu-right {
   top: 60px !important;
   right: 10px !important;
   width: 300px !important;
-  padding:15px !important;
+  padding: 15px !important;
+  -webkit-box-shadow: 0px 187px 170px 9px rgba(135, 132, 135, 1);
+  -moz-box-shadow: 0px 187px 170px 9px rgba(135, 132, 135, 1);
+  box-shadow: 0px 187px 170px 9px rgba(135, 132, 135, 1);
 }
-.dispCulmn{
+.dispCulmn {
   display: flex !important;
   flex-direction: column !important;
+  position: relative !important;
 }
 .shopping-list li {
   display: flex !important;
   flex-direction: row;
   justify-content: space-between !important;
-  border-top: 1px solid #000;
+  border-top: 1px solid #d8d8d8;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 .shopping-list a {
   font-size: 1rem;
 }
-.bottom{
-  border-top: 1px solid #000;
+.bottom {
+  border-top: 1px solid #d8d8d8;
 }
-.megamenu h7{
+.megamenu h7 {
   font-weight: 500;
 }
-.megamenu a{
+.megamenu a {
   font-weight: 400;
 }
-.megamenu h7,a{
+.megamenu h7,
+a {
   font-size: 14px;
+}
+.ti-bag {
+  position: relative !important;
 }

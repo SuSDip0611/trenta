@@ -61,7 +61,7 @@ $(document).ready(function () {
                         });
 
                         $('#see_more').html('');
-                        var see_more_html = '<a href="'+baseurl+'/products?id='+ btoa(category_id) +'">See more</a>';
+                        var see_more_html = '<a href="' + baseurl + '/products?id=' + btoa(category_id) + '">See more</a>';
                         $('#see_more').append(see_more_html);
 
 
@@ -75,7 +75,7 @@ $(document).ready(function () {
             }
         })
     });
-    
+
     $("#content-slider").lightSlider({
         loop: true,
         keyPress: true,
@@ -97,13 +97,13 @@ $(document).ready(function () {
         })
         .on("mouseleave", function () {
         }, false);
-    
+
 
     //   Hover Zoom
     $(".block__pic").imagezoomsl({
         zoomrange: [3, 3]
     });
-    
+
     //Change Img on color click
     $(document).on("click", ".product_color_btn", function (e) {
         e.preventDefault();
@@ -197,9 +197,9 @@ $(document).ready(function () {
 });
 
 // $(document).ready(function() {
- 
+
 //     var owl = $("#owl-demo");
-   
+
 //     owl.owlCarousel({
 //         items : 10, //10 items above 1000px browser width
 //         itemsDesktop : [1000,3], //5 items between 1000px and 901px
@@ -207,7 +207,7 @@ $(document).ready(function () {
 //         itemsTablet: [600,2], //2 items between 600 and 0
 //         itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
 //     });
-   
+
 //     // Custom Navigation Events
 //     $(".next").click(function(){
 //       owl.trigger('owl.next');
@@ -221,30 +221,43 @@ $(document).ready(function () {
 //     $(".stop").click(function(){
 //       owl.trigger('owl.stop');
 //     })
-   
+
 //   });
 $('.owl-carousel').owlCarousel({
     loop: true,
     margin: 10,
-    items:3,
-    center:true,
+    items: 3,
+    center: true,
     dots: false,
     nav: true,
     navText: [
-      "<i class='fa fa-caret-left'></i>",
-      "<i class='fa fa-caret-right'></i>"
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
     ],
     autoplay: false,
     autoplayHoverPause: true,
     responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 4
-      }
+        0: {
+            items: 1
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 4
+        }
     }
-  })
+})
+
+window.onscroll = function () { myFunction() };
+
+var navbar = document.getElementById("navbarWeb");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+        navbar.classList.remove("sticky");
+    }
+}
