@@ -5134,6 +5134,8 @@ body {
 .productImage {
   height: 185.4px;
   width: 154.5px;
+  justify-content: center;
+  text-align: center;
 }
 .max_width {
   width: calc(100% - 15%);

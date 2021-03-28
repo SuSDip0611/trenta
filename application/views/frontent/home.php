@@ -75,6 +75,7 @@
 							<!-- Sudipto changes start -->
 							<?php
 							$count = 1;
+							$cat_id = '';
 							if (count($categories) > 0) {
 								foreach ($categories as $key => $cat) {
 							?>
@@ -84,7 +85,7 @@
 										</a>
 									</li>
 									<?php if ($count == 1) {
-										$cat_id = base64_encode($cat->id);
+										$cat_id = isset($cat->id) && $cat->id !='' ? $cat->id : '';
 									} ?>
 							<?php
 									$count++;
@@ -92,7 +93,7 @@
 							}
 							?>
 							<div class="see-more pull-right" id="see_more">
-								<a href="<?= base_url() ?>products?id=<?= $cat_id ?>">See more</a>
+								<a href="<?= base_url() ?>products?id=<?= base64_encode($cat_id) ?>">See more</a>
 							</div>
 						</ul>
 						<!--/ End Tab Nav -->

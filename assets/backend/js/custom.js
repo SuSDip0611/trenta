@@ -116,7 +116,7 @@ $(document).ready(function() {
                                         <label for="size">Size <span class="required-star">*</span></label>
                                         <div class="row size_div_`+box_count+`">
                                             <div class="col-md-4 ">
-                                                <input type="number" class="form-control" id="size" name="product_size_`+box_count+`[]" placeholder="Enter size" required> 
+                                                <input type="text" class="form-control" id="size" name="product_size_`+box_count+`[]" placeholder="Enter size" required> 
                                             </div>
                                             <div class="col-md-1" style="cursor: pointer;">
                                                 <i class="fa fa-plus-circle" aria-hidden="true" data-tab_index = "`+box_count+`" id='add_new_size_btn' title='Add new details'></i>

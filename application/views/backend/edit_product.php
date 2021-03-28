@@ -165,7 +165,7 @@
 																?>
 																		<div id="size_box_loop_<?= $s_key+1 ?>">
 																			<div class="col-md-4 ">
-																				<input type="number" class="form-control ipt" value="<?= $sz; ?>"  name="product_size_<?= $dt_key+1 ?>[]" placeholder="Enter size" required> 
+																				<input type="text" class="form-control ipt" value="<?= $sz; ?>"  name="product_size_<?= $dt_key+1 ?>[]" placeholder="Enter size" required> 
 																			</div>
 																			<div class="col-md-1" style="cursor: pointer;"> 
 																                <i 

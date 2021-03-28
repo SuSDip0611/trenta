@@ -102,7 +102,7 @@
 											<label for="size">Size <span class="required-star">*</span></label> 
 											<div class="row size_div_1">
 												<div class="col-md-4 ">
-													<input type="number" class="form-control ipt" name="product_size_1[]" placeholder="Enter size" required> 
+													<input type="text" class="form-control ipt" name="product_size_1[]" placeholder="Enter size" required> 
 												</div>
 												<div class="col-md-1" style="cursor: pointer;">
 													<i class="fa fa-plus-circle" aria-hidden="true" id='add_new_size_btn' data-tab_index = "1" title='Add new details'></i>

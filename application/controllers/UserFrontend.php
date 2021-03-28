@@ -18,6 +18,7 @@ class UserFrontend extends FrontendMain
 	public function index()
 	{
         $all_cats = array();
+        $cat_prods=array();
         $categories = $this->UserBackend_model->get_category_list();
 
         foreach ($categories as $c_key => $cat) {
@@ -33,29 +34,30 @@ class UserFrontend extends FrontendMain
         if(count($all_cats) > 0){
             
             $cat_prods = $this->UserFrontend_model->get_category_products($all_cats['0']->id);
-            // echo "<pre>";
-            // print_r($cat_prods);
-            // echo "</pre>"; 
-            // exit();
-            
+            if(!empty($cat_prods) && count($cat_prods) > 0){
 
-            foreach ($cat_prods as $key => $value) {
+                foreach ($cat_prods as $key => $value) {
 
-                $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
+                    $unserImgs =  $this->UserFrontend_model->get_product_imgs($value->id);
 
-                if ($unserImgs != '') {
-                                   
-                    $unserialize_imgs = unserialize($unserImgs->images);
-                    
+                    if ($unserImgs != '') {
+                                       
+                        $unserialize_imgs = unserialize($unserImgs->images);
+                        
 
-                    $value->color = $unserImgs->product_color_id;
-                    $value->images = $unserialize_imgs[0];
-                }else{
-                    $value->color = 0;
-                    $value->images = 0;
+                        $value->color = $unserImgs->product_color_id;
+                        $value->images = $unserialize_imgs[0];
+                    }else{
+                        $value->color = 0;
+                        $value->images = 0;
+                    }
+
                 }
 
+                // $all_cat_prods = $cat_prods;
             }
+            
+
         }
 
        
