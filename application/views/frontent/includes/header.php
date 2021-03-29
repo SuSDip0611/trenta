@@ -79,8 +79,8 @@
 
 <body class="bg-light">
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark" id="navbarWeb">
+    <div class="dummyNav"></div>
+    <nav class="navbar navbar-expand-lg  navbar-dark" id="navbarWeb">
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown has-megamenu">
@@ -206,29 +206,33 @@
                         <a href="#" class="linearGrad">About Us</a>
                     </div>
                 </li>
-                <li class="nav-item d-flex mx-auto mt-3 w_30">
+                <li class="nav-item d-flex mt-3 w_30 justify-content-center">
                     <div class="logo centerLogo text-center">
                         <a href="#">
-                            <img src="<?= base_url(); ?>assets/frontent/images/logoD.png" style="width:400px">
+                            <img src="<?= base_url(); ?>assets/frontent/images/logoD.png">
                         </a>
                     </div>
                 </li>
-                <li class="nav-item d-flex ml-auto w_10">
+                <li class="nav-item d-flex w_20 mt_nav">
                     <div class="input-group searchBar hfc mt-3">
-                        <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
+                        <!-- <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <span class="input-group-text linearGrad" id="basic-addon2"><i class="ti-search"></i></span>
+                        </div> -->
+                        <input type="text" class="searchInput" placeholder="Search Here">
+                        <div class="searchIcon linearGrad">
+                            <i class="ti-search"></i>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item d-flex ml-3 w_5 iconArea">
-                    <div class="sinlge-bar">
-                        <a href="#" class="single-icon linearGrad"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                <li class="nav-item d-flex ml-3 w_5 mt_nav iconArea">
+                    <div class="sinlge-bar ml_Nav">
+                        <a href="#" class="single-icon color_golden"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     </div>
-                    <div class="sinlge-bar">
-                        <a href="#" class="single-icon linearGrad"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                    <div class="sinlge-bar ml_Nav">
+                        <a href="#" class="single-icon color_golden"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                     </div>
-                    <a href="#" class="single-icon linearGrad nav-link" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">
+                    <a href="#" class="single-icon color_golden nav-link ml_Nav position-relative" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">
                             <p>2</p>
                         </span></a>
                     <ul class="dropdown-menu dropdown-menu-right">

@@ -735,35 +735,6 @@ li .remove {
   padding: 0 25px 0 20px;
   /* width: 328px; */
 }
-.searchIcon {
-  width: 50px;
-  background: #5e77b7;
-  background: -webkit-linear-gradient(
-    to top right,
-    #5e77b7 0%,
-    #cd95c6 50%,
-    #fff876 100%
-  );
-  background: -moz-linear-gradient(
-    to top right,
-    #5e77b7 0%,
-    #cd95c6 50%,
-    #fff876 100%
-  );
-  background: linear-gradient(
-    to top right,
-    #5e77b7 0%,
-    #cd95c6 50%,
-    #fff876 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: #ce6363a3;
-  font-size: 2rem;
-  display: flex;
-  border-top-right-radius: 0.5rem;
-  color: aliceblue;
-  border-bottom-right-radius: 0.5rem;
-}
 .header.shop .search-bar .btnn {
   height: 50px;
   line-height: 53px;
@@ -1109,15 +1080,21 @@ li .remove {
 .header.shop .right-bar .sinlge-bar .single-icon:hover {
   color: #f7941d;
 }
+.dummyNav {
+  min-height: 1px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+}
 #navbarWeb {
-  max-height: 135px;
+  max-height: 255px;
   border-bottom: 1px solid #dedddd;
   z-index: 999999;
+  background: rgb(255, 255, 255);
 }
 #navbarWeb .total-count {
   position: absolute;
   top: 5px;
-  right: 10px;
+  /* right: 10px; */
   background: #f6931dbf;
   width: 18px;
   height: 18px;
@@ -5402,6 +5379,8 @@ img.prdct_img {
 
 .searchIcon i {
   font-size: 18px;
+  font-weight: bold;
+  color: #fff !important;
 }
 .sticky {
   position: fixed;
@@ -5422,7 +5401,11 @@ img.prdct_img {
   display: none;
 } */
 .centerLogo img {
-  max-width: 50% !important;
+  max-width: 400px;
+}
+.sticky .centerLogo img {
+  max-width: 150px !important;
+  transition: 0.2s !important;
 }
 .leftLogo img {
   max-width: 100% !important;
@@ -5465,7 +5448,27 @@ img.prdct_img {
   box-shadow: none;
 }
 .searchBar {
-  max-width: 250px;
+  max-width: 100%;
+  border: 1px solid #b99e37;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient( to top right, #5e77b7 0%, #cd95c6 50%, #fff876 100% ) !important;
+}
+.searchBar input {
+  width: calc(100% - 40px);
+}
+.iconArea i {
+  font-size: 2.5rem !important;
+}
+.mt_nav {
+  margin-top: 2.5rem;
 }
 .hfc {
   height: fit-content;
@@ -5576,7 +5579,7 @@ a {
   position: relative !important;
 }
 .bodyStart {
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 .w_5 {
   width: 5%;
@@ -5584,9 +5587,13 @@ a {
 .w_10 {
   width: 10%;
 }
+.w_20 {
+  width: 20%;
+}
 .w_30 {
   width: 30%;
 }
+
 .fa-bars {
   color: rgb(255, 42, 134);
   color: linear-gradient(
@@ -5595,4 +5602,18 @@ a {
     rgba(234, 209, 63, 1) 100%
   );
   font-size: 2.5rem;
+}
+.ml_Nav {
+  margin-left: 2rem;
+}
+.searchInput{
+  border: none !important;
+  outline: none !important;
+}
+.searchInput:focus{
+  border: none;
+  outline: none;
+}
+.color_golden{
+  color: #b99e37 !important;
 }
