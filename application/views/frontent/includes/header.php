@@ -19,6 +19,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/font-awesome">
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontent/css/magnific-popup.min.css">
     <!-- Font Awesome -->
@@ -83,7 +84,10 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown has-megamenu">
-                    <a class="nav-link" href="#" data-toggle="dropdown"><img src="https://img.pngio.com/hamburger-menu-menu-menu-bar-icon-png-and-vector-for-free-hamburger-icon-png-512_512.png" style="width:30px"> </a>
+                    <a class="nav-link mt-3 ml-3" href="#" data-toggle="dropdown">
+                        <!-- <img src="https://img.pngio.com/hamburger-menu-menu-menu-bar-icon-png-and-vector-for-free-hamburger-icon-png-512_512.png" style="width:30px">  -->
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
                     <div class="dropdown-menu megamenu" role="menu">
                         <div class="row">
                             <div class="col-md-3 dispCulmn">
@@ -199,7 +203,7 @@
                 <li class="nav-item d-flex w_30">
                     <div class="d-flex aic webMenu d_sm_none">
                         <a href="#" class="linearGrad">Home</a>
-                        <a href="#" class="linearGrad ml-2">About Us</a>
+                        <a href="#" class="linearGrad">About Us</a>
                     </div>
                 </li>
                 <li class="nav-item d-flex mx-auto mt-3 w_30">
