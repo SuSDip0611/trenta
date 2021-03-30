@@ -165,6 +165,7 @@ class UserFrontend extends FrontendMain
             
 
             $sizes = unserialize($current_product_sizes->size);
+
             
             $c_count = count($product_colors);
             for ($i=0; $i < $c_count; $i++) { 
@@ -172,22 +173,39 @@ class UserFrontend extends FrontendMain
             }
             
             
+            $product_array['sizes'] = $sizes;
+            $product_array['colors'] = $colors;
+            $product_array['all_images'] = $images;
             $product_array['id'] = $product_data->id;
-            $product_array['name'] = $product_data->product_name;
-            $product_array['rating'] = $product_data->rating;
-            $product_array['description'] = $product_data->description;
             $product_array['image'] = $unserialize_imgs[0];
             $product_array['price'] = $product_data->price;
             $product_array['color'] = $current_product_color;
+            $product_array['rating'] = $product_data->rating;
             $product_array['color_id'] = $product_colors[0]->id;
-            $product_array['all_images'] = $images;
-            $product_array['colors'] = $colors;
-            $product_array['sizes'] = $sizes;
+            $product_array['name'] = $product_data->product_name;
+            $product_array['description'] = $product_data->description;
+
             
+            $related_products = $this->UserFrontend_model->get_similer_products($product_data->id, $product_data->category, $product_data->price);
+
+            if (count($related_products) > 0) {
+                foreach ($related_products as $key => $p) {
+                    $img = $this->UserFrontend_model->get_product_imgs($p->id);
+                    $unserialize_imgs = unserialize($img->images);
+
+                    $p->image_color = $img->product_color_id;
+                    $p->image = $unserialize_imgs[0];
+                }
+            }
             
+            /*echo "<pre>";
+            print_r($related_products);
+            echo "</pre>";
+            exit();*/
 
             $this->global['pageTitle'] = 'Product Details';
             $this->global['product_details'] = $product_array;
+            $this->global['related_products'] = $related_products;
             $this->load_view('frontent/productsDetails', $this->global, NULL, NULL);
         }
     }

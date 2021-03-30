@@ -31,7 +31,7 @@ $(document).ready(function () {
                                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="#" class="">
+                                            <a href="`+ baseurl + `productsDetails?id=`+btoa(element.id)+`" class="">
                                                 <img class="default-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.color + '/' + element.images + `" alt="Images">
                                                 <img class="hover-img" src="`+ baseurl + `assets/backend/images/product_images/` + element.id + `/` + element.color + '/' + element.images + `" alt="Images">
                                             </a>

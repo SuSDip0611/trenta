@@ -137,47 +137,60 @@
             </div>
         </div>
     </div>
-<div class="item mt-5 lowerSlider">
+    <div class="item mt-5 lowerSlider">
         <div class="text-center">
             <h6>You may also like this</h6>
         </div>
-        <ul id="content-slider" class="content-slider mt-3">
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
-            </li>
-            <li>
-                <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
-            </li>
-        </ul>
+        <?php if (count($related_products) > 0) {?>
+            <ul id="content-slider" class="content-slider mt-3">
+                <?php foreach ($related_products as $key => $prods) { ?>
+
+                    <li>
+                        <a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($prods->id) ?> ">
+                            <img src="<?= base_url() ?>assets/backend/images/product_images/<?= $prods->id;?>/<?= $prods->image_color;?>/<?= $prods->image;?>" alt="" />
+                        </a>
+                    </li>
+
+                <?php } ?>
+
+            
+
+
+                
+                <!-- <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
+                </li>
+                <li>
+                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
+                </li> -->
+            </ul>
+        <?php }  ?>
     </div>
 </section>
