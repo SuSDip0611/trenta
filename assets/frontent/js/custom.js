@@ -223,7 +223,7 @@ $(document).ready(function () {
 //     })
 
 //   });
-$('.owl-carousel').owlCarousel({
+$('#owl-demo').owlCarousel({
     loop: true,
     margin: 10,
     items: 3,
@@ -245,6 +245,32 @@ $('.owl-carousel').owlCarousel({
         },
         1000: {
             items: 3
+        }
+    }
+})
+
+$('#owl_demo2').owlCarousel({
+    loop: true,
+    margin: 10,
+    items: 3,
+    center: true,
+    dots: false,
+    nav: true,
+    navText: [
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
+    ],
+    autoplay: false,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 4
+        },
+        1000: {
+            items: 5
         }
     }
 })

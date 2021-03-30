@@ -1840,7 +1840,7 @@ li .remove {
   display: block;
   position: relative;
 }
-.single-product .product-img a img {
+#owl-demo img {
   width: 100%;
   height: 80vh;
 }
@@ -5615,5 +5615,5 @@ a {
   outline: none;
 }
 .color_golden{
-  color: #b99e37 !important;
+  color: #C79D08 !important;
 }
