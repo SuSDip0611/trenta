@@ -109,7 +109,7 @@
 													<div class="col-xl-3 col-lg-4 col-md-4 col-12">
 														<div class="single-product">
 															<div class="product-img">
-																<a href="#" class="">
+																<a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($prods->id) ?>" class="">
 																	<img class="default-img" src="<?php echo base_url() . 'assets/backend/images/product_images/' . $prods->id . '/' . $prods->color . '/' . $prods->images; ?>" alt="#">
 																	<img class="hover-img" src="<?php echo base_url() . 'assets/backend/images/product_images/' . $prods->id . '/' . $prods->color . '/' . $prods->images; ?>" alt="#">
 																</a>

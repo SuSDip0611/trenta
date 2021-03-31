@@ -88,20 +88,44 @@ class UserFrontend_model extends CI_Model
         return $query->row();
     }
 
-    // public function getAllProductBycategory($catId)
-    // {
-    //     // $query = $this->db->
-    //     $this->db->select("*");
-    //     $this->db->from("tbl_products");
-    //     $this->db->where(array('is_deleted' => '0', 'category' => $catId));
-    //     $this->db->order_by("id", "desc");
-    //     $query = $this->db->get();
+    public function get_similer_products($id, $category, $price)
+    {
+        
 
-    //     if($query->num_rows() > 0) {
-    //         return $query->result();
-    //     }else{
-    //         return false;
-    //     }
-    // }
+        $min_price = $price - 500;
+        $max_price = $price + 500;
+
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->where('id !=', $id);
+        $this->db->where('category', $category);
+        $this->db->where('price >=', $min_price);
+        $this->db->where('price <=', $max_price);
+        $query = $this->db->get();
+
+        /*echo "<pre>";
+        // print_r($max_price);
+        print_r($query->result());
+        echo "</pre>";
+        exit();*/
+        
+        return $query->result();
+    }
+
+    /*public function getAllProductBycategory($catId)
+    {
+        // $query = $this->db->
+        $this->db->select("*");
+        $this->db->from("tbl_products");
+        $this->db->where(array('is_deleted' => '0', 'category' => $catId));
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->result();
+        }else{
+            return false;
+        }
+    }*/
 
 }
