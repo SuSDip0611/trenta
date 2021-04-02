@@ -100,8 +100,14 @@ $(document).ready(function () {
 
 
     //   Hover Zoom
-    $(".block__pic").imagezoomsl({
-        zoomrange: [3, 3]
+    // $(".block__pic").imagezoomsl({
+    //     zoomrange: [3, 3]
+    // });
+
+    $(document).ready(function () {
+        $(".block__pic").imagezoomsl({
+            zoomrange: [3, 3]
+        });
     });
 
     //Change Img on color click
@@ -234,7 +240,7 @@ $('#owl-demo').owlCarousel({
         "<i class='fa fa-caret-left'></i>",
         "<i class='fa fa-caret-right'></i>"
     ],
-    autoplay: false,
+    autoplay: true,
     autoplayHoverPause: true,
     responsive: {
         0: {
@@ -271,6 +277,31 @@ $('#owl_demo2').owlCarousel({
         },
         1000: {
             items: 5
+        }
+    }
+})
+$('#owl-productDetails').owlCarousel({
+    loop: true,
+    margin: 10,
+    items: 3,
+    center: true,
+    dots: false,
+    nav: true,
+    navText: [
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
+    ],
+    autoplay: true,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 8
         }
     }
 })

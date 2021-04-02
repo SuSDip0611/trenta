@@ -3,19 +3,18 @@
         <div class="productImageSection col-sm-10 col-md-4 col-lg-4">
             <div class="productImgContainer">
                 <div class="productThumb">
-                    <?php 
-                        if (count($product_details['all_images']) >0) {
-                            // echo "<pre>";
-                            // print_r($product_details);
-                            // echo "</pre>";
-                            // exit();
-                            foreach ($product_details['all_images'] as $key => $img) 
-                            {
-                    ?>
-                                <img class="prdct_thumb" data-product="pr<?php echo ($key+2) ?>" id="pr<?php echo ($key+2) ?>" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $img ?>" alt="" />
                     <?php
-                            }
+                    if (count($product_details['all_images']) > 0) {
+                        // echo "<pre>";
+                        // print_r($product_details);
+                        // echo "</pre>";
+                        // exit();
+                        foreach ($product_details['all_images'] as $key => $img) {
+                    ?>
+                            <img class="prdct_thumb" data-product="pr<?php echo ($key + 2) ?>" id="pr<?php echo ($key + 2) ?>" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $img ?>" alt="" />
+                    <?php
                         }
+                    }
                     ?>
                     <!-- <img class="prdct_thumb" id="pr2" src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" />
                     <img class="prdct_thumb" id="pr3" src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" />
@@ -25,15 +24,14 @@
                 </div>
                 <div class="productImg">
                     <img class="prdct_img block__pic active" data-product="pr1" id="pr1" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $product_details['image'] ?>" alt="" />
-                    <?php 
-                        if (count($product_details['all_images']) >0) {
-                            foreach ($product_details['all_images'] as $key => $img) 
-                            {
-                    ?>
-                                <img class="prdct_img block__pic" data-product="pr<?php echo ($key+2) ?>" id="pr<?php echo ($key+2) ?>" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $img ?>" alt="" />
                     <?php
-                            }
+                    if (count($product_details['all_images']) > 0) {
+                        foreach ($product_details['all_images'] as $key => $img) {
+                    ?>
+                            <img class="prdct_img block__pic" data-product="pr<?php echo ($key + 2) ?>" id="pr<?php echo ($key + 2) ?>" src="<?= base_url() ?>assets/backend/images/product_images/<?php echo $product_details['id'] ?>/<?php echo $product_details['color_id'] ?>/<?php echo $img ?>" alt="" />
+                    <?php
                         }
+                    }
                     ?>
                     <!-- <img class="prdct_img block__pic active" data-product="pr1" src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" />
                     <img class="prdct_img block__pic" data-product="pr2" src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" />
@@ -46,14 +44,14 @@
         </div>
         <div class="productDetailSection col-sm-10 col-md-6 col-lg-8">
             <div class="productDname">
-                <h6><?php echo $product_details['name']?></h6>
+                <h6><?php echo $product_details['name'] ?></h6>
             </div>
             <div class="productPrice mt-3">
-                <h6>₹ <?php echo $product_details['price']?></h6>
+                <h6>₹ <?php echo $product_details['price'] ?></h6>
             </div>
             <div class="productRating d-flex flex-row align-items-center mt-3">
                 <span class="startRating">
-                    <p class="checked"><?php echo $product_details['rating']?> <span class="fa fa-star checked"></span></p>
+                    <p class="checked"><?php echo $product_details['rating'] ?> <span class="fa fa-star checked"></span></p>
                 </span>
 
             </div>
@@ -67,24 +65,19 @@
             </div>
             <div class="productOffer mt-4">
                 <h6 class="mr-4">Product Spacification</h6>
-                <strong><?php echo $product_details['description']?></strong>
+                <strong><?php echo $product_details['description'] ?></strong>
             </div>
             <div class="productColor d-flex flex-row flex-wrap align-items-center mt-4">
                 <h6 class="mr-4">Color</h6>
                 <ul class="list-group d-flex flex-row">
                     <?php foreach ($product_details['colors'] as $color_id => $av_color) { ?>
-                        <a 
-                            href="javascript:void(0);" 
-                            class="product_color_btn" 
-                            data-color_id="<?php echo $color_id; ?>" 
-                            data-product_id="<?php echo base64_encode($product_details['id']); ?>"
-                        >
+                        <a href="javascript:void(0);" class="product_color_btn" data-color_id="<?php echo $color_id; ?>" data-product_id="<?php echo base64_encode($product_details['id']); ?>">
                             <li class="list-group-item" style="background-color: <?php echo $av_color; ?> ">
                                 <!-- <a href="#" class="text-center">
                                     <input type="color" value="<?= $av_color; ?>" name="" disabled>
                                     <p>Black</p>
                                 </a> -->
-                            </li> 
+                            </li>
                         </a>
                     <?php } ?>
                     <!-- <li class="list-group-item">
@@ -117,15 +110,14 @@
                 <div id="sizeSelector" class="d-flex align-items-center">
                     <h6 class="mr-4">Available Sizes</h6>
                     <!-- <button class="btnSelect size_select"><?php echo $product_details['size']; ?></button> -->
-                    <?php 
-                        if (count($product_details['sizes']) >0) {
-                            foreach ($product_details['sizes'] as $key => $sz) 
-                            {
-                    ?>
-                                <button class="btnSelect"><?php echo $sz; ?></button>
                     <?php
-                            }
+                    if (count($product_details['sizes']) > 0) {
+                        foreach ($product_details['sizes'] as $key => $sz) {
+                    ?>
+                            <button class="btnSelect"><?php echo $sz; ?></button>
+                    <?php
                         }
+                    }
                     ?>
                     <!-- <button class="btnSelect">3</button>
                     <button class="btnSelect">4</button>
@@ -141,56 +133,19 @@
         <div class="text-center">
             <h6>You may also like this</h6>
         </div>
-        <?php if (count($related_products) > 0) {?>
-            <ul id="content-slider" class="content-slider mt-3">
-                <?php foreach ($related_products as $key => $prods) { ?>
+        <?php if (count($related_products) > 0) { ?>
+            <div id="owl-productDetails" class="owl-carousel popular-slider mt-3">
+                 <?php foreach ($related_products as $key => $prods) { ?>
 
-                    <li>
-                        <a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($prods->id) ?> ">
-                            <img src="<?= base_url() ?>assets/backend/images/product_images/<?= $prods->id;?>/<?= $prods->image_color;?>/<?= $prods->image;?>" alt="" />
-                        </a>
-                    </li>
-
-                <?php } ?>
-
-            
+                        <div>
+                            <a href="<?= base_url() ?>productsDetails?id=<?php echo base64_encode($prods->id) ?> ">
+                                <img src="<?= base_url() ?>assets/backend/images/product_images/<?= $prods->id; ?>/<?= $prods->image_color; ?>/<?= $prods->image; ?>" alt="" />
+                            </a>
+                        </div>
+                    <?php } ?>
 
 
-                
-                <!-- <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/1.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/2.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/3.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/4.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/5.jpeg" alt="" /></a>
-                </li>
-                <li>
-                    <a><img src="<?= base_url() ?>assets/frontent/images/pDetails/6.jpeg" alt="" /></a>
-                </li> -->
-            </ul>
-        <?php }  ?>
-    </div>
+                </div>
+            <?php } ?>
+            </div>
 </section>

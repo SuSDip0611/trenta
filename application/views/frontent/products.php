@@ -23,7 +23,7 @@
             ?>
                 <a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($id) ?> " class="productCard p-2 wfc card">
                     <div class="productImage">
-                        <img class="" style="width: 62%" src="<?= $imagesPath ?>">
+                        <img class="" style="width: 100%; height: 10em" src="<?= $imagesPath ?>">
                     </div>
                     <div class="productText text-center">
                         <h7 class="productName"><?= $product_name; ?></h7>

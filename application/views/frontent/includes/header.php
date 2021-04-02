@@ -90,110 +90,97 @@
                     </a>
                     <div class="dropdown-menu megamenu" role="menu">
                         <div class="row">
-                            <div class="col-md-3 dispCulmn">
+                            <div class="col dispCulmn">
                                 <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu One</h7>
+                                    <h7 class="title linearGrad">Men</h7>
                                     <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </div> <!-- col-megamenu.// -->
-                                <div class="col-megamenu mt-3">
-                                    <h7 class="title linearGrad">Title Menu One</h7>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Topwear</a></li>
+                                        <li><a href="#">Bottomwear</a></li>
+                                        <li><a href="#">Footwear</a></li>
+                                        <li><a href="#">Innerwear & Sleepwear</a></li>
+                                        <li><a href="#">Indian & Festive Wear</a></li>
+                                        <li><a href="#">Sports & Active Wear</a></li>
+                                        <li><a href="#">Personal Care & Grooming</a></li>
+                                        <li><a href="#">Sunglasses & Frames</a></li>
+                                        <li><a href="#">Fashion Accessories</a></li>
+                                        <li><a href="#">Watches</a></li>
                                     </ul>
                                 </div> <!-- col-megamenu.// -->
                             </div><!-- end col-3 -->
-                            <div class="col-md-3 dispCulmn">
-                                <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Two</h7>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
 
-                                    </ul>
-                                </div> <!-- col-megamenu.// -->
+                            <div class="col dispCulmn">
                                 <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Two</h7>
+                                    <h7 class="title linearGrad">Women</h7>
                                     <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Indian & Fusion Wear</a></li>
+                                        <li><a href="#">Western Wear</a></li>
+                                        <li><a href="#">Footwear</a></li>
+                                        <li><a href="#">Lingerie & Sleepwear</a></li>
+                                        <li><a href="#">Gadgets</a></li>
+                                        <li><a href="#">Belts, Scarves & More</a></li>
+                                        <li><a href="#">Watches & Wearables</a></li>
+                                        <li><a href="#">Plus Size</a></li>
+                                        <li><a href="#">Sunglasses & Frames</a></li>
+                                        <li><a href="#">Sports & Active Wear</a></li>
+                                        <li><a href="#">Beauty & Personal Care</a></li>
+                                        <li><a href="#">Lingerie & Sleepwear</a></li>
+                                        <li><a href="#">Backpacks</a></li>
                                     </ul>
-                                </div> <!-- col-megamenu.// -->
-                            </div><!-- end col-3 -->
-                            <div class="col-md-3 dispCulmn">
+                                </div>
+                            </div>
+
+                            <div class="col dispCulmn">
                                 <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Three</h7>
+                                    <h7 class="title linearGrad">Kids</h7>
                                     <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Boys Clothing</a></li>
+                                        <li><a href="#">Girls Clothing</a></li>
+                                        <li><a href="#">Boys Footwear</a></li>
+                                        <li><a href="#">Infants</a></li>
+                                        <li><a href="#">Girls Footwear</a></li>
+                                        <li><a href="#">Kids Accessories</a></li>
+                                        <li><a href="#">Home & Bath</a></li>
+                                        <li><a href="#">Menu</a></li>
                                     </ul>
-                                </div> <!-- col-megamenu.// -->
+                                </div>
+                            </div>
+                            <div class="col dispCulmn">
                                 <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Three</h7>
+                                    <h7 class="title linearGrad">Home & Living</h7>
                                     <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
+                                        <li><a href="#">Bed Linen & Furnishing</a></li>
+                                        <li><a href="#">Flooring</a></li>
+                                        <li><a href="#">Bath</a></li>
+                                        <li><a href="#">Lamps & Lighting</a></li>
+                                        <li><a href="#">Home Décor</a></li>
+                                        <li><a href="#">Cushions & Cushion Covers</a></li>
+                                        <li><a href="#">Curtains</a></li>
+                                        <li><a href="#">Home Gift Sets</a></li>
+                                        <li><a href="#">Kitchen & Table</a></li>
+                                        <li><a href="#">Storage</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col dispCulmn">
+                                <div class="col-megamenu">
+                                    <h7 class="title linearGrad">Brands</h7>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">H&M</a></li>
+                                        <li><a href="#">United Colors of Benetton</a></li>
+                                        <li><a href="#">Yk</a></li>
+                                        <li><a href="#">U.S. Polo Assn. Kids</a></li>
+                                        <li><a href="#">GAP Kids</a></li>
+                                        <li><a href="#">Nike</a></li>
+                                        <li><a href="#">Pepe Jeans</a></li>
+                                        <li><a href="#">Bombay Dyeing</a></li>
+                                        <li><a href="#">Bombay Dyeing</a></li>
+                                        <li><a href="#">Pure Home & Living</a></li>
+                                        <li><a href="#">Reebok</a></li>
+                                        <li><a href="#">Puma</a></li>
                                     </ul>
                                 </div> <!-- col-megamenu.// -->
                             </div>
-                            <div class="col-md-3 dispCulmn">
-                                <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Four</h7>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </div> <!-- col-megamenu.// -->
-                                <div class="col-megamenu">
-                                    <h7 class="title linearGrad">Title Menu Four</h7>
-                                    <ul class="list-unstyled">
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                        <li><a href="#">Custom Menu</a></li>
-                                    </ul>
-                                </div> <!-- col-megamenu.// -->
-                            </div><!-- end col-3 -->
-                        </div><!-- end row -->
+                        </div>
                     </div> <!-- dropdown-mega-menu.// -->
                 </li>
             </ul>
@@ -202,7 +189,7 @@
             <ul class="navbar-nav w-100">
                 <li class="nav-item d-flex w_30">
                     <div class="d-flex aic webMenu d_sm_none">
-                        <a href="#" class="linearGrad">Home</a>
+                        <a href="<?= base_url(); ?>" class="linearGrad">Home</a>
                         <a href="#" class="linearGrad">About Us</a>
                     </div>
                 </li>
@@ -213,8 +200,8 @@
                         </a>
                     </div>
                 </li>
-                <li class="nav-item d-flex w_20 mt_nav">
-                    <div class="input-group searchBar hfc mt-3">
+                <li class="nav-item d-flex w_20">
+                    <div class="input-group searchBar mt_nav hfc">
                         <!-- <input type="text" class="form-control linearGrad" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <span class="input-group-text linearGrad" id="basic-addon2"><i class="ti-search"></i></span>
@@ -232,7 +219,7 @@
                     <div class="sinlge-bar ml_Nav">
                         <a href="#" class="single-icon color_golden"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                     </div>
-                    <a href="#" class="single-icon color_golden nav-link ml_Nav position-relative" data-toggle="dropdown"><i class="ti-bag"></i> <span class="total-count">
+                    <a href="#" class="single-icon color_golden nav-link p-0 ml_Nav position-relative" data-toggle="dropdown"><i class="ti-shopping-cart"></i> <span class="total-count">
                             <p>2</p>
                         </span></a>
                     <ul class="dropdown-menu dropdown-menu-right">
