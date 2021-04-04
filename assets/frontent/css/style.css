@@ -2011,7 +2011,7 @@ li .remove {
   color: #FF2A86;
 }
 .single-product .button-head {
-  background: #fff;
+  background: #fff2fd;
   display: inline-block;
   height: 40px;
   width: 100%;
@@ -5402,8 +5402,11 @@ img.prdct_img {
 /* .sticky .centerLogo {
   display: none;
 } */
+.dMargin{
+  margin-top: 150px;
+}
 .centerLogo img {
-  max-width: 345px;
+  max-width: 298px;
 }
 .sticky .centerLogo img {
   max-width: 150px !important;
@@ -5581,9 +5584,9 @@ a {
 .ti-bag {
   position: relative !important;
 }
-.bodyStart {
+/* .bodyStart {
   margin-top: 150px;
-}
+} */
 .w_5 {
   width: 5%;
 }
@@ -5620,7 +5623,7 @@ a {
 .color_golden{
   color: #C79D08 !important;
 }
-.product-img{
+.prodDiv .product-img{
   height: 50vh;
 }
 .product-img img{

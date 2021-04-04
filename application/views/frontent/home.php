@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 	<!-- Carasaul -->
 	<div class="product-area most-popular bodyStart section">
 		<div class="row_container">
@@ -9,41 +9,74 @@
 						<div class="single-product">
 							<div class="product-img">
 								<a href="#">
-									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture1.jpg" alt="#">
 								</a>
-
 							</div>
 						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
 						<div class="single-product">
 							<div class="product-img">
 								<a href="#">
-									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Only.jpg" alt="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture2.jpg" alt="#">
 								</a>
-
 							</div>
 						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
 						<div class="single-product">
 							<div class="product-img">
 								<a href="#">
-									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Nike.jpg" alt="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture3.jpg" alt="#">
 								</a>
-
 							</div>
 						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
 						<div class="single-product">
 							<div class="product-img">
 								<a href="#">
-									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/Levis.jpg" alt="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture4.jpg" alt="#">
 								</a>
 							</div>
 						</div>
-						<!-- End Single Product -->
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture5.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture6.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture7.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture8.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture9.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+						<div class="single-product">
+							<div class="product-img">
+								<a href="#">
+									<img class="default-img" src="<?= base_url() ?>assets/frontent/images/banner/Picture10.jpg" alt="#">
+								</a>
+							</div>
+						</div>
+
 					</div>
 					<div class="shopNowButtonWrap">
 						<a href="<?= base_url(); ?>category" class="btnCustom btn-outline-light shopNowButton">Shop Now</a>
@@ -55,7 +88,7 @@
 	<!-- End Small Banner -->
 
 	<!-- Start Product Area -->
-	<div class="product-area section">
+	<div class="product-area container section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -105,11 +138,13 @@
 											<?php
 											if (count($products) > 0) {
 												foreach ($products as $p_key => $prods) {
+													
+													
 											?>
 													<div class="col-xl-3 col-lg-4 col-md-4 col-12">
 														<div class="single-product">
 															<div class="product-img">
-																<a href="<?= base_url()?>productsDetails?id=<?php echo base64_encode($prods->id) ?>" class="">
+																<a href="<?= base_url() ?>productsDetails?id=<?php echo base64_encode($prods->id) ?>" class="">
 																	<img class="default-img" src="<?php echo base_url() . 'assets/backend/images/product_images/' . $prods->id . '/' . $prods->color . '/' . $prods->images; ?>" alt="#">
 																	<img class="hover-img" src="<?php echo base_url() . 'assets/backend/images/product_images/' . $prods->id . '/' . $prods->color . '/' . $prods->images; ?>" alt="#">
 																</a>
@@ -127,7 +162,7 @@
 															<div class="product-content">
 																<h3><a href="#"><?php echo $prods->product_name ?></a></h3>
 																<div class="product-price">
-																	<span>₹29.00</span>
+																	<span>₹<?= $prods->price; ?></span>
 																</div>
 															</div>
 														</div>
@@ -1250,7 +1285,7 @@
 	<!-- End Product Area -->
 
 	<!-- Start Midium Banner  -->
-	<section class="midium-banner">
+	<section class="container midium-banner">
 		<div class="container">
 			<div class="row">
 				<!-- Single Banner  -->
@@ -1283,7 +1318,7 @@
 	<!-- End Midium Banner -->
 
 	<!-- Start Most Popular -->
-	<div class="product-area most-popular section">
+	<div class="product-area container most-popular section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -1438,7 +1473,7 @@
 	<!-- End Most Popular Area -->
 
 	<!-- Start Shop Home List  -->
-	<section class="shop-home-list section">
+	<section class="shop-home-list container section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-12">
@@ -1636,7 +1671,7 @@
 	<!-- End Shop Home List  -->
 
 	<!-- Start Cowndown Area -->
-	<section class="cown-down">
+	<section class="container cown-down">
 		<div class="section-inner ">
 			<div class="container-fluid">
 				<div class="row">
@@ -1665,7 +1700,7 @@
 	<!-- /End Cowndown Area -->
 
 	<!-- Start Shop Blog  -->
-	<section class="shop-blog section">
+	<section class="shop-blog container section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -1717,7 +1752,7 @@
 	<!-- End Shop Blog  -->
 
 	<!-- Start Shop Services Area -->
-	<section class="shop-services section home">
+	<section class="shop-services container section home">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-12">
@@ -1762,7 +1797,7 @@
 	<!-- End Shop Services Area -->
 
 	<!-- Start Shop Newsletter  -->
-	<section class="shop-newsletter section">
+	<section class="shop-newsletter container section">
 		<div class="container">
 			<div class="inner-top">
 				<div class="row">
@@ -1785,7 +1820,7 @@
 	<!-- End Shop Newsletter -->
 
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+	<div class="modal container fade" id="exampleModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">

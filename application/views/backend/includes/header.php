@@ -270,7 +270,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">	
-									<span class="prfil-img"><img src="<?= base_url(); ?>assets/backend/images/a.png" alt=""> </span> 
+									<span class="prfil-img"><img style="width: 71px !important;" src="<?= base_url(); ?>assets/backend/images/avatarone.jpeg" alt=""> </span> 
 									<div class="clearfix"></div>	
 								</div>	
 							</a>

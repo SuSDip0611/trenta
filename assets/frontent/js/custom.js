@@ -26,6 +26,7 @@ $(document).ready(function () {
 
                         var html = '';
                         $.each(data.result, function (index, element) {
+                            console.log('element', element);
 
                             html = `
                                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
@@ -49,7 +50,7 @@ $(document).ready(function () {
                                         <div class="product-content">
                                             <h3><a href="#">`+ element.product_name + `</a></h3>
                                             <div class="product-price">
-                                                <span>$29.00</span>
+                                                <span>₹`+ element.price +`</span>
                                             </div>
                                         </div>
                                     </div>
@@ -310,11 +311,22 @@ window.onscroll = function () { myFunction() };
 
 var navbar = document.getElementById("navbarWeb");
 var sticky = navbar.offsetTop;
+var dynamicMargin = document.getElementsByClassName("bodyStart")[0];
+var dMargin = dynamicMargin.offsetTop;
 
 function myFunction() {
     if (window.pageYOffset >= sticky) {
         navbar.classList.add("sticky")
+        dynamicMargin.classList.add("dMargin")
     } else {
         navbar.classList.remove("sticky");
+        dynamicMargin.classList.remove("dMargin");
     }
 }
+
+$(document).ready(function() {
+
+    $(document).on('click', '.dropdown-menu', function(e) {
+        e.stopPropagation();
+    });
+});

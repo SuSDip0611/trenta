@@ -375,12 +375,12 @@
 </body>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    // $(document).ready(function() {
 
-        $(document).on('click', '.dropdown-menu', function(e) {
-            e.stopPropagation();
-        });
-    });
+    //     $(document).on('click', '.dropdown-menu', function(e) {
+    //         e.stopPropagation();
+    //     });
+    // });
 </script>
 
 </html>

@@ -217,7 +217,7 @@ $(document).ready(function() {
 		var html = `
             <div id="size_box_loop_`+tab_index+`_`+tab_count+`">
                 <div class="col-md-4">
-                    <input type="number" class="form-control ipt" id="size" name="product_size_`+tab_index+`[]" placeholder="Enter size" required>
+                    <input type="text" class="form-control ipt" id="size" name="product_size_`+tab_index+`[]" placeholder="Enter size" required>
                 </div>
                 <div class="col-md-1" style="cursor: pointer;">
                     <i class="fa fa-minus-circle rmv_btn_size_`+tab_index+`_`+tab_count+`" aria-hidden="true" data-size_edit_mode="false" data-box_index=`+tab_index+` data-tab_index=`+tab_count+` id='remove_new_size_btn' title='Remove new details' ></i>
